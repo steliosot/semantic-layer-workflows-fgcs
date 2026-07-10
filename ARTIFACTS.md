@@ -10,6 +10,7 @@ The repository is intended to share the materials needed to inspect and reproduc
 - Aggregate metrics in CSV form, with the full JSON metrics file attached as a release asset.
 - Human-readable benchmark reports.
 - All 200 benchmark `sample_grid.png` outputs, renamed by model, category, and sample, attached as a release asset.
+- Citation metadata and SHA-256 checksums for the release ZIP files.
 
 ## Excluded
 
