@@ -477,16 +477,17 @@ The workflow conclusion remains stable across models: cached re-editing is posit
 
 \subsection{Locality and drift}
 
-Figure~\ref{fig:drift} shows the preservation difference. Naive full-image regeneration changes an average of 93.954\% of outside-target pixels. Semantic compositing changes 0.000\% outside-target pixels under the exact pixel-change metric because the edited crop is composited through the semantic mask and the unmasked base image is preserved.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.95\columnwidth]{figures/outside_drift.png}
-    \caption{Outside-target pixel drift. Naive full-image regeneration changes most non-target pixels, while semantic compositing preserves them under the implemented mask-compositing metric.}
-    \label{fig:drift}
-\end{figure}
+Naive full-image regeneration changes an average of 93.954\% of outside-target pixels. Semantic compositing changes 0.000\% outside-target pixels under the exact pixel-change metric because the edited crop is composited through the semantic mask and the unmasked base image is preserved.
 
 This metric is intentionally strict. It does not claim that semantic edits are always perceptually superior; it shows that the workflow preserves non-target pixels by construction. This is useful when identity, layout, text, object positions, or scientific visual state must remain stable. The boundary-band change average of 42.301\% indicates that changes occur near seams, so visual seam quality still requires inspection and better blending methods.
+
+\subsection{Trade-offs}
+
+The main trade-off is between first-edit latency and state reuse. Semantic editing pays an annotation cost before it can exploit locality. In the benchmark, this cost is large enough that the first detector-inclusive edit is slower than naive regeneration on average. This is acceptable when the user expects to make several changes to the same region, compare variants, or preserve the surrounding image exactly. It is less attractive for a single low-stakes edit where global regeneration is visually acceptable and latency is the only concern.
+
+The second trade-off is between preservation and visual integration. Mask compositing keeps non-target pixels fixed, which is useful for identity, layout, text, product images, or scientific visual state. The same constraint can make boundaries more visible if the local edit changes lighting, texture, or geometry near the mask edge. In those cases, semantic execution is still useful as a controlled editing mode, but it should be paired with better blending, boundary-aware scoring, or a policy that expands the crop when the edit is structurally coupled to nearby regions.
+
+A third trade-off is implementation complexity. Maintaining masks, cache keys, provenance, and version state is more work than calling a diffusion pipeline once. The benefit appears when edits are iterative, audited, or reused: cached re-edits become faster, rollback is cheap, and the system can explain which model, mask, crop, and parameters produced each result. For casual one-shot generation this overhead may not be justified; for repeated editing workflows it becomes the mechanism that makes locality and reproducibility practical.
 
 \subsection{Versioning and rollback}
 
