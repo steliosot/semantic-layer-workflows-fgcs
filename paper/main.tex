@@ -1,4 +1,4 @@
-\documentclass[final,5p,times,authoryear]{elsarticle}
+\documentclass[final,5p,times,number,sort&compress]{elsarticle}
 
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
@@ -8,6 +8,7 @@
 \usepackage{microtype}
 \usepackage{url}
 \usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{enumitem}
 \emergencystretch=1.5em
 
@@ -255,7 +256,7 @@ Figure~\ref{fig:architecture} shows the prototype architecture. A request enters
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/workflow_architecture.png}
+    \includegraphics[width=0.95\textwidth]{figures/workflow_architecture.pdf}
     \caption{Semantic layer workflow architecture. The key difference from a monolithic diffusion call is that semantic annotation, layer graph state, cache keys, and version provenance are first-class workflow artifacts.}
     \label{fig:architecture}
 \end{figure*}
@@ -280,7 +281,7 @@ Figure~\ref{fig:policy} gives a conceptual view of the operator space. The bound
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.98\columnwidth]{figures/policy_space.png}
+    \includegraphics[width=0.98\columnwidth]{figures/policy_space.pdf}
     \caption{Conceptual operator selection space. Simple local edits favor deterministic projection or cached local rendering, while structurally broad edits may require full regeneration.}
     \label{fig:policy}
 \end{figure}
@@ -345,7 +346,7 @@ We ran a paired benchmark over 10 compatible local diffusion checkpoints, four e
 
 All runs use 20 denoising steps. The four cases are face/lips color editing, human body/shirt editing, object/mug editing, and landscape/sky editing. These categories were chosen because they cover small facial parts, medium human regions, discrete objects, and broader background regions. The local rendering crop is determined from the SAM2 mask and may be smaller than the full image, but it is padded and quantized for model compatibility.
 
-The benchmark ran on the local workstation using the available Apple MPS backend. Some SDXL model transitions required process restart because of MPS memory fragmentation; the benchmark is resumable and persisted completed records were reused rather than recomputed. This is reported as part of the realistic local execution environment, not hidden as a failure. The final benchmark completed 200 samples with zero per-sample errors. Four incompatible local checkpoint files were skipped because they were inpainting-only, SD3, non-image-generation, or placeholder files.
+The benchmark ran on the local workstation using the available Apple MPS backend. Some SDXL model transitions required process restart because of MPS memory fragmentation; the benchmark is resumable and persisted completed records were reused rather than recomputed. This is reported as part of the realistic local execution environment, not hidden as a failure. The final benchmark completed 200 samples with zero per-sample errors. Four incompatible local checkpoint files were excluded because they were inpainting-only, SD3, non-image-generation, or incomplete checkpoint entries.
 
 \subsection{Models}
 
@@ -480,7 +481,7 @@ Object mug & 36.160 & 30.488 & 13.151 & 1.669x & 0.838x & 6.058x & 94.809\% & 0.
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.98\columnwidth]{figures/speedups_by_case.png}
+    \includegraphics[width=0.98\columnwidth]{figures/speedups_by_case.pdf}
     \caption{Speedup by edit category. Cached semantic re-edit is positive for all categories, while detector-inclusive first-edit speedup is below 1x on average.}
     \label{fig:case-speedups}
 \end{figure}
@@ -493,7 +494,7 @@ Figure~\ref{fig:model-speedups} shows strong model dependence. DreamShaper 8, Op
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/speedups_by_model.png}
+    \includegraphics[width=0.95\textwidth]{figures/speedups_by_model.pdf}
     \caption{Speedup by model. The generation-only metric isolates local rendering cost; the detector-inclusive metric represents first-edit user latency; cached re-edit represents repeated semantic layer editing.}
     \label{fig:model-speedups}
 \end{figure*}
@@ -697,13 +698,21 @@ The repository includes the benchmark summary files, model-by-case matrix, selec
 
 This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
+\section*{CRediT authorship contribution statement}
+
+Stelios Sotiriadis: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review and editing.
+
+\section*{Declaration of competing interest}
+
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 
 During manuscript preparation, the author used ChatGPT/Codex to assist with drafting, LaTeX organization, and summarization of locally produced benchmark results. The author reviewed and edited the output and takes full responsibility for the content.
 
 \appendix
 
-\section{Appendix: Representative Image Generations}
+\section{Representative Image Generations}
 
 The appendix includes representative sample grids from the benchmark. Each grid shows the base image, mask/overlay, naive edits, semantic local outputs, deterministic projection or cached variants where applicable, and rollback/version artifacts. The public repository release archive contains the 200 sample-grid images, while Figures~\ref{fig:app-face-xl}--\ref{fig:app-object-xl} show representative examples in the manuscript.
 
@@ -749,7 +758,7 @@ The appendix includes representative sample grids from the benchmark. Each grid 
     \label{fig:app-object-xl}
 \end{figure*}
 
-\section{Appendix: Model-by-Case Matrix}
+\section{Model-by-Case Matrix}
 
 The full model-by-case matrix is provided as a CSV file with the manuscript artifacts. Table~\ref{tab:matrix-small} reports the detector-inclusive and cached speedups by model and category in compact form.
 
@@ -777,7 +786,7 @@ Stable Diffusion 1.5 Base & 0.518 / 10.949 & 0.453 / 4.654 & 0.463 / 5.228 & 0.4
 \end{tabular}
 \end{table*}
 
-\bibliographystyle{elsarticle-harv}
+\bibliographystyle{elsarticle-num}
 \bibliography{references}
 
 \end{document}
