@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "Semantic Layer Workflows for Adaptive Generative AI Editing in the Compute Continuum"
+message: "If you use this artifact, please cite the associated FGCS manuscript and this repository."
+type: software
+authors:
+  - family-names: Sotiriadis
+    given-names: Stelios
+    email: s.sotiriadis@bbk.ac.uk
+    affiliation: "School of Computing and Mathematical Sciences, Birkbeck, University of London"
+repository-code: "https://github.com/steliosot/semantic-layer-workflows-fgcs"
+url: "https://github.com/steliosot/semantic-layer-workflows-fgcs/releases/tag/v1-artifact"
+version: "v1-artifact"
+date-released: "2026-07-10"
+keywords:
+  - semantic workflows
+  - generative AI
+  - diffusion models
+  - provenance
+  - workflow scheduling
