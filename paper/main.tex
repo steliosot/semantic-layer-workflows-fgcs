@@ -36,7 +36,7 @@ Interactive diffusion editing is usually an iterative workflow: users generate a
 
 This paper formulates semantic image editing as a workflow problem. It introduces the \systemname{} model, where an image is represented as a semantic layer graph containing masks, bounding boxes, labels, edit history, provenance, cache keys, and execution metadata. The workflow selects among full regeneration, semantic local diffusion, cached re-editing, deterministic projection, and rollback according to edit type, latency, non-target drift, and available semantic state.
 
-A prototype combines Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 segmentation, local crop rendering, deterministic color projection, compositing, and persisted version state. The evaluation covers 10 diffusion checkpoints, four edit categories, and five seed variants, yielding 200 paired workflow executions at 20 denoising steps. Semantic local rendering is 1.788x faster than naive regeneration when detector overhead is excluded, but the detector-inclusive first edit averages 0.809x because semantic annotation adds 13.543 s. Cached re-edits reach 7.041x speedup, deterministic projection gives 1227x speedup for simple color edits, and rollback averages 0.188 s. The results show that semantic workflow state is most valuable for repeated, local, provenance-sensitive editing rather than universal first-edit acceleration.
+A prototype combines Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 segmentation, local crop rendering, deterministic color projection, compositing, and persisted version state. The evaluation covers 10 diffusion checkpoints, four edit categories, and five seed variants, yielding 200 paired workflow executions at 20 denoising steps. Semantic local rendering is 1.788x faster than naive regeneration when detector overhead is excluded, but the detector-inclusive first edit averages 0.809x because semantic annotation adds 13.543 s. Cached re-edits reach 7.041x speedup, deterministic projection gives 1227x speedup for simple color edits, and rollback averages 0.188 s. A measured scheduling simulation shows semantic execution wins in 60.0\% of two-edit sessions and 99.5\% of five-edit sessions. The results show that semantic workflow state is most valuable for repeated, local, provenance-sensitive editing rather than universal first-edit acceleration.
 \end{abstract}
 
 \begin{keyword}
@@ -431,6 +431,31 @@ Semantic boundary-band changed pixels & 42.301\% \\
 
 The detector-inclusive number is the first-edit result. When a user edits a region for the first time and the system has no cached semantic layer, GroundingDINO+SAM2 adds substantial overhead. This overhead can be justified when preservation matters, but it does not guarantee lower latency. Once the semantic layer exists, repeated variants avoid detection and reuse the layer state.
 
+\subsection{Baseline decomposition}
+
+Table~\ref{tab:baseline-decomp} separates the benchmark into operator-level baselines. This comparison is important because the workflow is not only evaluated against full-image regeneration. The detector-inclusive local edit represents an ordinary first local edit with semantic detection but no reuse. Known-mask local rendering removes detector cost. Cached re-editing then measures the additional value of persisted workflow state.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Operator-level baseline decomposition across 200 samples.}
+\label{tab:baseline-decomp}
+\begin{tabular}{lr}
+\toprule
+Operator & Mean time \\
+\midrule
+Naive full regeneration & 35.546 s \\
+Detector + local semantic edit & 43.675 s \\
+Known-mask local rendering & 30.132 s \\
+Cached semantic re-edit & 8.115 s \\
+Deterministic projection & 0.031 s \\
+Rollback & 0.188 s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The decomposition shows why caching is central to the contribution. The first detector-inclusive local edit is slower than full regeneration on average, but known-mask local rendering is faster, and cached semantic re-editing is 5.382x faster than the detector-inclusive local baseline. The workflow gain therefore comes from making semantic state persistent and reusable, not from assuming that every local edit is automatically faster than a full-image edit.
+
 \subsection{Edit category effects}
 
 Table~\ref{tab:cases} and Figure~\ref{fig:case-speedups} show results by edit category. Face/lips edits have the highest cached speedup at 11.055x because the editable region is small and repeated color changes are cheap. Human body/shirt and object/mug edits show similar cached speedups near 6x. Landscape/sky edits are less favorable because the semantic region and crop are often larger, but cached re-editing still averages 4.966x.
@@ -495,31 +520,54 @@ Rollback averages 0.188 s. This supports the versioning model: undoing a semanti
 
 The cached re-edit result is similarly important. A first semantic edit may be slower because of detector overhead, but subsequent edits amortize semantic annotation. This is analogous to scientific workflows where expensive preprocessing or indexing steps become worthwhile when reused across many downstream tasks.
 
-\subsection{Amortized session break-even}
+\subsection{Scheduling-policy simulation}
 
-Table~\ref{tab:breakeven} applies the measured means to the amortized model. A single semantic edit is slower than a single naive edit on average because it includes detector cost. For two edits on the same layer, semantic execution is already faster because the second edit reuses the cached semantic layer. By five variants, the semantic workflow is more than 100 s faster in mean wall-clock time. This pattern matches the actual user behavior that motivated the system: users rarely stop after one precise edit; they compare variants.
+Table~\ref{tab:policy-sim} applies a simple scheduling simulation to the 200 measured records. For a session with \(k\) edits on the same layer, the naive policy uses full regeneration for every variant, the semantic policy pays detector cost once and then uses cached re-edits, and the oracle latency policy chooses the faster of the two measured paths per sample. This is not a new deployment experiment, but it evaluates the scheduling decision that the workflow representation exposes.
 
 \begin{table}[t]
 \centering
 \scriptsize
-\caption{Amortized session cost using measured mean times. \(k\) is the number of edits on the same semantic layer.}
-\label{tab:breakeven}
-\begin{tabular}{rrrr}
+\caption{Measured scheduling-policy simulation. \(k\) is the number of edits on the same semantic layer. Times are mean seconds across 200 samples.}
+\label{tab:policy-sim}
+\begin{tabular}{rrrrr}
 \toprule
-\(k\) & Naive (s) & Semantic (s) & Faster \\
+\(k\) & Naive & Semantic & Oracle & Sem. wins \\
 \midrule
-1 & 35.546 & 43.675 & Naive \\
-2 & 71.287 & 51.791 & Semantic \\
-3 & 107.027 & 59.906 & Semantic \\
-4 & 142.768 & 68.022 & Semantic \\
-5 & 178.509 & 76.137 & Semantic \\
+1 & 35.546 & 43.675 & 30.780 & 25.5\% \\
+2 & 71.287 & 51.791 & 49.543 & 60.0\% \\
+3 & 107.027 & 59.906 & 59.839 & 98.0\% \\
+5 & 178.509 & 76.137 & 75.967 & 99.5\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+The policy result is stronger than the mean break-even calculation because it shows how often each decision is preferred across heterogeneous models and edit categories. For \(k=1\), semantic editing is not a latency default. For \(k=2\), reuse already changes the decision for most samples. For \(k=5\), semantic execution is faster almost everywhere. This supports the systems claim that session context, cache state, and preservation constraints should be explicit scheduler inputs rather than hidden inside a single image-generation call.
+
 \subsection{Interpreting boundary-band change}
 
 The average semantic boundary-band change is 42.301\%. This number should not be interpreted as a failure rate. The boundary band contains pixels close to the mask edge, where color, lighting, and antialiasing changes are expected after compositing. A high value becomes concerning only when the visual seam is obvious. The benchmark therefore treats boundary change as a seam-risk proxy. It is useful for comparing policies and for flagging samples for human inspection, but it is not by itself a perceptual quality score.
+
+\subsection{Automatic quality-risk audit}
+
+Table~\ref{tab:quality-audit} adds an automatic quality-risk audit over the 200 samples. The audit does not replace human evaluation; it checks whether the pipeline produced a plausible target, changed the target region, and avoided unusually high boundary disturbance. Detector selection score is used as a target-confidence proxy, inside-target mean absolute difference as an edit-activity proxy, and boundary-band change as a seam-risk proxy.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Automatic quality-risk audit across 200 samples. Thresholds are used only as triage flags.}
+\label{tab:quality-audit}
+\begin{tabular}{lrrr}
+\toprule
+Metric & Mean & Median & Flagged \\
+\midrule
+Detector selection score & 0.456 & 0.473 & 10.5\% below 0.25 \\
+Inside-target change & 34.435 & 34.459 & 3.5\% below 20 \\
+Boundary-band change & 42.301 & 42.825 & 3.0\% above 50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The audit suggests that most runs produced measurable target-region changes, while a smaller subset should be inspected for weak detection or seam risk. The strongest unresolved quality issue is still semantic correctness: detector confidence and pixel-change metrics cannot prove that the edit satisfied the user's intent. They do, however, provide a reproducible triage layer that can be combined with later human or model-assisted perceptual scoring.
 
 \subsection{Implications for scheduling}
 
@@ -643,7 +691,7 @@ The benchmark scripts, generated metrics, reports, manuscript source, and repres
 \begin{quote}
 \small\href{https://github.com/steliosot/semantic-layer-workflows-fgcs}{github.com/steliosot/semantic-layer-workflows-fgcs}
 \end{quote}
-The repository includes the benchmark summary files, model-by-case matrix, selected paper figures, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
+The repository includes the benchmark summary files, model-by-case matrix, selected paper figures, citation metadata, SHA-256 checksums for release assets, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
 
 \section*{Funding}
 
