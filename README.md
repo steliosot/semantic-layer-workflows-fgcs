@@ -11,6 +11,8 @@ Author: Stelios Sotiriadis
 - `paper/`: LaTeX source, bibliography, figures, and highlights.
 - `src/`: benchmark and aggregation scripts used for the semantic layer workflow experiments.
 - `reports/`: benchmark reports and model-by-case CSV matrix.
+- `CITATION.cff`: citation metadata for the artifact.
+- `CHECKSUMS.txt`: SHA-256 checksums for the release ZIP assets.
 - GitHub release asset: compiled manuscript PDFs, full metrics JSON, and the 200 sample-grid images from the 10-model, 4-category, 5-seed benchmark.
 
 ## Benchmark scope
@@ -20,6 +22,14 @@ The reported experiment covers 10 diffusion checkpoints, four edit categories, a
 ## External assets
 
 Large diffusion checkpoints and external detector weights are not redistributed in this repository. They are subject to their own licenses and should be obtained from their original sources. The scripts and reports document the model identifiers used in the benchmark.
+
+## Verification
+
+Use `CHECKSUMS.txt` to verify downloaded release ZIP files:
+
+```bash
+shasum -a 256 -c CHECKSUMS.txt
+```
 
 ## Reproducing the workflow
 
