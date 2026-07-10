@@ -1,0 +1,15 @@
+daam==0.2.0
+diffusers==0.21.2
+transformers==4.30.2
+accelerate==0.23.0
+huggingface-hub==0.19.4
+torch
+torchvision
+pillow
+opencv-python
+numpy
+safetensors
+scikit-image
+matplotlib
+gradio==4.44.1
+omegaconf

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+models/
+vision_pkgs/
+outputs/
+temp/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.xdv
+

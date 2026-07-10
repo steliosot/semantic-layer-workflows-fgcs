@@ -1,0 +1,7 @@
+Highlights
+
+- Models generative AI editing as semantic scientific workflows.
+- Introduces adaptive execution over cached semantic image layers.
+- Evaluates 10 diffusion models across 200 paired edit workflows.
+- Cached semantic re-edits achieve 7.041x average speedup.
+- Layer provenance enables deterministic rollback in 0.188 s.

@@ -1,0 +1,7 @@
+# Optional isolated vision stack for prototype_region_detector_comparison.py.
+# Install into a separate target so DAAM/Diffusers pins remain untouched:
+# .venv/bin/pip install --target vision_pkgs -r requirements_vision.txt
+transformers==4.57.1
+huggingface-hub==0.36.0
+tokenizers==0.22.1
+timm

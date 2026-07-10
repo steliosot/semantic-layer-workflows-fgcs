@@ -1,0 +1,735 @@
+\documentclass[final,5p,times,authoryear]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\emergencystretch=1.5em
+
+\journal{Future Generation Computer Systems}
+
+\newcommand{\systemname}{Semantic Layer Workflow}
+\newcommand{\imageDOM}{Image DOM}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\mask}{\mathbf{M}}
+\newcommand{\loss}{\mathcal{L}}
+\newcommand{\policy}{\pi}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Semantic Layer Workflows for Adaptive Generative AI Editing in the Compute Continuum}
+
+\author[inst1]{Stelios Sotiriadis\corref{cor1}}
+\cortext[cor1]{Corresponding author.}
+\address[inst1]{Independent Researcher, Athens, Greece}
+
+\begin{abstract}
+Interactive diffusion editing is rarely a single generation request. A user typically creates an image, selects a region, changes it, compares alternatives, and rolls back unwanted variants. Current pipelines often handle these steps as independent full-image generations or one-off inpainting calls. This is simple to implement, but it repeats expensive computation and can alter parts of the image that the user intended to preserve.
+
+This paper treats semantic image editing as a workflow problem. We introduce the \systemname{} model, in which an image is represented as a semantic layer graph with masks, bounding boxes, labels, edit history, provenance, cache keys, and execution metadata. The workflow can then choose among full regeneration, semantic local diffusion, cached re-editing, deterministic projection, and rollback according to the edit type, expected latency, non-target drift, and available semantic state.
+
+We implement a prototype with Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 segmentation, local crop rendering, deterministic color projection, compositing, and persisted version state. The evaluation covers 10 diffusion checkpoints, four edit categories, and five seed variants, giving 200 paired workflow executions at 20 denoising steps. The results show why a workflow view is needed. Semantic local rendering is 1.788x faster than naive regeneration when detector overhead is excluded, but the first detector-inclusive edit averages 0.809x because semantic annotation adds 13.543 s. Once semantic state is cached, repeated edits reach a 7.041x speedup. Deterministic projection gives a 1227x speedup for simple color edits, rollback averages 0.188 s, and semantic compositing avoids outside-target pixel changes under the implemented metric, compared with 93.954\% outside-target change for naive regeneration. The main contribution is a practical workflow model for reusing semantic state so that repeated generative AI edits become more local, reproducible, and efficient.
+\end{abstract}
+
+\begin{keyword}
+Compute continuum \sep Scientific workflows \sep Generative AI \sep Diffusion models \sep Semantic layers \sep Provenance \sep Adaptive execution \sep Workflow scheduling \sep Reproducibility \sep Performance modeling
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+Generative AI pipelines are becoming a new class of data- and compute-intensive workflow. In a typical interactive image-editing session, a user does not merely request a single text-to-image generation. The user iterates: generate an image, identify a region, change a color, alter an object, undo a variant, try another version, preserve identity, and compare alternatives. Each iteration may require detector inference, segmentation, denoising, compositing, metric evaluation, and provenance updates. This process has many properties of scientific workflow execution: expensive heterogeneous tasks, data dependencies, intermediate artifacts, provenance requirements, repeated execution, and trade-offs between latency, quality, and resource cost \citep{deelman2009workflows,liew2017scientific,ferreiradasilva2017characterization}.
+
+Current diffusion editing systems are strong at visual synthesis but weak at workflow state. Full-image regeneration is simple, but it recomputes everything and often changes unrelated pixels. Manual inpainting gives local control, but it depends on user effort and does not by itself provide reusable semantic state. Prompt-based editing, cross-attention control, ControlNet, and instruction-tuned editors improve controllability \citep{hertz2023prompt,zhang2023controlnet,brooks2023instructpix2pix}, but most pipelines still lack a first-class representation of named image regions, edit histories, cached masks, rollback states, and policy-driven execution. The result is a mismatch between how users work and how the underlying computation is scheduled.
+
+This paper argues that iterative diffusion editing should be represented as a semantic scientific workflow. The image is treated not as a flat bitmap but as an \imageDOM{}: a graph of named semantic layers with provenance, dependency context, and cached execution state. An edit request is then a workflow decision problem. If the requested change is a simple color update on a known layer, a deterministic projection may be sufficient. If the change requires texture and shading, semantic local diffusion may be appropriate. If the requested change is global or structurally entangled, full regeneration may be necessary. If the same layer is edited repeatedly, detector work should be skipped and cached layer state reused. If a user rolls back a version, no denoising should be required.
+
+This framing is relevant to the compute continuum because generative AI editing workloads can execute across local accelerators, workstations, cloud GPUs, edge devices, and future HPC/cloud hybrid platforms. The present evaluation is a local case study, but the workflow abstraction exposes information that a monolithic image-generation call hides: region size, expected compute cost, cache availability, dependency risk, provenance constraints, and candidate execution operators. These features support resource-aware scheduling, adaptive execution, provenance, and reproducibility, all of which are core concerns of high-performance scientific workflows \citep{gil2007examining,davidson2008provenance,wilkinson2016fair}.
+
+We make four contributions.
+
+\begin{enumerate}[leftmargin=*]
+    \item We define a semantic layer workflow model for diffusion editing, including layer graphs, edit operators, provenance records, cache keys, and version states.
+    \item We formulate adaptive editing as a multi-objective execution policy that trades latency, detector cost, non-target drift, expected quality loss, and user effort.
+    \item We implement a prototype workflow engine using Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 masks, local crop diffusion, deterministic projection, compositing, cached re-edits, and rollback.
+    \item We evaluate the system with a 200-sample local benchmark across 10 models, four edit categories, and five seed variants per category. The benchmark reports latency, cached speedup, rollback time, non-target drift, inside-target change, boundary-band change, and crop/mask characteristics.
+\end{enumerate}
+
+The central empirical result is deliberately nuanced. Semantic local diffusion is not always faster for a first edit once detector cost is included. Across all 200 samples, semantic rendering excluding detector overhead is 1.788x faster than naive full-image regeneration, but the detector-inclusive first edit averages only 0.809x. However, once semantic state is cached, repeated layer edits achieve 7.041x average speedup. Projection-only deterministic color edits average 1227x speedup, rollback averages 0.188 s, and semantic compositing preserves non-target pixels under the implemented mask-compositing metric. Thus the correct claim is not that semantic editing universally accelerates every first edit, but that semantic workflow state enables locality, reproducibility, fast re-editing, and versionable execution.
+
+\section{Background and Motivation}
+
+\subsection{Scientific workflows and provenance}
+
+Scientific workflow systems were developed to coordinate complex analyses over heterogeneous resources while preserving execution structure, intermediate artifacts, and provenance \citep{deelman2009workflows,deelman2015pegasus}. Workflows make data dependencies explicit, allow repeated execution, support monitoring, and enable researchers to reason about performance and reproducibility. Their importance increases as applications span heterogeneous platforms, distributed storage, accelerators, cloud services, and edge resources \citep{ferreiradasilva2017characterization,satyanarayanan2017edge}.
+
+Generative AI editing shares these characteristics. A single session may contain multiple tasks with different resource profiles. Open-vocabulary detection and segmentation may be CPU/GPU vision tasks; diffusion denoising may require accelerator memory; deterministic compositing is lightweight; persistence and rollback are storage-bound. The workflow is also highly stateful: an edit depends on the base image, prompt, seed, model checkpoint, scheduler, semantic masks, previous variants, and user intent. Without explicit provenance, it is difficult to reproduce a result or explain why one edit changed unrelated regions.
+
+Provenance is therefore not a peripheral feature. It is part of the computational model. A semantic editing workflow should record what was generated, which model and scheduler were used, which detector produced each mask, what parameters defined the crop, and which cached state was reused. This aligns with scientific provenance principles \citep{davidson2008provenance,moreau2013prov} and FAIR expectations for reusable computational artifacts \citep{wilkinson2016fair}.
+
+\subsection{Diffusion models as workflow components}
+
+Denoising diffusion probabilistic models generate samples by learning a reverse denoising process from noise to data \citep{ho2020ddpm}. Latent diffusion models perform this process in a compressed latent space, making high-resolution text-to-image generation more efficient \citep{rombach2022latent}. Let \(z_t\) be a latent at diffusion timestep \(t\), \(c\) the conditioning, and \(\epsilon_\theta(z_t,t,c)\) the denoising network. A scheduler update can be written abstractly as
+\begin{equation}
+    z_{t-1} = S_t\left(z_t, \epsilon_\theta(z_t,t,c), \xi_t\right),
+\end{equation}
+where \(S_t\) is the numerical scheduler and \(\xi_t\) denotes stochastic state when present. Deterministic samplers such as DDIM \citep{song2021ddim} reduce randomness, but the output remains dependent on scheduler configuration, conditioning, seed, model weights, and intermediate latents.
+
+Image editing methods build on this process in different ways. SDEdit adds noise to an existing image and denoises under new conditioning \citep{meng2022sdedit}. Prompt-to-Prompt modifies cross-attention maps to preserve layout while changing prompt semantics \citep{hertz2023prompt}. DiffEdit estimates masks for semantic differences \citep{couairon2023diffedit}. ControlNet adds conditional control signals such as edges or pose \citep{zhang2023controlnet}. These techniques are valuable, but they do not by themselves define a full workflow model for persistent semantic regions, cached repeated edits, and rollback.
+
+\subsection{Semantic annotation for editable layers}
+
+Semantic layer extraction can use several sources. For images generated from prompts, cross-attention maps can relate prompt tokens to spatial regions; DAAM provides one method to interpret Stable Diffusion attention \citep{tang2023daam}. For arbitrary images, open-vocabulary object detection and segmentation are more general. GroundingDINO detects text-specified regions in an image \citep{liu2023groundingdino}, while SAM and SAM2 provide high-quality mask generation from prompts such as boxes or points \citep{kirillov2023sam,ravi2024sam2}. Depth models can add foreground/background ordering \citep{yang2024depthanything}.
+
+Our prototype uses GroundingDINO+SAM2 for the heavy benchmark because it works on generated images without needing access to generation-time attention maps. The broader architecture allows multiple detectors to contribute to a semantic layer ensemble: DAAM for prompt-token memory, GroundingDINO+SAM2 for object masks, face landmarks for facial parts, OCR/layout detectors for text, and depth estimation for layer ordering.
+
+\section{Related Work}
+
+\subsection{Workflow systems for heterogeneous computation}
+
+Scientific workflow research has long studied how to describe, schedule, execute, monitor, and reproduce computations composed of many dependent tasks. Systems such as Pegasus show the value of explicit workflow representations, provenance capture, and task planning across heterogeneous resources \citep{deelman2015pegasus}. Broader surveys identify recurring concerns: abstraction, interoperability, execution monitoring, fault tolerance, data staging, and reproducibility \citep{deelman2009workflows,liew2017scientific}. These concerns are directly relevant to generative AI editing, even though the application domain is different. A diffusion editing session has a workflow graph, expensive tasks, intermediate artifacts, and user-driven branching.
+
+The compute-continuum setting adds another layer of complexity. Tasks may be placed on local accelerators, cloud GPUs, edge devices, or HPC resources depending on latency, data locality, privacy, cost, and availability. Prior scheduling work for heterogeneous systems, including list scheduling heuristics such as HEFT, shows that task-resource matching can substantially affect makespan \citep{topcuoglu2002heft}. In generative AI workflows, the corresponding scheduling features are not only task duration and dependency depth, but also semantic scope, mask size, cache availability, and quality risk. This paper contributes a domain-specific workflow model that exposes those features to a future continuum scheduler.
+
+\subsection{Provenance and reproducible AI pipelines}
+
+Provenance has been central to scientific workflows because researchers must know how an output was derived, which inputs were used, and which computation produced each artifact \citep{davidson2008provenance}. The W3C PROV model formalizes entities, activities, and agents for representing derivations \citep{moreau2013prov}. Generative AI workflows need the same discipline. A generated image is not fully described by its pixels. It depends on model weights, scheduler configuration, prompts, seeds, detector outputs, masks, crop geometry, blending parameters, and previous versions.
+
+The FAIR principles emphasize that scientific data and artifacts should be findable, accessible, interoperable, and reusable \citep{wilkinson2016fair}. For generative workflows, FAIRness requires more than saving final images. It requires publishing the workflow code, model identifiers, configuration, seeds, metrics, and enough intermediate artifacts to reproduce or audit the result. Our prototype does not yet provide a complete public FAIR package, but its internal representation is designed around these requirements: every benchmark row has a directory of images, masks, metrics, and provenance fields.
+
+\subsection{Diffusion editing and semantic control}
+
+Diffusion editing methods improve controllability in several ways. SDEdit performs image editing by adding noise to an input and denoising under new guidance \citep{meng2022sdedit}. Prompt-to-Prompt preserves layout by controlling cross-attention maps during prompt edits \citep{hertz2023prompt}. DiffEdit estimates semantic masks that separate regions implied by prompt differences \citep{couairon2023diffedit}. InstructPix2Pix trains a model to follow natural-language image editing instructions \citep{brooks2023instructpix2pix}. ControlNet adds external spatial controls such as edges, depth, and pose \citep{zhang2023controlnet}. These methods operate mostly at the editing-model level. They answer how to produce an edit, but not how to manage an iterative workflow of many edits with cached semantic state.
+
+Semantic segmentation and open-vocabulary grounding provide another route. SAM and SAM2 provide promptable mask generation \citep{kirillov2023sam,ravi2024sam2}, while GroundingDINO maps text labels to detection boxes \citep{liu2023groundingdino}. These methods make it possible to construct named image layers from arbitrary images. However, a detector output alone is not a workflow. The contribution here is to bind detector outputs to provenance, versioning, execution policy, and performance metrics.
+
+\subsection{Positioning}
+
+The closest existing ideas are semantic image editing, attention-based diffusion control, inpainting, and workflow provenance. Our work differs by making the semantic layer graph the persistent execution object. The graph is not merely a UI selection or a temporary mask; it is a cacheable workflow artifact that drives scheduling, repeated editing, rollback, and reproducibility. This positioning is intentionally systems-oriented. The paper does not propose a new denoising network or segmentation model. It proposes a workflow model for deciding when and how to use existing generative and semantic components.
+
+\section{Problem Formulation}
+
+\subsection{Editing as a semantic workflow}
+
+Let an editing session be represented as a directed acyclic workflow
+\begin{equation}
+    W = (T, D, R, P),
+\end{equation}
+where \(T\) is a set of tasks, \(D\) is a set of data dependencies, \(R\) is a set of resource requirements, and \(P\) is provenance. In a diffusion editing session, tasks include base generation, semantic annotation, mask refinement, crop selection, local diffusion, deterministic projection, compositing, metric computation, caching, and rollback.
+
+We represent the current image state as a semantic layer graph
+\begin{equation}
+    G = (V,E),
+\end{equation}
+where each vertex \(v_i \in V\) is a semantic layer and each edge \(e_{ij}\in E\) represents spatial, hierarchical, or dependency relationships. A layer is defined as
+\begin{equation}
+    \ell_i = (y_i, \mask_i, b_i, d_i, h_i, p_i, c_i),
+\end{equation}
+where \(y_i\) is the semantic label, \(\mask_i \in \{0,1\}^{H \times W}\) is the mask, \(b_i\) is the bounding box, \(d_i\) is optional depth/order metadata, \(h_i\) is edit history, \(p_i\) is provenance, and \(c_i\) is cache state. Hierarchical edges can express relations such as mouth inside face or object in foreground; dependency edges can express likely co-edit regions such as hand--wrist--sleeve or sky--horizon--reflection.
+
+An edit request is
+\begin{equation}
+    e = (q, a, s, \kappa),
+\end{equation}
+where \(q\) is the target query, \(a\) is the action, \(s\) is edit strength, and \(\kappa\) encodes user constraints such as quality preference, latency budget, determinism, or preservation requirement. The workflow must resolve \(q\) to one or more layers, estimate the effect of \(a\), choose an execution operator, and produce a new version state.
+
+\subsection{Execution operators}
+
+We define five operators.
+
+\textbf{Naive full regeneration} recomputes the full image from text or image conditioning. It has high global coherence but weak preservation. Its execution cost is approximately the cost of a complete diffusion pass:
+\begin{equation}
+    T_{\mathrm{naive}} \approx \sum_{t=1}^{N} C_{\theta}(H,W,t),
+\end{equation}
+where \(C_{\theta}\) is the model cost at resolution \(H \times W\).
+
+\textbf{Semantic local diffusion} crops a region around the target mask, runs img2img or inpainting-like diffusion on the crop, and composites the result through the mask:
+\begin{equation}
+    x' = \mask_i \odot f_{\theta}(x_{b_i}, e) + (1-\mask_i)\odot x.
+\end{equation}
+The expected cost is
+\begin{equation}
+    T_{\mathrm{local}} \approx T_{\mathrm{det}} + \sum_{t=1}^{N_i} C_{\theta}(h_i,w_i,t) + T_{\mathrm{comp}},
+\end{equation}
+where \(T_{\mathrm{det}}\) is detector time, \(h_i \times w_i\) is crop size, \(N_i\) is the local denoising step count, and \(T_{\mathrm{comp}}\) is compositing time.
+
+\textbf{Cached semantic re-edit} reuses the existing semantic mask, bounding box, crop policy, and layer provenance. It removes repeated detector cost:
+\begin{equation}
+    T_{\mathrm{cached}} \approx \sum_{t=1}^{N_i} C_{\theta}(h_i,w_i,t) + T_{\mathrm{comp}}.
+\end{equation}
+This operator represents the strongest practical advantage of the workflow model.
+
+\textbf{Deterministic projection} applies a non-diffusion transformation to the layer, such as hue or color projection:
+\begin{equation}
+    x' = \mask_i \odot g(x_i,a) + (1-\mask_i)\odot x,
+\end{equation}
+where \(g\) is deterministic. It is suitable for simple color edits when exact locality and speed matter more than generative realism.
+
+\textbf{Rollback} restores a prior layer or composite state:
+\begin{equation}
+    x' = \mathrm{restore}(v_k, \ell_i),
+\end{equation}
+where \(v_k\) is a stored version. Rollback should use stored layer state and should not invoke diffusion.
+
+\subsection{Objective function}
+
+The workflow policy chooses an operator \(o\) from a candidate set \(\mathcal{O}\). We model the policy as a multi-objective minimization:
+\begin{equation}
+    \policy(e,\ell_i,C) = \arg\min_{o \in \mathcal{O}}
+    \left[
+    \alpha T_o + \beta D_o + \gamma Q_o + \delta U_o + \eta E_o
+    \right],
+\end{equation}
+where \(T_o\) is latency, \(D_o\) is outside-target drift, \(Q_o\) is expected quality/artifact loss, \(U_o\) is user effort, and \(E_o\) is energy or monetary cost. \(C\) denotes context such as available cache, model family, accelerator state, and deadline.
+
+Outside-target drift is estimated as
+\begin{equation}
+    D(x,x',\mask) = \frac{1}{|\Omega_{\bar{\mask}}|}
+    \sum_{p \in \Omega_{\bar{\mask}}} \mathbb{I}\left(\|x_p - x'_p\|_1 > \tau\right),
+\end{equation}
+where \(\Omega_{\bar{\mask}}\) is the non-target pixel set and \(\tau\) is a pixel-change threshold. Inside-target change is
+\begin{equation}
+    I(x,x',\mask) = \frac{1}{|\Omega_{\mask}|}
+    \sum_{p \in \Omega_{\mask}} \|x_p-x'_p\|_1.
+\end{equation}
+Boundary risk is measured on a dilated mask band:
+\begin{equation}
+    B = \mathrm{dilate}(\mask,r) - \mathrm{erode}(\mask,r),
+\end{equation}
+and evaluated using the same pixel-change statistic. Boundary change is not necessarily bad; it often indicates that blending and shading occurred near the seam. However, high boundary changes can signal seam artifacts and should be interpreted with visual inspection.
+
+\subsection{Amortized reuse model}
+
+The value of semantic annotation depends on session length. A first edit pays detector cost, but repeated edits reuse the same layer state. Let \(k\) be the number of edits applied to the same semantic layer in a session. A naive session cost is approximated as
+\begin{equation}
+    T_{\mathrm{naive}}(k) = T_{n,1} + (k-1)T_{n,2},
+\end{equation}
+where \(T_{n,1}\) is the first naive edit and \(T_{n,2}\) is a subsequent naive variant. A semantic session cost is
+\begin{equation}
+    T_{\mathrm{sem}}(k) = T_{\mathrm{det}} + T_{s,1} + (k-1)T_{s,c},
+\end{equation}
+where \(T_{s,1}\) is the first local render and \(T_{s,c}\) is a cached re-edit. Semantic execution is beneficial when
+\begin{equation}
+    T_{\mathrm{det}} + T_{s,1} + (k-1)T_{s,c}
+    <
+    T_{n,1} + (k-1)T_{n,2}.
+\end{equation}
+Solving for \(k\) gives an approximate break-even condition:
+\begin{equation}
+    k >
+    1 +
+    \frac{T_{\mathrm{det}} + T_{s,1} - T_{n,1}}
+    {T_{n,2} - T_{s,c}}.
+\end{equation}
+Using the measured benchmark means \(T_{n,1}=35.546\) s, \(T_{n,2}=35.741\) s, \(T_{\mathrm{det}}=13.543\) s, \(T_{s,1}=30.132\) s, and \(T_{s,c}=8.115\) s. The semantic path is slower for \(k=1\), but faster already at \(k=2\). This is the mathematical reason that repeated edits and version exploration are the strongest use case.
+
+\subsection{Layer dependency risk}
+
+Not all local edits are independent. A command such as ``change the hand'' may affect fingers, wrist, sleeve, object contact, shadow, and reflection. We model this with a dependency expansion function
+\begin{equation}
+    \Gamma(\ell_i, a) \subseteq V,
+\end{equation}
+which returns layers that may need protection or co-editing for action \(a\). The effective edit support is then
+\begin{equation}
+    \mask_{\mathrm{eff}} =
+    \bigcup_{\ell_j \in \Gamma(\ell_i,a)} w_j \mask_j,
+\end{equation}
+where \(w_j\) can encode soft dependency weights. In the current prototype, \(\Gamma\) is approximated by crop padding and boundary bands. A more advanced implementation would learn \(\Gamma\) from edit failures, depth relations, contact regions, or attention maps. This is important for continuum-ready scheduling because dependency expansion changes crop size, latency, and expected quality risk.
+
+\subsection{Determinism and reproducibility}
+
+Diffusion pipelines are only conditionally deterministic. A run is reproducible when the model checkpoint, VAE, scheduler, timestep sequence, seed, prompt, negative prompt, guidance scale, precision, image size, backend, and software versions are fixed. Even then, hardware kernels and mixed precision can introduce small numerical differences. Our workflow model treats determinism as a provenance property rather than an assumption. Each artifact records enough metadata to make repeated execution auditable, and deterministic projection/rollback are separated from stochastic or numerically sensitive diffusion operators.
+
+\section{System Architecture}
+
+Figure~\ref{fig:architecture} shows the prototype architecture. A request enters the system as either a base generation prompt or an edit to an existing image. Base generation produces the initial image and provenance state. Semantic annotation then creates named candidate layers using GroundingDINO+SAM2 in the heavy benchmark. The resulting \imageDOM{} stores masks, boxes, labels, crop policies, version identifiers, and provenance. The policy engine selects an execution operator. The execution layer runs full diffusion, local diffusion, deterministic projection, cached re-edit, or rollback. Finally, the compositor writes a new version and logs metrics.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/workflow_architecture.png}
+    \caption{Semantic layer workflow architecture. The key difference from a monolithic diffusion call is that semantic annotation, layer graph state, cache keys, and version provenance are first-class workflow artifacts.}
+    \label{fig:architecture}
+\end{figure*}
+
+\subsection{Semantic Image DOM}
+
+The \imageDOM{} is the persistent state that makes repeated edits efficient. For each layer, it stores the mask, bounding box, label, detector backend, detector confidence where available, crop geometry, parent/child relations, and edit history. It also stores global provenance: model checkpoint name, scheduler, inference steps, seed, image size, guidance scale, and prompt. The representation is intentionally close to workflow provenance models: it records entities, activities, and derivations rather than only final pixels \citep{moreau2013prov}.
+
+The current prototype uses file-system persistence for simplicity. Each sample output folder contains the base image, detector mask overlay, naive edit outputs, semantic local outputs, projection-only output, rollback output, sample grid, and a metrics record. This is sufficient for reproducible experiments. A production implementation would replace this with a content-addressed store or workflow database.
+
+\subsection{Detector and mask stage}
+
+The heavy benchmark uses GroundingDINO for open-vocabulary target localization and SAM2 for mask generation. The target labels are selected from the edit category: lips for face edits, shirt for body edits, mug for object edits, and sky for landscape edits. The detector stage returns a mask and bounding box. The local renderer expands the bounding box with padding and snaps to a crop size supported by the model backend.
+
+Detector time is deliberately included as a separate metric. This matters because semantic annotation is expensive enough to change the conclusion. A one-off edit with no cached layer state may be slower than naive generation, while a repeated edit on the same layer avoids detection and becomes much faster. This separation is central to the paper's thesis.
+
+\subsection{Execution policy}
+
+The prototype policy is rule-based but grounded in the objective function above. Projection-only is selected for deterministic color changes when the target layer is already known. Semantic local diffusion is selected when the edit requires generative texture or lighting. Cached re-edit is selected when the layer mask and crop state already exist. Naive regeneration is used as the baseline and remains appropriate for global, structural, or highly entangled edits.
+
+Figure~\ref{fig:policy} gives a conceptual view of the operator space. The boundary between regions is not fixed; it depends on detector availability, cache state, latency budget, crop size, and quality requirements. This is why we report both generation-only and detector-inclusive speedups.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\columnwidth]{figures/policy_space.png}
+    \caption{Conceptual operator selection space. Simple local edits favor deterministic projection or cached local rendering, while structurally broad edits may require full regeneration.}
+    \label{fig:policy}
+\end{figure}
+
+\subsection{Implementation and artifact layout}
+
+The prototype is implemented as Python scripts around local Diffusers pipelines and local model checkpoints. The heavy benchmark driver creates a resumable output directory and appends a JSON record after every completed sample. This design was important in practice because SDXL model transitions can fragment MPS memory; a resumed process can skip completed records and continue from the next missing model/case/sample tuple.
+
+Each sample directory follows the same structure:
+\begin{verbatim}
+sample_XX/
+  base.png
+  mask_overlay.png
+  naive_v1.png
+  naive_v2.png
+  semantic_raw_v1.png
+  semantic_projected_v1.png
+  semantic_cached_v2.png
+  projection_only.png
+  rollback.png
+  sample_grid.png
+  metrics.json
+\end{verbatim}
+The exact filenames vary slightly by operator, but the invariant is that every image artifact is paired with a metrics record. The aggregate directory contains a full JSON file, a Markdown report, a model-case CSV matrix, and representative sample grids. This layout is intentionally simple: it can be inspected without a database, archived with the paper, or converted into a formal workflow provenance store.
+
+The policy engine is currently rule-based. The purpose of the prototype is to test whether the workflow representation yields measurable benefits before replacing the rules with a learned scheduler. A future scheduler could learn the parameters \(\alpha,\beta,\gamma,\delta,\eta\) in the objective function from user preferences or deployment constraints.
+
+\subsection{Failure handling}
+
+Long-running generative workflows require partial-failure tolerance. The benchmark treats each sample tuple as an idempotent unit identified by model key, case key, and sample index. If execution stops after writing a record, the next run skips that tuple. Expensive runs therefore retain progress after memory handoffs or process failures. In production, this would correspond to checkpointing, task-level provenance, and retry policies.
+
+\section{Experimental Methodology}
+
+\subsection{Research questions}
+
+The evaluation is organized around six questions:
+
+\begin{description}[leftmargin=*]
+    \item[RQ1] Does semantic workflow execution reduce non-target drift compared with naive full-image regeneration?
+    \item[RQ2] When detector overhead is excluded, does local semantic rendering reduce generation time?
+    \item[RQ3] What is the honest one-off user experience when semantic detection is included?
+    \item[RQ4] How much speedup is obtained from cached semantic re-edits and versioning?
+    \item[RQ5] How does performance vary by model family and edit category?
+    \item[RQ6] What trade-offs appear between deterministic projection, local diffusion, and full regeneration?
+\end{description}
+
+\subsection{Benchmark design}
+
+We ran a paired benchmark over 10 compatible local diffusion checkpoints, four edit categories, and five seed variants per category, for 200 paired samples. Each sample executes the same workflow pattern:
+
+\begin{enumerate}[leftmargin=*]
+    \item Generate or load a base image at \(768 \times 768\).
+    \item Execute a naive full-image first edit.
+    \item Execute a second naive variant edit.
+    \item Detect the target semantic layer using GroundingDINO and SAM2.
+    \item Execute projection-only deterministic editing.
+    \item Execute semantic local diffusion on the target crop and composite through the mask.
+    \item Execute a cached semantic re-edit using the same layer state.
+    \item Execute rollback to a prior version.
+    \item Save images, masks, sample grids, and metrics.
+\end{enumerate}
+
+All runs use 20 denoising steps. The four cases are face/lips color editing, human body/shirt editing, object/mug editing, and landscape/sky editing. These categories were chosen because they cover small facial parts, medium human regions, discrete objects, and broader background regions. The local rendering crop is determined from the SAM2 mask and may be smaller than the full image, but it is padded and quantized for model compatibility.
+
+The benchmark ran on the local workstation using the available Apple MPS backend. Some SDXL model transitions required process restart because of MPS memory fragmentation; the benchmark is resumable and persisted completed records were reused rather than recomputed. This is reported as part of the realistic local execution environment, not hidden as a failure. The final benchmark completed 200 samples with zero per-sample errors. Four incompatible local checkpoint files were skipped because they were inpainting-only, SD3, non-image-generation, or placeholder files.
+
+\subsection{Models}
+
+Table~\ref{tab:models} lists the 10 compatible checkpoints. The set intentionally includes both SD1.5-family and SDXL-family models because throughput and img2img cost differ substantially across families.
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\caption{Evaluated diffusion checkpoints. Each model is evaluated on four edit categories with five seed variants per category.}
+\label{tab:models}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Family & Samples & Naive (s) & Semantic local (s) & Detector (s) \\
+\midrule
+Deliberate v6 & SD1.5 & 20 & 12.213 & 8.180 & 12.954 \\
+DreamShaper 8 & SD1.5 & 20 & 31.388 & 8.298 & 13.292 \\
+DreamShaper XL 1.0 & SDXL & 20 & 39.873 & 55.469 & 14.677 \\
+Juggernaut Reborn & SD1.5 & 20 & 11.390 & 4.973 & 12.778 \\
+Juggernaut XL v2 & SDXL & 20 & 118.220 & 75.622 & 15.298 \\
+OpenJourney v4 & SD1.5 & 20 & 23.941 & 7.496 & 12.384 \\
+RealVisXL V4.0 & SDXL & 20 & 53.656 & 62.119 & 14.488 \\
+Realistic Vision V6.0 B1 & SD1.5 & 20 & 10.540 & 9.139 & 12.194 \\
+SDXL Base 1.0 & SDXL & 20 & 43.568 & 60.456 & 14.151 \\
+Stable Diffusion 1.5 Base & SD1.5 & 20 & 10.675 & 9.567 & 13.220 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Metrics}
+
+The benchmark records four groups of metrics.
+
+\textbf{Latency metrics} include naive first-edit time, naive second-edit time, detector time, semantic local render time, cached semantic re-edit time, projection-only time, and rollback time. We report three speedup variants:
+\begin{align}
+    S_{\mathrm{gen}} &= T_{\mathrm{naive}} / T_{\mathrm{semantic}}, \\
+    S_{\mathrm{incl}} &= T_{\mathrm{naive}} / (T_{\mathrm{det}} + T_{\mathrm{semantic}}), \\
+    S_{\mathrm{cached}} &= T_{\mathrm{naive2}} / T_{\mathrm{cached}}.
+\end{align}
+\(S_{\mathrm{gen}}\) asks whether local rendering is faster than full rendering once a layer is known. \(S_{\mathrm{incl}}\) asks whether the first semantic edit is faster for a user with no cache. \(S_{\mathrm{cached}}\) asks whether repeated edits benefit from the persisted \imageDOM{}.
+
+\textbf{Locality metrics} measure outside-target changed pixels, inside-target mean absolute difference, and boundary-band changed pixels. These quantify preservation and seam risk. The outside-target metric is especially important because full-image regeneration can be visually plausible while still destroying identity or layout.
+
+\textbf{Layer geometry metrics} include mask area percentage, bounding-box area percentage, crop size, and crop-pixel percentage. These help explain why some local edits are faster than others.
+
+\textbf{Versioning metrics} include cached re-edit time and rollback time. These directly test the workflow claim that semantic state should make repeated edits and undo operations cheap.
+
+\subsection{Reproducibility artifacts}
+
+The benchmark stores machine-readable results in JSON and CSV. The JSON contains all per-sample records and aggregate summaries. The CSV contains the model-by-case matrix used for compact comparison. Figures in this manuscript are generated from those files rather than manually transcribed. The manuscript directory also includes copied sample grids for the appendix. The most important reproducibility fields are model key, model family, case key, sample index, seed, image width/height, steps, mask area, bounding-box area, crop size, detector time, render times, speedups, drift metrics, and artifact directory.
+
+This is not yet a complete archival package because the model checkpoints are large and may have separate licenses. However, the workflow is structured so that a reproducibility package can be assembled by publishing the scripts, configuration, model identifiers/hashes, metrics files, and selected image artifacts.
+
+\section{Results}
+
+\subsection{Overall performance}
+
+Table~\ref{tab:overall} summarizes the full 200-sample benchmark. Semantic local rendering excluding detector cost is faster than naive full-image generation on average. However, detector-inclusive first edits are slower on average. Cached re-edits are the strongest performance result, with a 7.041x average speedup. Projection-only edits are effectively instantaneous for simple color changes, and rollback is near-interactive.
+
+\begin{table}[t]
+\centering
+\caption{Overall benchmark results across 200 paired executions.}
+\label{tab:overall}
+\begin{tabular}{lr}
+\toprule
+Metric & Mean \\
+\midrule
+Naive full edit time & 35.546 s \\
+Semantic local edit time, detector excluded & 30.132 s \\
+Detector time & 13.543 s \\
+Projection-only edit time & 0.031 s \\
+Generation-only semantic speedup & 1.788x \\
+One-off detector-inclusive speedup & 0.809x \\
+Cached version re-edit speedup & 7.041x \\
+Projection-only speedup & 1227.276x \\
+Rollback time & 0.188 s \\
+Naive outside-target changed pixels & 93.954\% \\
+Semantic outside-target changed pixels & 0.000\% \\
+Semantic boundary-band changed pixels & 42.301\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The detector-inclusive number is the honest one-off result. When a user edits a region for the first time and the system has no cached semantic layer, GroundingDINO+SAM2 adds substantial overhead. This overhead is worthwhile when preservation matters, but it does not guarantee lower latency. The cached result is the workflow result: once the semantic layer exists, repeated variants avoid detection and reuse the layer state.
+
+\subsection{Edit category effects}
+
+Table~\ref{tab:cases} and Figure~\ref{fig:case-speedups} show results by edit category. Face/lips edits have the highest cached speedup at 11.055x because the editable region is small and repeated color changes are cheap. Human body/shirt and object/mug edits show similar cached speedups near 6x. Landscape/sky edits are less favorable because the semantic region and crop are often larger, but cached re-editing still averages 4.966x.
+
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\caption{Results by edit category. Each category contains 50 paired samples.}
+\label{tab:cases}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Case & Naive & Local & Det. & Gen. & Incl. & Cached & Naive drift & Sem. drift \\
+\midrule
+Face lips & 35.796 & 28.063 & 13.871 & 2.313x & 0.877x & 11.055x & 90.355\% & 0.000\% \\
+Human body shirt & 38.372 & 30.619 & 13.517 & 1.958x & 0.886x & 6.085x & 91.908\% & 0.000\% \\
+Landscape sky & 31.858 & 31.358 & 13.636 & 1.211x & 0.634x & 4.966x & 98.745\% & 0.000\% \\
+Object mug & 36.160 & 30.488 & 13.151 & 1.669x & 0.838x & 6.058x & 94.809\% & 0.000\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\columnwidth]{figures/speedups_by_case.png}
+    \caption{Speedup by edit category. Cached semantic re-edit is positive for all categories, while detector-inclusive first-edit speedup is below 1x on average.}
+    \label{fig:case-speedups}
+\end{figure}
+
+These results support a policy-based interpretation. If the target is small and the edit is simple, projection-only or cached local editing is attractive. If the target is broad, first-edit performance may not improve, but preservation can still justify semantic execution. A scheduler should therefore treat layer geometry and cache state as first-class features.
+
+\subsection{Model effects}
+
+Figure~\ref{fig:model-speedups} shows strong model dependence. DreamShaper 8, OpenJourney v4, and Juggernaut XL v2 achieve detector-inclusive first-edit speedups above 1x. Other models, especially several SDXL checkpoints, are slower in the semantic first-edit path. This occurs because local img2img throughput and full-generation throughput differ by checkpoint and pipeline implementation. It would be misleading to claim that local semantic rendering is always faster.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/speedups_by_model.png}
+    \caption{Speedup by model. The generation-only metric isolates local rendering cost; the detector-inclusive metric represents first-edit user latency; cached re-edit represents repeated semantic layer editing.}
+    \label{fig:model-speedups}
+\end{figure*}
+
+The workflow conclusion remains stable across models: cached re-editing is positive for every checkpoint. The weakest cached result is RealVisXL V4.0 at 3.172x, while the strongest is OpenJourney v4 at 12.229x. This suggests that semantic caching is a robust systems mechanism even when first-edit acceleration is model-dependent.
+
+\subsection{Locality and drift}
+
+Figure~\ref{fig:drift} shows the preservation difference. Naive full-image regeneration changes an average of 93.954\% of outside-target pixels. Semantic compositing changes 0.000\% outside-target pixels under the exact pixel-change metric because the edited crop is composited through the semantic mask and the unmasked base image is preserved.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{figures/outside_drift.png}
+    \caption{Outside-target pixel drift. Naive full-image regeneration changes most non-target pixels, while semantic compositing preserves them under the implemented mask-compositing metric.}
+    \label{fig:drift}
+\end{figure}
+
+This metric is intentionally strict. It does not claim that semantic edits are always perceptually superior; it claims that the workflow preserves non-target pixels by construction. For applications where identity, layout, text, object positions, or scientific visual state must remain stable, this is a major advantage. The boundary-band change average of 42.301\% indicates that changes occur near seams, so visual seam quality still requires inspection and better blending methods.
+
+\subsection{Versioning and rollback}
+
+Rollback averages 0.188 s. This validates the versioning model: undoing a semantic edit should restore cached state rather than invoking diffusion. In interactive workflows, rollback is not a minor convenience. It changes the editing process from destructive regeneration to a versioned exploration tree. Users can try red, blue, yellow, or black variants of the same object while preserving the rest of the image and retaining all intermediate states.
+
+The cached re-edit result is similarly important. A first semantic edit may be slower because of detector overhead, but subsequent edits amortize semantic annotation. This is analogous to scientific workflows where expensive preprocessing or indexing steps become worthwhile when reused across many downstream tasks.
+
+\subsection{Amortized session break-even}
+
+Table~\ref{tab:breakeven} applies the measured means to the amortized model. A single semantic edit is slower than a single naive edit on average because it includes detector cost. For two edits on the same layer, semantic execution is already faster because the second edit reuses the cached semantic layer. By five variants, the semantic workflow is more than 100 s faster in mean wall-clock time. This pattern matches the actual user behavior that motivated the system: users rarely stop after one precise edit; they compare variants.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Amortized session cost using measured mean times. \(k\) is the number of edits on the same semantic layer.}
+\label{tab:breakeven}
+\begin{tabular}{rrrr}
+\toprule
+\(k\) & Naive (s) & Semantic (s) & Faster \\
+\midrule
+1 & 35.546 & 43.675 & Naive \\
+2 & 71.287 & 51.791 & Semantic \\
+3 & 107.027 & 59.906 & Semantic \\
+4 & 142.768 & 68.022 & Semantic \\
+5 & 178.509 & 76.137 & Semantic \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Interpreting boundary-band change}
+
+The average semantic boundary-band change is 42.301\%. This number should not be interpreted as a failure rate. The boundary band contains pixels close to the mask edge, where color, lighting, and antialiasing changes are expected after compositing. A high value becomes concerning only when the visual seam is obvious. The benchmark therefore treats boundary change as a seam-risk proxy. It is useful for comparing policies and for flagging samples for human inspection, but it is not by itself a perceptual quality score.
+
+\subsection{Implications for scheduling}
+
+The results imply three scheduling rules. First, if no cache exists and latency is the only objective, the scheduler should estimate detector-inclusive cost before choosing semantic editing. Second, if preservation or reproducibility is important, semantic editing may be selected even when it is slower. Third, if a layer is likely to be edited more than once, the detector cost is amortized rapidly. The scheduler should therefore ask not only ``what is the next edit?'' but also ``is this edit part of an exploratory session?''.
+
+In a compute-continuum deployment, these rules could guide placement. Detector-heavy first edits could be placed on a faster cloud GPU when privacy and cost allow. Cached projection or rollback can remain local. Large SDXL local diffusion could be offloaded when local memory pressure is high. The \imageDOM{} makes this possible because it exposes semantic scope and cache state before execution.
+
+\section{Discussion}
+
+\subsection{What the system is good at}
+
+The benchmark identifies four strong use cases. First, semantic layers preserve non-target pixels under the implemented compositing metric. This matters whenever repeated generation would destroy identity, layout, or previously approved regions. Second, cached layer state accelerates repeated edits, which matches real interactive behavior better than one-shot benchmarks. Third, deterministic projection is extremely fast for simple color changes. Fourth, versioning and rollback become cheap because they are represented as workflow state rather than as new generation tasks.
+
+The system is therefore best described as a workflow optimization layer for generative AI rather than as a replacement for diffusion editing algorithms. It can invoke diffusion when realism is needed, deterministic math when locality and speed dominate, and rollback when the user wants to restore an earlier state.
+
+\subsection{What the system is not yet good at}
+
+The weakest result is detector-inclusive first-edit latency. GroundingDINO+SAM2 adds about 13.543 s on average in this local setup. If a user performs only one edit and does not care about preserving the rest of the image, naive regeneration may be faster. Some SDXL checkpoints also show slower local img2img execution than full naive generation. These are not failures of the model; they are conditions the policy must learn.
+
+Mask correctness is another limitation. The current benchmark measures preservation relative to detector masks, not hand-labeled ground truth. A perfect outside-target metric is only meaningful if the mask corresponds to the intended semantic region. For publication-quality semantic annotation claims, future work should include hand-labeled masks or at least a smaller expert-labeled validation set.
+
+\subsection{Compute-continuum implications}
+
+The prototype benchmark runs locally, so the measured results should not be read as a deployed multi-tier continuum experiment. The model nevertheless naturally extends to continuum scheduling. Different workflow tasks have different placement requirements. Projection and rollback can run on edge or local CPU. Detector inference may run locally if privacy matters or remotely if a faster GPU is available. SDXL local diffusion may be placed on a cloud GPU when the local device is memory constrained. Full regeneration can be queued on a high-throughput backend, while cached deterministic edits remain interactive.
+
+The policy objective can include resource cost and deadline:
+\begin{equation}
+    \policy(e,\ell_i,C) =
+    \arg\min_{o,r}
+    \alpha T_{o,r} + \beta D_o + \gamma Q_o + \eta E_{o,r} + \zeta M_{o,r},
+\end{equation}
+where \(r\) is a resource tier and \(M_{o,r}\) is memory risk. This turns semantic editing into a resource-aware workflow scheduling problem comparable to heterogeneous task scheduling \citep{topcuoglu2002heft}. The layer graph provides scheduling hints that a flat prompt does not: crop size, cache presence, detector availability, and dependency risk.
+
+\subsection{FAIR and reproducibility}
+
+The benchmark stores seeds, model identifiers, prompts, detector outputs, masks, images, metrics, and reports. This supports findability and reusability at the experiment level. A stronger FAIR package would include a containerized environment, model hashes, exact dependency lockfiles, and a public dataset or reproducibility bundle. The workflow model is compatible with this direction because provenance is part of the core state.
+
+\section{Research Agenda Toward a Compute-Continuum Workflow System}
+
+The prototype validates the basic semantic workflow claim, but a full FGCS-style system should go beyond a local benchmark. This section outlines the next research steps and how they follow from the current results.
+
+\subsection{Latent trajectory reuse}
+
+The current implementation caches image-space layers, masks, crops, and version artifacts. It does not yet cache the full diffusion latent trajectory. A stronger system would store
+\begin{equation}
+    \mathcal{T}^{0} = \{z^{0}_{N},z^{0}_{N-1},\ldots,z^{0}_{0}\},
+\end{equation}
+where \(z^{0}_{t}\) is the base latent at denoising step \(t\). An edit could then restart from an intermediate timestep \(t_r\) rather than from pure noise or from the fully decoded image. The edited trajectory would be constrained by the semantic mask:
+\begin{equation}
+    z^{e}_{t-1}
+    =
+    \mask^{z}\odot S_t(z^{e}_{t}, c_e)
+    +
+    (1-\mask^{z})\odot z^{0}_{t-1},
+\end{equation}
+where \(\mask^{z}\) is the semantic mask downsampled to latent resolution and \(c_e\) is the edit conditioning. This projection preserves the original trajectory outside the edit support while allowing the target region to denoise under new conditioning.
+
+This is not the same as reusing whole denoising steps. A diffusion step is global: changing one region can change the model's prediction elsewhere. The valid reuse object is the cached latent field and the valid constraint is regional projection. The workflow policy would choose \(t_r\) from edit strength, dependency risk, and quality target:
+\begin{equation}
+    t_r = \rho(a, s, \Gamma(\ell_i,a), q_{\min}),
+\end{equation}
+where \(a\) is action type, \(s\) is strength, \(\Gamma\) is dependency expansion, and \(q_{\min}\) is minimum expected quality. Color edits may restart late or use deterministic projection; structural edits may restart earlier. This is the natural mathematical extension of the current layer cache.
+
+\subsection{Continuum-aware placement}
+
+A continuum version of the system should treat every operator as a task that can run on multiple resource tiers. Let \(R=\{r_1,\ldots,r_m\}\) be candidate resources such as local CPU, local accelerator, edge GPU, cloud GPU, or HPC batch node. Each operator-resource pair has an estimated tuple
+\begin{equation}
+    \phi(o,r) = (T_{o,r}, E_{o,r}, C_{o,r}, M_{o,r}, P_{o,r}),
+\end{equation}
+where \(T\) is time, \(E\) energy, \(C\) monetary cost, \(M\) memory risk, and \(P\) privacy risk. Placement becomes
+\begin{equation}
+    (o^*,r^*) =
+    \arg\min_{o,r}
+    \alpha T_{o,r}+\beta D_o+\gamma Q_o+\eta E_{o,r}+\lambda C_{o,r}+\mu P_{o,r}.
+\end{equation}
+The same edit may therefore be executed differently depending on context. A private face edit may keep detector and local diffusion on the user's device. A batch of product-image recolors may use deterministic projection locally. A high-quality SDXL structural edit may be sent to a cloud GPU if latency and privacy constraints permit.
+
+This model also supports workflow-level batching. If five edits target the same semantic layer, the detector should run once and the variants should be scheduled as a batch. If multiple images require the same detector backend, the detector model can remain resident. If several low-risk color edits are pending, deterministic projection can run immediately while diffusion jobs are queued. These scheduling opportunities are invisible when each edit is represented as a standalone prompt.
+
+\subsection{Quality-aware policy learning}
+
+The current rule-based policy is interpretable but incomplete. A learned policy could predict the probability that an operator will satisfy the user request under a time budget. Training data would contain tuples
+\begin{equation}
+    (\ell_i, a, s, \mathrm{model}, \mathrm{crop}, \mathrm{operator})
+    \rightarrow
+    (T, D, B, H),
+\end{equation}
+where \(H\) is a human or model-assisted quality score. The policy could then estimate a Pareto frontier rather than a single scalar decision. For example, projection-only may be Pareto-optimal for speed and locality, while local diffusion may be Pareto-optimal for realism, and naive regeneration may be Pareto-optimal for global coherence.
+
+The heavy benchmark already provides the systems side of this dataset: timing, drift, boundary, crop, and model features. What is missing is reliable semantic and perceptual ground truth. The next experimental layer should therefore add human ratings or carefully controlled VLM judgments for edit success, seam quality, identity preservation, and prompt adherence. These labels would turn the current policy from a manually designed cost function into a data-driven workflow scheduler.
+
+\subsection{From prototype to reusable workflow artifact}
+
+For submission as a reproducible workflow contribution, the implementation should be packaged as three artifacts. First, a workflow specification should describe tasks, inputs, outputs, dependencies, and cache keys. Second, a benchmark bundle should contain prompts, seeds, metrics, and selected generated images. Third, an execution environment should pin Python packages, model identifiers, and hardware notes. The current repository already contains most of the experimental artifacts; the missing step is to formalize them as a reusable workflow package with clear licensing boundaries for model checkpoints.
+
+This research agenda keeps the paper aligned with high-performance scientific workflows rather than narrowing it to image editing. The image domain supplies a demanding case study, but the underlying contribution is adaptive workflow execution over semantic, cached, provenance-rich intermediate state.
+
+\section{Threats to Validity}
+
+\textbf{Semantic correctness.} The benchmark uses detector-produced masks as operational targets. It does not yet compare against hand-labeled mask IoU or Dice scores. Therefore, the locality results measure preservation relative to the detected mask, not necessarily semantic correctness relative to human annotation.
+
+\textbf{Quality metrics.} The benchmark reports time, drift, inside change, and boundary change. These are useful systems metrics, but they do not replace human perceptual evaluation, task success judgments, or VLM-based quality assessment. A diffusion edit can preserve outside pixels and still look visually poor inside the target.
+
+\textbf{Hardware generality.} The run used a local Apple MPS environment. GPU memory behavior, img2img throughput, and detector latency may differ on CUDA, cloud GPUs, or HPC nodes. The measured speedups should therefore be interpreted as local empirical evidence, while the workflow formulation is intended to generalize.
+
+\textbf{Model set.} The benchmark includes 10 compatible local checkpoints but skips incompatible files. Newer diffusion architectures and optimized inference engines may change the latency balance.
+
+\textbf{No energy measurement or multi-tier deployment.} The objective includes energy/cost conceptually, but the current experiment does not measure power draw or execute across multiple resource tiers. These measurements should be added for a full compute-continuum evaluation where sustainability and placement decisions matter.
+
+\section{Conclusion}
+
+This paper presented semantic layer workflows for adaptive generative AI editing. The core idea is to treat an image-editing session as a provenance-aware workflow over semantic layers rather than as a sequence of independent diffusion calls. The \imageDOM{} stores named masks, boxes, provenance, cache keys, version history, and dependency context. A policy chooses between full regeneration, local diffusion, deterministic projection, cached re-edit, and rollback.
+
+The 200-sample benchmark gives a realistic result. Semantic local rendering is faster than naive regeneration when detector overhead is excluded, but first edits are not universally faster once GroundingDINO+SAM2 is included. The strongest results are workflow-level: cached semantic re-edits average 7.041x speedup, deterministic projection averages 1227x for simple color edits, rollback averages 0.188 s, and semantic compositing preserves non-target pixels under the implemented metric. These results support the claim that semantic workflow state is valuable for repeated, local, provenance-sensitive generative AI workloads.
+
+Future work should add hand-labeled mask evaluation, human quality ratings, energy measurement, and true compute-continuum scheduling across local, edge, cloud, and HPC resources. The next technical step is to persist and reuse latent denoising trajectories, allowing the policy to restart from selected timesteps and preserve unchanged latent regions, rather than only caching masks and image-space layers.
+
+\section*{Data and code availability}
+
+The benchmark scripts, generated metrics, reports, manuscript source, and representative image artifacts are available in the public project repository:
+\begin{quote}
+\small\href{https://github.com/steliosot/semantic-layer-workflows-fgcs}{github.com/steliosot/semantic-layer-workflows-fgcs}
+\end{quote}
+The repository includes the benchmark summary files, model-by-case matrix, selected paper figures, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
+
+\section*{Funding}
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During manuscript preparation, the authors used ChatGPT/Codex to assist with drafting, LaTeX organization, and summarization of locally produced benchmark results. The authors reviewed and edited the output and take full responsibility for the content.
+
+\appendix
+
+\section{Appendix: Representative Image Generations}
+
+The appendix includes representative sample grids from the benchmark. Each grid shows the base image, mask/overlay, naive edits, semantic local outputs, deterministic projection or cached variants where applicable, and rollback/version artifacts. The public repository release archive contains the 200 sample-grid images, while Figures~\ref{fig:app-face-xl}--\ref{fig:app-object-xl} show representative examples in the manuscript.
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_face_lips_juggernaut_xl.png}
+    \caption{Representative face/lips edit using Juggernaut XL v2.}
+    \label{fig:app-face-xl}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_body_shirt_realvisxl.png}
+    \caption{Representative human body/shirt edit using RealVisXL V4.0.}
+    \label{fig:app-body}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_object_mug_dreamshaper8.png}
+    \caption{Representative object/mug edit using DreamShaper 8.}
+    \label{fig:app-object}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_landscape_sdxl_base.png}
+    \caption{Representative landscape/sky edit using SDXL Base 1.0.}
+    \label{fig:app-landscape}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_face_lips_juggernaut_reborn.png}
+    \caption{Representative face/lips edit using Juggernaut Reborn.}
+    \label{fig:app-face-sd15}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/appendix_object_mug_dreamshaper_xl.png}
+    \caption{Representative object/mug edit using DreamShaper XL 1.0.}
+    \label{fig:app-object-xl}
+\end{figure*}
+
+\section{Appendix: Model-by-Case Matrix}
+
+The full model-by-case matrix is provided as a CSV file with the manuscript artifacts. Table~\ref{tab:matrix-small} reports the detector-inclusive and cached speedups by model and category in compact form.
+
+\begin{table*}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Compact model-by-case speedup matrix. Each cell reports detector-inclusive first-edit speedup / cached re-edit speedup.}
+\label{tab:matrix-small}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Face lips & Human shirt & Object mug & Landscape sky \\
+\midrule
+Deliberate v6 & 0.598 / 10.814 & 0.599 / 6.913 & 0.517 / 4.945 & 0.604 / 4.303 \\
+DreamShaper 8 & 1.799 / 14.314 & 1.793 / 5.487 & 1.734 / 5.793 & 0.608 / 5.454 \\
+DreamShaper XL 1.0 & 0.630 / 7.138 & 0.598 / 2.953 & 0.543 / 4.722 & 0.511 / 3.982 \\
+Juggernaut Reborn & 0.662 / 13.084 & 0.646 / 5.234 & 0.636 / 5.279 & 0.628 / 3.893 \\
+Juggernaut XL v2 & 1.165 / 2.917 & 1.488 / 10.520 & 1.373 / 15.825 & 1.184 / 12.794 \\
+OpenJourney v4 & 1.423 / 28.999 & 1.669 / 11.003 & 1.385 / 4.827 & 0.506 / 4.088 \\
+RealVisXL V4.0 & 0.692 / 4.043 & 0.590 / 3.487 & 0.711 / 3.149 & 0.805 / 2.009 \\
+Realistic Vision V6.0 B1 & 0.634 / 11.652 & 0.475 / 4.511 & 0.472 / 5.627 & 0.446 / 3.924 \\
+SDXL Base 1.0 & 0.653 / 6.643 & 0.554 / 6.090 & 0.543 / 5.186 & 0.597 / 4.437 \\
+Stable Diffusion 1.5 Base & 0.518 / 10.949 & 0.453 / 4.654 & 0.463 / 5.228 & 0.451 / 4.773 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\end{document}
