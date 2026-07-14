@@ -11,5 +11,6 @@ numpy
 safetensors
 scikit-image
 matplotlib
+lpips
 gradio==4.44.1
 omegaconf

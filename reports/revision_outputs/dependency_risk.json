@@ -1,0 +1,2041 @@
+{
+  "summary": {
+    "records": 200,
+    "contact_mean": 7.1717249371461,
+    "contact_median": 7.028540755480362,
+    "risk_mean": 0.4652486870094241,
+    "high_risk_percent": 0.0
+  },
+  "by_case": {
+    "face_lips": {
+      "count": 50,
+      "contact_mean": 7.22580479465938,
+      "contact_median": 7.447823321963346,
+      "risk_mean": 0.46729049108586473,
+      "high_risk_percent": 0.0
+    },
+    "human_body_shirt": {
+      "count": 50,
+      "contact_mean": 6.430445561596265,
+      "contact_median": 6.804287017557539,
+      "risk_mean": 0.4451192334594247,
+      "high_risk_percent": 0.0
+    },
+    "landscape_sky": {
+      "count": 50,
+      "contact_mean": 8.270187054782397,
+      "contact_median": 7.6930566721446105,
+      "risk_mean": 0.4993024457917992,
+      "high_risk_percent": 0.0
+    },
+    "object_mug": {
+      "count": 50,
+      "contact_mean": 6.760462337546355,
+      "contact_median": 6.75776895206243,
+      "risk_mean": 0.44928257770060787,
+      "high_risk_percent": 0.0
+    }
+  },
+  "rows": [
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.632999228989977,
+      "boundary_change_percent": 43.5705,
+      "bbox_mask_expansion_ratio": 1.3775388291517323,
+      "dependency_risk_score": 0.48295992603738613
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 8.919597989949748,
+      "boundary_change_percent": 45.6284,
+      "bbox_mask_expansion_ratio": 1.3381075369805118,
+      "dependency_risk_score": 0.5190677366480205
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.839934667211106,
+      "boundary_change_percent": 43.6388,
+      "bbox_mask_expansion_ratio": 1.3419568822553898,
+      "dependency_risk_score": 0.48572933745699165
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.174386920980927,
+      "boundary_change_percent": 44.5507,
+      "bbox_mask_expansion_ratio": 1.3739242685025816,
+      "dependency_risk_score": 0.49948815184474765
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 8.371877890841812,
+      "boundary_change_percent": 44.2152,
+      "bbox_mask_expansion_ratio": 1.4362349610757252,
+      "dependency_risk_score": 0.5045405058706225
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.048913846608541,
+      "boundary_change_percent": 42.6747,
+      "bbox_mask_expansion_ratio": 1.5036497685735715,
+      "dependency_risk_score": 0.47220896536084944
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.79431747992588,
+      "boundary_change_percent": 41.8004,
+      "bbox_mask_expansion_ratio": 1.3098790573957857,
+      "dependency_risk_score": 0.45218270246830694
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.355881292803076,
+      "boundary_change_percent": 41.9386,
+      "bbox_mask_expansion_ratio": 1.4157144291595543,
+      "dependency_risk_score": 0.44953494731403926
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.550171316691141,
+      "boundary_change_percent": 44.4604,
+      "bbox_mask_expansion_ratio": 1.3200851139813106,
+      "dependency_risk_score": 0.48377008203288835
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 8.091040652545718,
+      "boundary_change_percent": 45.547,
+      "bbox_mask_expansion_ratio": 1.2009192040528542,
+      "dependency_risk_score": 0.4951487732535571
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.337078651685394,
+      "boundary_change_percent": 39.3844,
+      "bbox_mask_expansion_ratio": 1.3597609561752988,
+      "dependency_risk_score": 0.41103602084247276
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.620762711864407,
+      "boundary_change_percent": 43.2817,
+      "bbox_mask_expansion_ratio": 1.1063862082654663,
+      "dependency_risk_score": 0.44742476465056147
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.442417331812999,
+      "boundary_change_percent": 42.4382,
+      "bbox_mask_expansion_ratio": 1.1903530482458573,
+      "dependency_risk_score": 0.4429951990485529
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.186991869918699,
+      "boundary_change_percent": 44.5008,
+      "bbox_mask_expansion_ratio": 1.098287703533487,
+      "dependency_risk_score": 0.4656590225750483
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.699592012024909,
+      "boundary_change_percent": 42.8687,
+      "bbox_mask_expansion_ratio": 1.2978166591894722,
+      "dependency_risk_score": 0.4560948731999718
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 9.465020576131687,
+      "boundary_change_percent": 46.9529,
+      "bbox_mask_expansion_ratio": 1.4246525333124722,
+      "dependency_risk_score": 0.5422504381882572
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.781469064309662,
+      "boundary_change_percent": 43.1471,
+      "bbox_mask_expansion_ratio": 1.1498542822224311,
+      "dependency_risk_score": 0.45200469539731475
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.311194429566149,
+      "boundary_change_percent": 43.1235,
+      "bbox_mask_expansion_ratio": 1.1101571063207891,
+      "dependency_risk_score": 0.4604727439073624
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 9.289260517376535,
+      "boundary_change_percent": 47.2939,
+      "bbox_mask_expansion_ratio": 1.68161554405345,
+      "dependency_risk_score": 0.5536293875502032
+    },
+    {
+      "model_key": "juggernaut_reborn",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 10.664196877480816,
+      "boundary_change_percent": 49.3233,
+      "bbox_mask_expansion_ratio": 1.111038182752126,
+      "dependency_risk_score": 0.5647756466872227
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.527141133896261,
+      "boundary_change_percent": 42.6565,
+      "bbox_mask_expansion_ratio": 1.3759007360024662,
+      "dependency_risk_score": 0.47527685947804854
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.714285714285714,
+      "boundary_change_percent": 41.6404,
+      "bbox_mask_expansion_ratio": 1.381155303030303,
+      "dependency_risk_score": 0.45318587943722943
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.5,
+      "boundary_change_percent": 34.2605,
+      "bbox_mask_expansion_ratio": 1.3700636178129877,
+      "dependency_risk_score": 0.4040661808906494
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.62037037037037,
+      "boundary_change_percent": 41.4992,
+      "bbox_mask_expansion_ratio": 1.495838881491345,
+      "dependency_risk_score": 0.45619455148197463
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.394366197183099,
+      "boundary_change_percent": 42.1548,
+      "bbox_mask_expansion_ratio": 1.3690614136732329,
+      "dependency_risk_score": 0.4692691946273236
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 4.330136588201104,
+      "boundary_change_percent": 31.0063,
+      "bbox_mask_expansion_ratio": 1.1715201780651316,
+      "dependency_risk_score": 0.3312165406672786
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 2.510917030567686,
+      "boundary_change_percent": 15.8088,
+      "bbox_mask_expansion_ratio": 2.6375901372412187,
+      "dependency_risk_score": 0.2769506474734147
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 2.773497688751926,
+      "boundary_change_percent": 30.7055,
+      "bbox_mask_expansion_ratio": 1.2845090321929558,
+      "dependency_risk_score": 0.30392840538468635
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.1096345514950166,
+      "boundary_change_percent": 43.3099,
+      "bbox_mask_expansion_ratio": 1.2152196098819634,
+      "dependency_risk_score": 0.46281307152399853
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.683339418279178,
+      "boundary_change_percent": 40.1568,
+      "bbox_mask_expansion_ratio": 1.440919147224457,
+      "dependency_risk_score": 0.42665354572680636
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 4.891578416540595,
+      "boundary_change_percent": 39.75,
+      "bbox_mask_expansion_ratio": 1.1379352558168003,
+      "dependency_risk_score": 0.3932283311216519
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.045553670947419,
+      "boundary_change_percent": 42.189,
+      "bbox_mask_expansion_ratio": 1.3101126174958868,
+      "dependency_risk_score": 0.43955070429374266
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 4.630122405534859,
+      "boundary_change_percent": 38.8372,
+      "bbox_mask_expansion_ratio": 1.5015188335358445,
+      "dependency_risk_score": 0.4007015897874894
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.937280872613946,
+      "boundary_change_percent": 44.1404,
+      "bbox_mask_expansion_ratio": 1.1489095459420808,
+      "dependency_risk_score": 0.48103349474938295
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.792273590880304,
+      "boundary_change_percent": 33.3171,
+      "bbox_mask_expansion_ratio": 1.3020660175730232,
+      "dependency_risk_score": 0.40085137269625726
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 11.900684931506849,
+      "boundary_change_percent": 50.4393,
+      "bbox_mask_expansion_ratio": 1.1762374195069478,
+      "dependency_risk_score": 0.5968255696054843
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.287449392712551,
+      "boundary_change_percent": 44.5753,
+      "bbox_mask_expansion_ratio": 1.9086991650956102,
+      "dependency_risk_score": 0.5086357461090316
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.984577165924852,
+      "boundary_change_percent": 44.8259,
+      "bbox_mask_expansion_ratio": 1.6693099946811083,
+      "dependency_risk_score": 0.5321124430525523
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 12.342885872297638,
+      "boundary_change_percent": 52.6882,
+      "bbox_mask_expansion_ratio": 1.135168138267894,
+      "dependency_risk_score": 0.6036161243593475
+    },
+    {
+      "model_key": "sd15_base",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.940279542566709,
+      "boundary_change_percent": 41.2521,
+      "bbox_mask_expansion_ratio": 1.2081930029555294,
+      "dependency_risk_score": 0.42672784099911065
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.412653446647781,
+      "boundary_change_percent": 43.128,
+      "bbox_mask_expansion_ratio": 1.376654441077978,
+      "dependency_risk_score": 0.47585379098685454
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.917297024710035,
+      "boundary_change_percent": 43.0769,
+      "bbox_mask_expansion_ratio": 1.6827754795035728,
+      "dependency_risk_score": 0.5009461144693793
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.647288333983613,
+      "boundary_change_percent": 43.8722,
+      "bbox_mask_expansion_ratio": 1.4158494868871152,
+      "dependency_risk_score": 0.486971441024028
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.197463768115941,
+      "boundary_change_percent": 44.3704,
+      "bbox_mask_expansion_ratio": 1.3852341281241023,
+      "dependency_risk_score": 0.4994333817685239
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.3264078731547295,
+      "boundary_change_percent": 42.0677,
+      "bbox_mask_expansion_ratio": 1.4914862308177423,
+      "dependency_risk_score": 0.4735086690039817
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.32064247471743,
+      "boundary_change_percent": 40.4255,
+      "bbox_mask_expansion_ratio": 1.3431780366056574,
+      "dependency_risk_score": 0.43612475132463147
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.43962801859907,
+      "boundary_change_percent": 43.3149,
+      "bbox_mask_expansion_ratio": 1.343975938457979,
+      "dependency_risk_score": 0.47588075729488033
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.615336266499058,
+      "boundary_change_percent": 42.0019,
+      "bbox_mask_expansion_ratio": 1.241937020375761,
+      "dependency_risk_score": 0.44641497634876914
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.309486780715397,
+      "boundary_change_percent": 43.3278,
+      "bbox_mask_expansion_ratio": 1.4798359903968061,
+      "dependency_risk_score": 0.48014833513414823
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 8.513302034428795,
+      "boundary_change_percent": 44.2677,
+      "bbox_mask_expansion_ratio": 1.1382699945260364,
+      "dependency_risk_score": 0.4927857404148777
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.4559043348281016,
+      "boundary_change_percent": 41.9668,
+      "bbox_mask_expansion_ratio": 1.0407826496935408,
+      "dependency_risk_score": 0.4129580191812391
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 8.036152863739071,
+      "boundary_change_percent": 44.9429,
+      "bbox_mask_expansion_ratio": 1.2299739202439268,
+      "dependency_risk_score": 0.49187915328697773
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.770833333333333,
+      "boundary_change_percent": 44.0036,
+      "bbox_mask_expansion_ratio": 1.3549501452461332,
+      "dependency_risk_score": 0.46718577392897326
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.683731513083049,
+      "boundary_change_percent": 43.9807,
+      "bbox_mask_expansion_ratio": 1.326127239036442,
+      "dependency_risk_score": 0.4638651922134831
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.035551880942538,
+      "boundary_change_percent": 38.4977,
+      "bbox_mask_expansion_ratio": 1.5578569455951397,
+      "dependency_risk_score": 0.4295900848986077
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 12.309442548350399,
+      "boundary_change_percent": 52.8223,
+      "bbox_mask_expansion_ratio": 1.1441823095464174,
+      "dependency_risk_score": 0.6033979664443289
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 8.838215712383489,
+      "boundary_change_percent": 45.8267,
+      "bbox_mask_expansion_ratio": 1.2175632555840186,
+      "dependency_risk_score": 0.5126026770268707
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.0157284768211925,
+      "boundary_change_percent": 42.0821,
+      "bbox_mask_expansion_ratio": 3.145676146256529,
+      "dependency_risk_score": 0.5500909768492502
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.150152181264795,
+      "boundary_change_percent": 46.4585,
+      "bbox_mask_expansion_ratio": 1.270547478109059,
+      "dependency_risk_score": 0.5052814175307488
+    },
+    {
+      "model_key": "realistic_vision_v6_fp16",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.773319959879639,
+      "boundary_change_percent": 45.3637,
+      "bbox_mask_expansion_ratio": 1.225046254691547,
+      "dependency_risk_score": 0.48890091193217017
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.8766859344894025,
+      "boundary_change_percent": 37.9875,
+      "bbox_mask_expansion_ratio": 1.3630126988760765,
+      "dependency_risk_score": 0.41360935363359186
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.25,
+      "boundary_change_percent": 40.1703,
+      "bbox_mask_expansion_ratio": 1.3386188500296385,
+      "dependency_risk_score": 0.43295274250148186
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 5.701754385964913,
+      "boundary_change_percent": 37.8453,
+      "bbox_mask_expansion_ratio": 1.3960290096302461,
+      "dependency_risk_score": 0.4109083382008106
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.541218637992832,
+      "boundary_change_percent": 40.9158,
+      "bbox_mask_expansion_ratio": 1.3428457658614283,
+      "dependency_risk_score": 0.44346146105292805
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.252525252525253,
+      "boundary_change_percent": 27.8376,
+      "bbox_mask_expansion_ratio": 1.429727867723045,
+      "dependency_risk_score": 0.34356249843665726
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.940349285552279,
+      "boundary_change_percent": 42.9381,
+      "bbox_mask_expansion_ratio": 1.3488563774984546,
+      "dependency_risk_score": 0.4638784045859683
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 5.203330131284022,
+      "boundary_change_percent": 39.0225,
+      "bbox_mask_expansion_ratio": 1.165535712141047,
+      "dependency_risk_score": 0.3964783882327328
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.162970784934882,
+      "boundary_change_percent": 43.5507,
+      "bbox_mask_expansion_ratio": 1.4350316613897685,
+      "dependency_risk_score": 0.476315198768186
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.0876125269430705,
+      "boundary_change_percent": 43.0151,
+      "bbox_mask_expansion_ratio": 1.4356149275231835,
+      "dependency_risk_score": 0.47162359691502054
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.202062995026709,
+      "boundary_change_percent": 43.5644,
+      "bbox_mask_expansion_ratio": 1.3833041473632877,
+      "dependency_risk_score": 0.47459286726869854
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.744704570791527,
+      "boundary_change_percent": 43.5998,
+      "bbox_mask_expansion_ratio": 1.295425523923984,
+      "dependency_risk_score": 0.46126416761202976
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.484962406015038,
+      "boundary_change_percent": 43.3257,
+      "bbox_mask_expansion_ratio": 1.3099207756887783,
+      "dependency_risk_score": 0.45514948690473966
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.727738376674547,
+      "boundary_change_percent": 42.1128,
+      "bbox_mask_expansion_ratio": 1.223677698963754,
+      "dependency_risk_score": 0.44841545248167863
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 5.4257288292457195,
+      "boundary_change_percent": 40.0733,
+      "bbox_mask_expansion_ratio": 1.1410587290662995,
+      "dependency_risk_score": 0.40600731303822934
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.289794287996805,
+      "boundary_change_percent": 34.2912,
+      "bbox_mask_expansion_ratio": 1.2720441578922956,
+      "dependency_risk_score": 0.4151452936545509
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 4.4737245288800365,
+      "boundary_change_percent": 37.7509,
+      "bbox_mask_expansion_ratio": 1.2344031080406948,
+      "dependency_risk_score": 0.3777000459796355
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.343997812414547,
+      "boundary_change_percent": 41.6142,
+      "bbox_mask_expansion_ratio": 1.9608111187058557,
+      "dependency_risk_score": 0.4746057121835837
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.96663577386469,
+      "boundary_change_percent": 44.7284,
+      "bbox_mask_expansion_ratio": 1.8359547461368655,
+      "dependency_risk_score": 0.5395008527841371
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 5.9189723320158105,
+      "boundary_change_percent": 40.1881,
+      "bbox_mask_expansion_ratio": 2.064031079530586,
+      "dependency_risk_score": 0.4627096006168455
+    },
+    {
+      "model_key": "deliberate_v6",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 8.30048182216382,
+      "boundary_change_percent": 44.3002,
+      "bbox_mask_expansion_ratio": 1.3173376229970544,
+      "dependency_risk_score": 0.49767771759312907
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.755437012720558,
+      "boundary_change_percent": 43.3938,
+      "bbox_mask_expansion_ratio": 1.3888829273527203,
+      "dependency_risk_score": 0.48491568662204715
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 8.237885462555067,
+      "boundary_change_percent": 44.1614,
+      "bbox_mask_expansion_ratio": 1.4228726848853777,
+      "dependency_risk_score": 0.5008697434953702
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.24742268041237,
+      "boundary_change_percent": 44.2387,
+      "bbox_mask_expansion_ratio": 1.4158810732414793,
+      "dependency_risk_score": 0.5011747072703213
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.854166666666666,
+      "boundary_change_percent": 45.1711,
+      "bbox_mask_expansion_ratio": 1.4316765686132444,
+      "dependency_risk_score": 0.5196937617639955
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.1680969207470975,
+      "boundary_change_percent": 41.9063,
+      "bbox_mask_expansion_ratio": 1.4546054803565533,
+      "dependency_risk_score": 0.4675300124327696
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.814256555189198,
+      "boundary_change_percent": 42.5973,
+      "bbox_mask_expansion_ratio": 1.436048019563526,
+      "dependency_risk_score": 0.46367133208196026
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.87915615684476,
+      "boundary_change_percent": 42.6914,
+      "bbox_mask_expansion_ratio": 1.172203401855235,
+      "dependency_risk_score": 0.45234169322965695
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.670496940755111,
+      "boundary_change_percent": 43.0911,
+      "bbox_mask_expansion_ratio": 1.2755021350624702,
+      "dependency_risk_score": 0.4757316455682257
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.680491551459293,
+      "boundary_change_percent": 44.4757,
+      "bbox_mask_expansion_ratio": 1.2035663584137137,
+      "dependency_risk_score": 0.4806423489498715
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.595613800481412,
+      "boundary_change_percent": 43.9222,
+      "bbox_mask_expansion_ratio": 1.145007968083091,
+      "dependency_risk_score": 0.4726958744137828
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.08348134991119,
+      "boundary_change_percent": 41.8535,
+      "bbox_mask_expansion_ratio": 1.203342120128036,
+      "dependency_risk_score": 0.4329577330046256
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 5.243667604799289,
+      "boundary_change_percent": 39.6293,
+      "bbox_mask_expansion_ratio": 1.4791414966953307,
+      "dependency_risk_score": 0.41660622693075233
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.233388810651645,
+      "boundary_change_percent": 43.964,
+      "bbox_mask_expansion_ratio": 1.1349727626459145,
+      "dependency_risk_score": 0.4652004143453286
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 5.665803853897038,
+      "boundary_change_percent": 41.9949,
+      "bbox_mask_expansion_ratio": 1.0708634526723206,
+      "dependency_risk_score": 0.4188286497115568
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.520833333333333,
+      "boundary_change_percent": 38.5857,
+      "bbox_mask_expansion_ratio": 1.3375779792912728,
+      "dependency_risk_score": 0.4488097656312303
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.932052161976665,
+      "boundary_change_percent": 43.7368,
+      "bbox_mask_expansion_ratio": 1.0833191111717924,
+      "dependency_risk_score": 0.4552277987981229
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.629501280699111,
+      "boundary_change_percent": 41.6689,
+      "bbox_mask_expansion_ratio": 1.11520285846012,
+      "dependency_risk_score": 0.4383635685369882
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.585081585081585,
+      "boundary_change_percent": 41.4312,
+      "bbox_mask_expansion_ratio": 1.380452750482138,
+      "dependency_risk_score": 0.44931146922573856
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.805206668189085,
+      "boundary_change_percent": 42.4069,
+      "bbox_mask_expansion_ratio": 1.7552733803934675,
+      "dependency_risk_score": 0.47830920238345503
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 4.8115173328281875,
+      "boundary_change_percent": 39.375,
+      "bbox_mask_expansion_ratio": 1.5843875576722728,
+      "dependency_risk_score": 0.4116997245401774
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.670454545454546,
+      "boundary_change_percent": 42.289,
+      "bbox_mask_expansion_ratio": 1.42069434989789,
+      "dependency_risk_score": 0.4781778084039853
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.2565543071161045,
+      "boundary_change_percent": 42.2388,
+      "bbox_mask_expansion_ratio": 1.3605569688043915,
+      "dependency_risk_score": 0.46659173458254166
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.9830246913580245,
+      "boundary_change_percent": 39.2836,
+      "bbox_mask_expansion_ratio": 1.436666022046026,
+      "dependency_risk_score": 0.4471953949294618
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 5.957137667998547,
+      "boundary_change_percent": 40.2723,
+      "bbox_mask_expansion_ratio": 1.3754814389904124,
+      "dependency_risk_score": 0.42955062530949156
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.042462845010616,
+      "boundary_change_percent": 38.0444,
+      "bbox_mask_expansion_ratio": 1.3963775023832223,
+      "dependency_risk_score": 0.3989345320193734
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.04171200580341,
+      "boundary_change_percent": 39.7558,
+      "bbox_mask_expansion_ratio": 1.4596626844694307,
+      "dependency_risk_score": 0.4123521743395397
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 2.8954802259887007,
+      "boundary_change_percent": 33.4302,
+      "bbox_mask_expansion_ratio": 6.969594594594596,
+      "dependency_risk_score": 0.45849080451977403
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 4.25531914893617,
+      "boundary_change_percent": 32.8922,
+      "bbox_mask_expansion_ratio": 1.8370364838119422,
+      "dependency_risk_score": 0.37431140716932054
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 4.1290770298403885,
+      "boundary_change_percent": 34.3464,
+      "bbox_mask_expansion_ratio": 1.3550461760296624,
+      "dependency_risk_score": 0.3564122493982909
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.019669551534225,
+      "boundary_change_percent": 23.8404,
+      "bbox_mask_expansion_ratio": 1.4085923352129681,
+      "dependency_risk_score": 0.3138654077913329
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.670926517571885,
+      "boundary_change_percent": 39.8463,
+      "bbox_mask_expansion_ratio": 1.2762878385554965,
+      "dependency_risk_score": 0.4163107222792125
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.930553599098465,
+      "boundary_change_percent": 43.4023,
+      "bbox_mask_expansion_ratio": 1.1637738019431836,
+      "dependency_risk_score": 0.45721356207912844
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 4.232236528373868,
+      "boundary_change_percent": 39.3381,
+      "bbox_mask_expansion_ratio": 1.052024388461757,
+      "dependency_risk_score": 0.3732745499905652
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.2773722627737225,
+      "boundary_change_percent": 42.807,
+      "bbox_mask_expansion_ratio": 1.0903033660059887,
+      "dependency_risk_score": 0.4369046135557739
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 4.148401582379985,
+      "boundary_change_percent": 37.7449,
+      "bbox_mask_expansion_ratio": 1.1325985258519868,
+      "dependency_risk_score": 0.36606735794019907
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 11.702372725178531,
+      "boundary_change_percent": 51.8399,
+      "bbox_mask_expansion_ratio": 1.0961312366816078,
+      "dependency_risk_score": 0.588854016337651
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 4.031575979701156,
+      "boundary_change_percent": 37.8896,
+      "bbox_mask_expansion_ratio": 1.4446159379027181,
+      "dependency_risk_score": 0.380199916489159
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.059769074032149,
+      "boundary_change_percent": 44.2102,
+      "bbox_mask_expansion_ratio": 1.9845435023715694,
+      "dependency_risk_score": 0.5256837565992214
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 11.570827489481067,
+      "boundary_change_percent": 49.9366,
+      "bbox_mask_expansion_ratio": 1.1381183811201427,
+      "dependency_risk_score": 0.5879420688456285
+    },
+    {
+      "model_key": "openjourney_v4",
+      "family": "sd15",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 13.46833058629621,
+      "boundary_change_percent": 51.8573,
+      "bbox_mask_expansion_ratio": 1.1280782482021874,
+      "dependency_risk_score": 0.6257705241360335
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.651434643995749,
+      "boundary_change_percent": 43.6534,
+      "bbox_mask_expansion_ratio": 1.4394618834080715,
+      "dependency_risk_score": 0.4869221870503186
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 5.74468085106383,
+      "boundary_change_percent": 40.5708,
+      "bbox_mask_expansion_ratio": 1.3600139811254806,
+      "dependency_risk_score": 0.4263191160775506
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.5899178702917025,
+      "boundary_change_percent": 43.7445,
+      "bbox_mask_expansion_ratio": 1.405395976276311,
+      "dependency_risk_score": 0.4845351562196496
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.482993197278912,
+      "boundary_change_percent": 43.627,
+      "bbox_mask_expansion_ratio": 1.4366228070175437,
+      "dependency_risk_score": 0.4832530042964554
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.903958269407794,
+      "boundary_change_percent": 42.6901,
+      "bbox_mask_expansion_ratio": 1.406340454858718,
+      "dependency_risk_score": 0.4645367881310917
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.676899462778204,
+      "boundary_change_percent": 42.5254,
+      "bbox_mask_expansion_ratio": 1.270468814736909,
+      "dependency_risk_score": 0.45221382999240944
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.918283033401022,
+      "boundary_change_percent": 43.0455,
+      "bbox_mask_expansion_ratio": 1.420192774426184,
+      "dependency_risk_score": 0.46764829938932967
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.975013290802765,
+      "boundary_change_percent": 42.4453,
+      "bbox_mask_expansion_ratio": 1.4957943849792545,
+      "dependency_risk_score": 0.468961785065018
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.040952478702659,
+      "boundary_change_percent": 42.8234,
+      "bbox_mask_expansion_ratio": 1.5309207721819622,
+      "dependency_risk_score": 0.4743054881831513
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.421063586221251,
+      "boundary_change_percent": 42.6349,
+      "bbox_mask_expansion_ratio": 1.4207754502641663,
+      "dependency_risk_score": 0.4552694442376334
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 8.338757503435307,
+      "boundary_change_percent": 45.4642,
+      "bbox_mask_expansion_ratio": 1.1262050453154766,
+      "dependency_risk_score": 0.49587060233448
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.238105307676041,
+      "boundary_change_percent": 42.6006,
+      "bbox_mask_expansion_ratio": 1.1475974713080284,
+      "dependency_risk_score": 0.43774557971892225
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.12314808123148,
+      "boundary_change_percent": 45.5391,
+      "bbox_mask_expansion_ratio": 1.0996452848320402,
+      "dependency_risk_score": 0.4906798258662316
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.82034471819816,
+      "boundary_change_percent": 43.4343,
+      "bbox_mask_expansion_ratio": 1.1015669738143576,
+      "dependency_risk_score": 0.45209104305468106
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 8.009041480847944,
+      "boundary_change_percent": 44.1434,
+      "bbox_mask_expansion_ratio": 1.211540858839353,
+      "dependency_risk_score": 0.48561827255892653
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 13.753431821153091,
+      "boundary_change_percent": 51.7801,
+      "bbox_mask_expansion_ratio": 1.1621345213578222,
+      "dependency_risk_score": 0.633175362490953
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.575520833333333,
+      "boundary_change_percent": 43.8804,
+      "bbox_mask_expansion_ratio": 1.6772774747591968,
+      "dependency_risk_score": 0.4786566904046265
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 12.463446606836746,
+      "boundary_change_percent": 49.6545,
+      "bbox_mask_expansion_ratio": 1.0598386218504035,
+      "dependency_risk_score": 0.6001878632292551
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 11.688671406149016,
+      "boundary_change_percent": 45.8537,
+      "bbox_mask_expansion_ratio": 1.2482419492954822,
+      "dependency_risk_score": 0.5713077255877543
+    },
+    {
+      "model_key": "juggernaut_xl_v2",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.612793384409583,
+      "boundary_change_percent": 43.6184,
+      "bbox_mask_expansion_ratio": 1.957547488677077,
+      "dependency_risk_score": 0.5118436421220456
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.662983425414365,
+      "boundary_change_percent": 40.2448,
+      "bbox_mask_expansion_ratio": 1.4014276002719237,
+      "dependency_risk_score": 0.42479984852188346
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.217651458489155,
+      "boundary_change_percent": 43.0411,
+      "bbox_mask_expansion_ratio": 1.3939326343966094,
+      "dependency_risk_score": 0.4722962608896136
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.6802507836990594,
+      "boundary_change_percent": 43.6019,
+      "bbox_mask_expansion_ratio": 1.4054457619675012,
+      "dependency_risk_score": 0.4854887037723562
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.172131147540983,
+      "boundary_change_percent": 42.8283,
+      "bbox_mask_expansion_ratio": 1.400220811482197,
+      "dependency_risk_score": 0.4704234635249295
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.506138197123816,
+      "boundary_change_percent": 43.1277,
+      "bbox_mask_expansion_ratio": 1.3988178565873386,
+      "dependency_risk_score": 0.4788298567718432
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.488958069851153,
+      "boundary_change_percent": 41.3047,
+      "bbox_mask_expansion_ratio": 1.2464929859719438,
+      "dependency_risk_score": 0.4399320106956202
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.861226920786183,
+      "boundary_change_percent": 42.766,
+      "bbox_mask_expansion_ratio": 1.4693727783511064,
+      "dependency_risk_score": 0.46728917733327896
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.0728326091454585,
+      "boundary_change_percent": 41.6199,
+      "bbox_mask_expansion_ratio": 1.4587247209636425,
+      "dependency_risk_score": 0.4441122882310913
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.82074987159733,
+      "boundary_change_percent": 42.6219,
+      "bbox_mask_expansion_ratio": 1.4873254088454422,
+      "dependency_risk_score": 0.4665126678742187
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.322068612391193,
+      "boundary_change_percent": 43.6844,
+      "bbox_mask_expansion_ratio": 1.4098607647547796,
+      "dependency_risk_score": 0.4790408104855628
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 10.293690026170399,
+      "boundary_change_percent": 46.637,
+      "bbox_mask_expansion_ratio": 1.1978313060888208,
+      "dependency_risk_score": 0.5455873658278491
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.842396777442095,
+      "boundary_change_percent": 46.4626,
+      "bbox_mask_expansion_ratio": 1.3413793103448277,
+      "dependency_risk_score": 0.5026925010660833
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.180616740088106,
+      "boundary_change_percent": 44.2931,
+      "bbox_mask_expansion_ratio": 1.0822548232889584,
+      "dependency_risk_score": 0.46348367596621004
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.905429653751579,
+      "boundary_change_percent": 46.9984,
+      "bbox_mask_expansion_ratio": 1.1823394161646148,
+      "dependency_risk_score": 0.5192159638832623
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 4.322171411712642,
+      "boundary_change_percent": 33.8555,
+      "bbox_mask_expansion_ratio": 1.2702862864499254,
+      "dependency_risk_score": 0.35309074255674905
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 5.0591859899464895,
+      "boundary_change_percent": 40.2498,
+      "bbox_mask_expansion_ratio": 1.375909441937975,
+      "dependency_risk_score": 0.41147799189582857
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 2.7073403241182077,
+      "boundary_change_percent": 37.6493,
+      "bbox_mask_expansion_ratio": 1.4670810810810813,
+      "dependency_risk_score": 0.35339666053641816
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 5.437482749102953,
+      "boundary_change_percent": 38.2557,
+      "bbox_mask_expansion_ratio": 1.1578312607204118,
+      "dependency_risk_score": 0.39617541801807965
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 10.404624277456648,
+      "boundary_change_percent": 45.2712,
+      "bbox_mask_expansion_ratio": 1.2138817312311656,
+      "dependency_risk_score": 0.5404137721106912
+    },
+    {
+      "model_key": "sdxl_base_1_0_local",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.048622366288493,
+      "boundary_change_percent": 40.6079,
+      "bbox_mask_expansion_ratio": 1.0865459186612836,
+      "dependency_risk_score": 0.41894714325883403
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.7209797657082,
+      "boundary_change_percent": 43.7163,
+      "bbox_mask_expansion_ratio": 1.4097610574478903,
+      "dependency_risk_score": 0.4872054481865585
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.346423562412342,
+      "boundary_change_percent": 41.3254,
+      "bbox_mask_expansion_ratio": 1.4038812406700947,
+      "dependency_risk_score": 0.44507493328175163
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.73542600896861,
+      "boundary_change_percent": 43.5601,
+      "bbox_mask_expansion_ratio": 1.4413006756756757,
+      "dependency_risk_score": 0.48813415396315596
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.293986636971047,
+      "boundary_change_percent": 42.8269,
+      "bbox_mask_expansion_ratio": 1.4581652155447016,
+      "dependency_risk_score": 0.475749393516656
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.365792759051186,
+      "boundary_change_percent": 43.2195,
+      "bbox_mask_expansion_ratio": 1.4434298758738766,
+      "dependency_risk_score": 0.47880434897471746
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.657223796033994,
+      "boundary_change_percent": 41.3819,
+      "bbox_mask_expansion_ratio": 1.301925969524557,
+      "dependency_risk_score": 0.44653217439690773
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.721682417143618,
+      "boundary_change_percent": 40.258,
+      "bbox_mask_expansion_ratio": 1.4718608085141949,
+      "dependency_risk_score": 0.44957468876858214
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.736463620981388,
+      "boundary_change_percent": 42.292,
+      "bbox_mask_expansion_ratio": 1.5200624989932507,
+      "dependency_risk_score": 0.46448439736929026
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.097390197326543,
+      "boundary_change_percent": 42.8175,
+      "bbox_mask_expansion_ratio": 1.5192322931359652,
+      "dependency_risk_score": 0.4748144186033292
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.963591375044185,
+      "boundary_change_percent": 42.5376,
+      "bbox_mask_expansion_ratio": 1.5057193429892846,
+      "dependency_risk_score": 0.4697833946503479
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 9.706817379018014,
+      "boundary_change_percent": 46.4157,
+      "bbox_mask_expansion_ratio": 1.173961565451179,
+      "dependency_risk_score": 0.5313286258529192
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 4.408241494968855,
+      "boundary_change_percent": 40.318,
+      "bbox_mask_expansion_ratio": 1.1151532878740789,
+      "dependency_risk_score": 0.385830494293081
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 8.084568378169559,
+      "boundary_change_percent": 43.9572,
+      "bbox_mask_expansion_ratio": 1.1076748603274218,
+      "dependency_risk_score": 0.48081831057976226
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.296993887988026,
+      "boundary_change_percent": 42.3288,
+      "bbox_mask_expansion_ratio": 1.1941714203017402,
+      "dependency_risk_score": 0.45962124877484756
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 9.12204050304068,
+      "boundary_change_percent": 45.8777,
+      "bbox_mask_expansion_ratio": 1.08958035795679,
+      "dependency_risk_score": 0.5121860279586531
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.40871825634873,
+      "boundary_change_percent": 42.7266,
+      "bbox_mask_expansion_ratio": 1.4834454957917995,
+      "dependency_risk_score": 0.45870623991656456
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 2.7788069655427936,
+      "boundary_change_percent": 36.783,
+      "bbox_mask_expansion_ratio": 1.9616151545363911,
+      "dependency_risk_score": 0.37435489703767544
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 10.944326990838618,
+      "boundary_change_percent": 46.4734,
+      "bbox_mask_expansion_ratio": 1.0874419826604782,
+      "dependency_risk_score": 0.5520990389497963
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 8.588322246858832,
+      "boundary_change_percent": 43.5992,
+      "bbox_mask_expansion_ratio": 1.1038213183425387,
+      "dependency_risk_score": 0.48855271085430363
+    },
+    {
+      "model_key": "realvisxl_v4",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 16.591678883777362,
+      "boundary_change_percent": 48.3954,
+      "bbox_mask_expansion_ratio": 1.1063472681659747,
+      "dependency_risk_score": 0.6775233410838459
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.5650118203309695,
+      "boundary_change_percent": 43.8771,
+      "bbox_mask_expansion_ratio": 1.4657441781977725,
+      "dependency_risk_score": 0.487850045316508
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "dependency_contact_percent": 7.016129032258065,
+      "boundary_change_percent": 42.3228,
+      "bbox_mask_expansion_ratio": 1.393438639125152,
+      "dependency_risk_score": 0.46393131260141884
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.583417593528817,
+      "boundary_change_percent": 43.1113,
+      "bbox_mask_expansion_ratio": 1.3752608877139278,
+      "dependency_risk_score": 0.4790991962562728
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "dependency_contact_percent": 7.5319016495487086,
+      "boundary_change_percent": 43.1648,
+      "bbox_mask_expansion_ratio": 1.3517069701280229,
+      "dependency_risk_score": 0.47721218149737527
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.52813348855258,
+      "boundary_change_percent": 42.9607,
+      "bbox_mask_expansion_ratio": 1.40224327982982,
+      "dependency_risk_score": 0.4784390337625426
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.0901341095748,
+      "boundary_change_percent": 43.3019,
+      "bbox_mask_expansion_ratio": 1.2188111101496928,
+      "dependency_risk_score": 0.46255463769898064
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "dependency_contact_percent": 6.466910972192283,
+      "boundary_change_percent": 42.3136,
+      "bbox_mask_expansion_ratio": 1.4631469906594565,
+      "dependency_risk_score": 0.45637716897681846
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.619458128078818,
+      "boundary_change_percent": 42.2387,
+      "bbox_mask_expansion_ratio": 1.4876829976466273,
+      "dependency_risk_score": 0.4602055124439077
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "dependency_contact_percent": 6.779831257533146,
+      "boundary_change_percent": 42.5343,
+      "bbox_mask_expansion_ratio": 1.4660027226481334,
+      "dependency_risk_score": 0.46410256128306954
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "dependency_contact_percent": 6.767700138824618,
+      "boundary_change_percent": 42.2394,
+      "bbox_mask_expansion_ratio": 1.4858175912140605,
+      "dependency_risk_score": 0.46308128233719537
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "dependency_contact_percent": 7.340576287198866,
+      "boundary_change_percent": 44.5661,
+      "bbox_mask_expansion_ratio": 1.1131265761182143,
+      "dependency_risk_score": 0.469864454549888
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "dependency_contact_percent": 5.061765592045797,
+      "boundary_change_percent": 40.6948,
+      "bbox_mask_expansion_ratio": 1.122796798075839,
+      "dependency_risk_score": 0.4015439517447079
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "dependency_contact_percent": 7.425666307194577,
+      "boundary_change_percent": 44.3617,
+      "bbox_mask_expansion_ratio": 1.1570396652265067,
+      "dependency_risk_score": 0.4725355094052168
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "dependency_contact_percent": 9.146271400666437,
+      "boundary_change_percent": 46.5367,
+      "bbox_mask_expansion_ratio": 1.1783251392272887,
+      "dependency_risk_score": 0.5210618849746933
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "dependency_contact_percent": 7.111054573209516,
+      "boundary_change_percent": 42.6802,
+      "bbox_mask_expansion_ratio": 1.25503213930048,
+      "dependency_risk_score": 0.46105389842921435
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "dependency_contact_percent": 6.20165940092814,
+      "boundary_change_percent": 40.3949,
+      "bbox_mask_expansion_ratio": 1.4952522700264212,
+      "dependency_risk_score": 0.44116520151988387
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "dependency_contact_percent": 8.166897369982204,
+      "boundary_change_percent": 43.5721,
+      "bbox_mask_expansion_ratio": 1.1677638465654006,
+      "dependency_risk_score": 0.48315873972791407
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "dependency_contact_percent": 6.541302887844191,
+      "boundary_change_percent": 42.1389,
+      "bbox_mask_expansion_ratio": 1.1216807667856616,
+      "dependency_risk_score": 0.4397434960961669
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "dependency_contact_percent": 11.622031328954018,
+      "boundary_change_percent": 43.6443,
+      "bbox_mask_expansion_ratio": 1.128757882387447,
+      "dependency_risk_score": 0.5507443206984527
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "family": "sdxl",
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "dependency_contact_percent": 5.2605642478748305,
+      "boundary_change_percent": 38.096,
+      "bbox_mask_expansion_ratio": 1.0964837680922397,
+      "dependency_risk_score": 0.3886114733621086
+    }
+  ]
+}

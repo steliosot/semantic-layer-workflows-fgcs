@@ -1,0 +1,203 @@
+{
+  "records": 200,
+  "scenarios": {
+    "edge_constrained": {
+      "k1_wins_percent": 24.0,
+      "k1_semantic_mean": 69.57618360000001,
+      "k1_naive_mean": 53.319579,
+      "k2_wins_percent": 48.5,
+      "k2_semantic_mean": 81.7493436,
+      "k2_naive_mean": 106.930374,
+      "k3_wins_percent": 92.5,
+      "k3_semantic_mean": 93.9225036,
+      "k3_naive_mean": 160.541169,
+      "k5_wins_percent": 99.5,
+      "k5_semantic_mean": 118.2688236,
+      "k5_naive_mean": 267.762759,
+      "break_even_mean": 1.8862419464872717,
+      "break_even_median": 2.017288714411733,
+      "break_even_le2_percent": 48.24120603015076,
+      "break_even_le3_percent": 92.96482412060301
+    },
+    "measured_mps": {
+      "k1_wins_percent": 25.5,
+      "k1_semantic_mean": 43.675426,
+      "k1_naive_mean": 35.546386,
+      "k2_wins_percent": 60.0,
+      "k2_semantic_mean": 51.790866,
+      "k2_naive_mean": 71.286916,
+      "k3_wins_percent": 98.0,
+      "k3_semantic_mean": 59.906306,
+      "k3_naive_mean": 107.027446,
+      "k5_wins_percent": 99.5,
+      "k5_semantic_mean": 76.137186,
+      "k5_naive_mean": 178.508506,
+      "break_even_mean": 1.7112581597368006,
+      "break_even_median": 1.792625743420506,
+      "break_even_le2_percent": 59.79899497487437,
+      "break_even_le3_percent": 98.49246231155779
+    },
+    "cuda_workstation": {
+      "k1_wins_percent": 26.5,
+      "k1_semantic_mean": 18.2995935,
+      "k1_naive_mean": 15.9958737,
+      "k2_wins_percent": 71.5,
+      "k2_semantic_mean": 21.9515415,
+      "k2_naive_mean": 32.079112200000004,
+      "k3_wins_percent": 99.5,
+      "k3_semantic_mean": 25.603489500000002,
+      "k3_naive_mean": 48.162350700000005,
+      "k5_wins_percent": 99.5,
+      "k5_semantic_mean": 32.907385500000004,
+      "k5_naive_mean": 80.3288277,
+      "break_even_mean": 1.5168317300140548,
+      "break_even_median": 1.6072566679987295,
+      "break_even_le2_percent": 71.35678391959799,
+      "break_even_le3_percent": 100.0
+    },
+    "cloud_accelerator": {
+      "k1_wins_percent": 26.5,
+      "k1_semantic_mean": 9.5579111,
+      "k1_naive_mean": 8.609277200000001,
+      "k2_wins_percent": 71.5,
+      "k2_semantic_mean": 12.680999100000001,
+      "k2_naive_mean": 17.2573832,
+      "k3_wins_percent": 99.5,
+      "k3_semantic_mean": 15.8040871,
+      "k3_naive_mean": 25.9054892,
+      "k5_wins_percent": 99.5,
+      "k5_semantic_mean": 22.050263100000002,
+      "k5_naive_mean": 43.2017012,
+      "break_even_mean": 1.4925284262987117,
+      "break_even_median": 1.5848892891661541,
+      "break_even_le2_percent": 71.35678391959799,
+      "break_even_le3_percent": 100.0
+    },
+    "fast_detector_slow_diffusion": {
+      "k1_wins_percent": 54.0,
+      "k1_semantic_mean": 32.1634663,
+      "k1_naive_mean": 35.546386,
+      "k2_wins_percent": 96.0,
+      "k2_semantic_mean": 40.2789063,
+      "k2_naive_mean": 71.286916,
+      "k3_wins_percent": 100.0,
+      "k3_semantic_mean": 48.3943463,
+      "k3_naive_mean": 107.027446,
+      "k5_wins_percent": 99.5,
+      "k5_semantic_mean": 64.6252263,
+      "k5_naive_mean": 178.508506,
+      "break_even_mean": 0.9675770660472983,
+      "break_even_median": 0.8930281460552055,
+      "break_even_le2_percent": 95.97989949748744,
+      "break_even_le3_percent": 100.0
+    },
+    "slow_detector_fast_diffusion": {
+      "k1_wins_percent": 0.0,
+      "k1_semantic_mean": 27.848209,
+      "k1_naive_mean": 8.8865965,
+      "k2_wins_percent": 9.0,
+      "k2_semantic_mean": 29.877069,
+      "k2_naive_mean": 17.821729,
+      "k3_wins_percent": 24.0,
+      "k3_semantic_mean": 31.905929,
+      "k3_naive_mean": 26.7568615,
+      "k5_wins_percent": 46.0,
+      "k5_semantic_mean": 35.963649000000004,
+      "k5_naive_mean": 44.6271265,
+      "break_even_mean": 6.085852828498579,
+      "break_even_median": 5.550562551264129,
+      "break_even_le2_percent": 9.045226130653266,
+      "break_even_le3_percent": 24.12060301507538
+    }
+  },
+  "policy_ablation": {
+    "k1": {
+      "latency_only": {
+        "semantic_selected_percent": 25.5,
+        "mean_latency": 30.7804765,
+        "mean_outside_drift": 69.973213
+      },
+      "preservation_first": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 43.675426,
+        "mean_outside_drift": 0.0
+      },
+      "balanced": {
+        "semantic_selected_percent": 25.5,
+        "mean_latency": 30.7804765,
+        "mean_outside_drift": 69.973213
+      },
+      "oracle": {
+        "semantic_selected_percent": 25.5,
+        "mean_latency": 30.7804765,
+        "mean_outside_drift": 69.973213
+      }
+    },
+    "k2": {
+      "latency_only": {
+        "semantic_selected_percent": 60.0,
+        "mean_latency": 49.5432245,
+        "mean_outside_drift": 38.102084
+      },
+      "preservation_first": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 51.790866,
+        "mean_outside_drift": 0.0
+      },
+      "balanced": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 51.790866,
+        "mean_outside_drift": 0.0
+      },
+      "oracle": {
+        "semantic_selected_percent": 60.0,
+        "mean_latency": 49.5432245,
+        "mean_outside_drift": 38.102084
+      }
+    },
+    "k3": {
+      "latency_only": {
+        "semantic_selected_percent": 98.0,
+        "mean_latency": 59.8389705,
+        "mean_outside_drift": 1.7733035
+      },
+      "preservation_first": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 59.906306,
+        "mean_outside_drift": 0.0
+      },
+      "balanced": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 59.906306,
+        "mean_outside_drift": 0.0
+      },
+      "oracle": {
+        "semantic_selected_percent": 98.0,
+        "mean_latency": 59.8389705,
+        "mean_outside_drift": 1.7733035
+      }
+    },
+    "k5": {
+      "latency_only": {
+        "semantic_selected_percent": 99.5,
+        "mean_latency": 75.966638,
+        "mean_outside_drift": 0.4550745
+      },
+      "preservation_first": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 76.137186,
+        "mean_outside_drift": 0.0
+      },
+      "balanced": {
+        "semantic_selected_percent": 100.0,
+        "mean_latency": 76.137186,
+        "mean_outside_drift": 0.0
+      },
+      "oracle": {
+        "semantic_selected_percent": 99.5,
+        "mean_latency": 75.966638,
+        "mean_outside_drift": 0.4550745
+      }
+    }
+  }
+}

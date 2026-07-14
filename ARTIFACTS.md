@@ -8,6 +8,7 @@ The repository is intended to share the materials needed to inspect and reproduc
 - Paper figures used by the LaTeX manuscript.
 - Benchmark source scripts and requirements files.
 - Aggregate metrics in CSV form, with the full JSON metrics file attached as a release asset.
+- Revision-analysis scripts and outputs for policy ablation, LPIPS scoring, and dependency-risk auditing.
 - Human-readable benchmark reports.
 - All 200 benchmark `sample_grid.png` outputs, renamed by model, category, and sample, attached as a release asset.
 - Citation metadata and SHA-256 checksums for the release ZIP files.
