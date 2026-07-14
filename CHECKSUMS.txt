@@ -1,4 +1,4 @@
-494a9d9337ecfbdce6713ca84d361ea2422fa3be92989f10d8f1e1c300e14c57  release/split/manuscript-pdfs-and-metrics.zip
+109d502191cb7945231c0457322cedee00bc7d3f51fa6b4466fbe7607ccafa66  release/split/manuscript-pdfs-and-metrics.zip
 c9f8ffe3261e182b8492ae7d8f9f0deeb32481db9960465f6ad7c02e4d8c538c  release/split/sample-grids-deliberate_v6.zip
 1085258b3723cfa72c1ef76d6169862306fb3c3298f5dc6670e6089aaff2de5e  release/split/sample-grids-dreamshaper_8.zip
 c5b91c02a30f3649f0fc8df6ce99f70f67a502e749fd0f914e08832635f43c0f  release/split/sample-grids-dreamshaper_xl_1_0.zip

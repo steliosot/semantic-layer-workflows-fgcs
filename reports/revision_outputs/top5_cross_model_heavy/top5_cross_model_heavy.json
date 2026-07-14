@@ -1,0 +1,82 @@
+{
+  "source": "/Users/stelios/Desktop/semantic-sd/outputs/heavy_paper_benchmark/heavy_all_models_20steps_5samples/heavy_paper_benchmark_metrics.json",
+  "ranking_metric": "mean_cached_reedit_speedup",
+  "note": "Top five from the completed 200-sample local heavy benchmark across 10 compatible checkpoints.",
+  "rows": [
+    {
+      "rank": 1,
+      "model_name": "OpenJourney v4",
+      "samples": 20,
+      "mean_naive_v1_seconds": 23.9414,
+      "mean_semantic_v1_seconds": 7.4963,
+      "mean_detector_seconds": 12.3839,
+      "mean_cached_reedit_seconds": 3.618,
+      "mean_generation_speedup": 3.5368,
+      "mean_detector_inclusive_speedup": 1.2458,
+      "mean_cached_reedit_speedup": 12.229,
+      "mean_outside_naive_changed_percent": 97.5011,
+      "mean_outside_semantic_changed_percent": 0.0,
+      "mean_boundary_semantic_changed_percent": 40.2633
+    },
+    {
+      "rank": 2,
+      "model_name": "Juggernaut XL v2",
+      "samples": 20,
+      "mean_naive_v1_seconds": 118.2201,
+      "mean_semantic_v1_seconds": 75.622,
+      "mean_detector_seconds": 15.298,
+      "mean_cached_reedit_seconds": 26.5295,
+      "mean_generation_speedup": 1.5668,
+      "mean_detector_inclusive_speedup": 1.3025,
+      "mean_cached_reedit_speedup": 10.5141,
+      "mean_outside_naive_changed_percent": 91.8132,
+      "mean_outside_semantic_changed_percent": 0.0,
+      "mean_boundary_semantic_changed_percent": 44.1865
+    },
+    {
+      "rank": 3,
+      "model_name": "DreamShaper 8",
+      "samples": 20,
+      "mean_naive_v1_seconds": 31.3882,
+      "mean_semantic_v1_seconds": 8.298,
+      "mean_detector_seconds": 13.2916,
+      "mean_cached_reedit_seconds": 4.8834,
+      "mean_generation_speedup": 3.9698,
+      "mean_detector_inclusive_speedup": 1.4835,
+      "mean_cached_reedit_speedup": 7.762,
+      "mean_outside_naive_changed_percent": 95.5151,
+      "mean_outside_semantic_changed_percent": 0.0,
+      "mean_boundary_semantic_changed_percent": 42.5148
+    },
+    {
+      "rank": 4,
+      "model_name": "Juggernaut Reborn",
+      "samples": 20,
+      "mean_naive_v1_seconds": 11.39,
+      "mean_semantic_v1_seconds": 4.9726,
+      "mean_detector_seconds": 12.778,
+      "mean_cached_reedit_seconds": 2.1093,
+      "mean_generation_speedup": 2.3919,
+      "mean_detector_inclusive_speedup": 0.643,
+      "mean_cached_reedit_speedup": 6.8724,
+      "mean_outside_naive_changed_percent": 93.9576,
+      "mean_outside_semantic_changed_percent": 0.0,
+      "mean_boundary_semantic_changed_percent": 44.017
+    },
+    {
+      "rank": 5,
+      "model_name": "Deliberate v6",
+      "samples": 20,
+      "mean_naive_v1_seconds": 12.2126,
+      "mean_semantic_v1_seconds": 8.1799,
+      "mean_detector_seconds": 12.954,
+      "mean_cached_reedit_seconds": 2.6096,
+      "mean_generation_speedup": 1.601,
+      "mean_detector_inclusive_speedup": 0.5795,
+      "mean_cached_reedit_speedup": 6.7437,
+      "mean_outside_naive_changed_percent": 93.4625,
+      "mean_outside_semantic_changed_percent": 0.0,
+      "mean_boundary_semantic_changed_percent": 40.4416
+    }
+  ]
+}

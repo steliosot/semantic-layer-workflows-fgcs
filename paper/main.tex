@@ -535,7 +535,7 @@ These results support a policy-based interpretation. If the target is small and 
 
 \subsection{Model effects}
 
-Figure~\ref{fig:model-speedups} shows strong model dependence. DreamShaper 8, OpenJourney v4, and Juggernaut XL v2 achieve detector-inclusive first-edit speedups above 1x. Other models, especially several SDXL checkpoints, are slower in the semantic first-edit path. This occurs because local img2img throughput and full-generation throughput differ by checkpoint and pipeline implementation. It would be misleading to claim that local semantic rendering is always faster.
+Figure~\ref{fig:model-speedups} shows strong model dependence. DreamShaper 8, OpenJourney v4, and Juggernaut XL v2 achieve detector-inclusive first-edit speedups above 1x. Other models, especially several SDXL checkpoints, are slower in the semantic first-edit path. This occurs because local img2img throughput and full-generation throughput differ by checkpoint and pipeline implementation. It would be misleading to claim that local semantic rendering is always faster. To make the non-SDXL evidence explicit, Table~\ref{tab:top5-models} reports the five strongest models ranked by cached semantic re-edit speedup from the completed 200-sample benchmark. Four of these five are SD1.5-family checkpoints.
 
 \begin{figure*}[t]
     \centering
@@ -544,7 +544,25 @@ Figure~\ref{fig:model-speedups} shows strong model dependence. DreamShaper 8, Op
     \label{fig:model-speedups}
 \end{figure*}
 
-The workflow conclusion remains stable across models: cached re-editing is positive for every checkpoint. The weakest cached result is RealVisXL V4.0 at 3.172x, while the strongest is OpenJourney v4 at 12.229x. This suggests that semantic caching is a robust systems mechanism even when first-edit acceleration is model-dependent.
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Top-five cross-model results from the 200-sample local heavy benchmark, ranked by cached semantic re-edit speedup. Each row aggregates 20 paired executions: four edit categories with five seeds each.}
+\label{tab:top5-models}
+\begin{tabular}{llrrrrrrr}
+\toprule
+Rank & Model & Family & Naive & Local & Detector & Cached & Gen. & Incl. / cached \\
+\midrule
+1 & OpenJourney v4 & SD1.5 & 23.941 & 7.496 & 12.384 & 3.618 & 3.537x & 1.246x / 12.229x \\
+2 & Juggernaut XL v2 & SDXL & 118.220 & 75.622 & 15.298 & 26.529 & 1.567x & 1.303x / 10.514x \\
+3 & DreamShaper 8 & SD1.5 & 31.388 & 8.298 & 13.292 & 4.883 & 3.970x & 1.483x / 7.762x \\
+4 & Juggernaut Reborn & SD1.5 & 11.390 & 4.973 & 12.778 & 2.109 & 2.392x & 0.643x / 6.872x \\
+5 & Deliberate v6 & SD1.5 & 12.213 & 8.180 & 12.954 & 2.610 & 1.601x & 0.579x / 6.744x \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The workflow conclusion remains stable across models: cached re-editing is positive for every checkpoint. The weakest cached result is RealVisXL V4.0 at 3.172x, while the strongest is OpenJourney v4 at 12.229x. The top-five table also shows why the policy cannot use model family alone: DreamShaper 8 and OpenJourney v4 are strong detector-inclusive first-edit cases, while Juggernaut Reborn and Deliberate v6 are faster mainly when detector state is reused. This suggests that semantic caching is a robust systems mechanism even when first-edit acceleration is model-dependent.
 
 \subsection{Locality and drift}
 
