@@ -37,7 +37,7 @@ Interactive diffusion editing is usually an iterative workflow: users generate a
 
 This paper formulates semantic image editing as a workflow problem. It introduces the \systemname{} model, where an image is represented as a semantic layer graph containing masks, bounding boxes, labels, edit history, provenance, cache keys, and execution metadata. The workflow selects among full regeneration, semantic local diffusion, cached re-editing, deterministic projection, and rollback according to edit type, latency, non-target drift, and available semantic state.
 
-A prototype combines Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 segmentation, local crop rendering, deterministic color projection, compositing, and persisted version state. The evaluation covers 10 diffusion checkpoints, four edit categories, and five seed variants, yielding 200 paired workflow executions at 20 denoising steps. Semantic local rendering is 1.788x faster than naive regeneration when detector overhead is excluded, but the detector-inclusive first edit averages 0.809x because semantic annotation adds 13.543 s. Cached re-edits reach 7.041x speedup, deterministic projection gives 1227x speedup for simple color edits, and rollback averages 0.188 s. A 20-sample GCP NVIDIA L4 operator benchmark measures 5.23x CUDA speedup for SDXL local crops over full-image generation. LPIPS scoring over 800 output images confirms strong outside-mask perceptual preservation. The results support semantic workflow state for repeated, local, provenance-sensitive editing rather than universal first-edit acceleration.
+A prototype combines Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 segmentation, local crop rendering, deterministic color projection, compositing, and persisted version state. The evaluation covers 10 diffusion checkpoints, four edit categories, and five seed variants, yielding 200 paired local workflow executions at 20 denoising steps. On the local Apple MPS backend, semantic local rendering is 1.788x faster than naive regeneration when detector overhead is excluded, but the detector-inclusive first edit averages 0.809x because semantic annotation adds 13.543 s. Cached re-edits reach 7.041x speedup, deterministic projection gives 1227x speedup for simple color edits, and rollback averages 0.188 s. To test the hardware-specificity of that result, the revision adds a 100-sample GCP NVIDIA L4 detector-inclusive run, a 45-sample L4 crop/step operator sweep, a compact NVIDIA T4 offload tier, a bucket model-runtime audit, and cloud LPIPS scoring. On the L4 tier, the detector-inclusive semantic path averages 1.174 s versus 4.882 s for full regeneration, giving 4.28x speedup, while outside-mask LPIPS remains near zero for semantic outputs. The results support semantic workflow state for repeated, local, provenance-sensitive editing rather than universal first-edit acceleration.
 \end{abstract}
 
 \begin{keyword}
@@ -54,7 +54,7 @@ Current diffusion editing systems are strong at visual synthesis but weak at wor
 
 This paper represents iterative diffusion editing as a semantic scientific workflow. The image is treated not as a flat bitmap but as an \imageDOM{}: a graph of named semantic layers with provenance, dependency context, and cached execution state. An edit request is then a workflow decision problem. If the requested change is a simple color update on a known layer, a deterministic projection may be sufficient. If the change requires texture and shading, semantic local diffusion may be appropriate. If the requested change is global or structurally entangled, full regeneration may be necessary. If the same layer is edited repeatedly, cached layer state can avoid repeated detector work. If a user rolls back a version, stored state can be restored without a new denoising run.
 
-This framing is relevant to compute-continuum systems because the workflow exposes information that a monolithic image-generation call hides: region size, expected compute cost, cache availability, dependency risk, provenance constraints, and candidate execution operators. The present evaluation is measured on a local workstation and supplemented with a resource-sensitivity projection; it is not a deployed edge-cloud-HPC experiment. The contribution is the representation that makes such placement decisions explicit and auditable.
+This framing is relevant to compute-continuum systems because the workflow exposes information that a monolithic image-generation call hides: region size, expected compute cost, cache availability, dependency risk, provenance constraints, and candidate execution operators. The present evaluation combines a local workstation benchmark, measured GCP L4 and T4 accelerator tiers, and resource-sensitivity projections; it is still not a full deployed edge-cloud-HPC scheduler. The contribution is the representation that makes such placement decisions explicit and auditable.
 
 We make four contributions.
 
@@ -62,7 +62,7 @@ We make four contributions.
     \item We define a semantic layer workflow model for diffusion editing, including layer graphs, edit operators, provenance records, cache keys, and version states.
     \item We formulate adaptive editing as a multi-objective execution policy that trades latency, detector cost, non-target drift, expected quality loss, and user effort.
     \item We implement a prototype workflow engine using Stable Diffusion and SDXL checkpoints, GroundingDINO+SAM2 masks, local crop diffusion, deterministic projection, compositing, cached re-edits, and rollback.
-    \item We evaluate the system with a 200-sample local benchmark across 10 models, four edit categories, and five seed variants per category, plus a 20-sample GCP NVIDIA L4 CUDA operator benchmark. The benchmark reports latency, cached speedup, rollback time, non-target drift, inside-target change, boundary-band change, LPIPS perceptual distance, dependency-contact risk, crop/mask characteristics, policy ablations, and heterogeneous resource-sensitivity projections.
+    \item We evaluate the system with a 200-sample local benchmark across 10 models, four edit categories, and five seed variants per category, plus measured GCP NVIDIA L4 and T4 CUDA tiers. The benchmark reports latency, cached speedup, rollback time, non-target drift, inside-target change, boundary-band change, LPIPS perceptual distance, dependency-contact risk, crop/mask characteristics, policy ablations, model-runtime compatibility, and heterogeneous resource-sensitivity projections.
 \end{enumerate}
 
 The central empirical result is mixed but useful. Semantic local diffusion is not always faster for a first edit once detector cost is included. Across all 200 samples, semantic rendering excluding detector overhead is 1.788x faster than naive full-image regeneration, but the detector-inclusive first edit averages only 0.809x. Once semantic state is cached, repeated layer edits achieve 7.041x average speedup. Projection-only deterministic color edits average 1227x speedup, rollback averages 0.188 s, and semantic compositing preserves non-target pixels under the implemented mask-compositing metric. The result supports semantic workflow state for locality, reproducibility, fast re-editing, and versioned execution, not a universal first-edit speedup claim.
@@ -383,7 +383,7 @@ All runs use 20 denoising steps. The four cases are face/lips color editing, hum
 
 The benchmark ran on the local workstation using the available Apple MPS backend. Some SDXL model transitions required process restart because of MPS memory fragmentation; the benchmark is resumable and persisted completed records were reused rather than recomputed. This is reported as part of the realistic local execution environment, not hidden as a failure. The final benchmark completed 200 samples with zero per-sample errors. Four incompatible local checkpoint files were excluded because they were inpainting-only, SD3, non-image-generation, or incomplete checkpoint entries.
 
-To reduce the hardware-specificity threat, we also ran a focused CUDA operator benchmark on Google Cloud Platform using one NVIDIA L4 GPU. This benchmark does not rerun the full detector and segmentation workflow. Instead, it measures the diffusion operators that dominate the scheduling trade-off: 20-step SDXL full-image txt2img at \(768 \times 768\), local-crop SDXL img2img at \(384\) or \(512\) pixels depending on case geometry, and repeated local-crop img2img as the cached-edit proxy. The run uses Juggernaut X RunDiffusion from the project model bucket, PyTorch 2.5.1+cu121, CUDA 12.1, and 20 samples across the same four edit categories.
+To reduce the hardware-specificity threat, we also ran measured CUDA experiments on Google Cloud Platform. The main cloud run uses a \(g2\)-standard-8 VM with one NVIDIA L4 GPU, Juggernaut X RunDiffusion from the project model bucket, PyTorch 2.5.1+cu121, and CUDA 12.1. It reruns the detector-inclusive workflow for 100 samples across the same four edit categories: full-image SDXL base generation, full-image naive edit, GroundingDINO+SAM2 target annotation, local SDXL img2img, cached local img2img, mask compositing, and metric logging. A second L4 experiment sweeps denoising steps \(\{10,20,30\}\) and crop sizes \(\{256,384,512,640,768\}\) with three repeats per condition, yielding 45 operator timing samples. A compact NVIDIA T4 tier repeats the 20-step operator measurement with CPU offload and VAE tiling, because the T4 cannot keep both SDXL pipelines resident at \(768 \times 768\) without exhausting memory. These cloud experiments are still not a full multi-tier scheduler, but they provide measured accelerator evidence rather than relying only on scaled local timings.
 
 \subsection{Models}
 
@@ -647,26 +647,77 @@ Cloud accelerator, \(L=1.5\) s & 0.15 & 0.20 & 8.609 & 9.558 & 0.901x & 1.639x \
 
 The projection preserves the main conclusion but changes its magnitude. Faster accelerators reduce both full-generation and local-diffusion latency, while faster detectors narrow the first-edit penalty. In all four scenarios, the one-off semantic path remains slower on average, but the three-edit session is faster because detection is amortized and cached re-edits are cheap. This is the compute-continuum claim supported by the present evidence: the exact break-even point is resource dependent, but the \imageDOM{} exposes the variables a placement scheduler needs to recompute the decision.
 
-Table~\ref{tab:l4-bench} reports the measured CUDA operator tier. The benchmark ran on a GCP \(g2\)-standard-8 VM with one NVIDIA L4 GPU and a 20-step SDXL checkpoint. It measures diffusion only, not detector inference. Full-image SDXL editing averaged 4.741 s, local semantic crops averaged 0.926 s, and cached local crops averaged 0.919 s. The resulting generation-only speedup is 5.23x, substantially higher than the 1.788x generation-only speedup measured on Apple MPS. This confirms the reviewer concern that the latency balance is architecture dependent, but it also strengthens the workflow argument: when local crops execute efficiently on CUDA, the value of exposing crop size and cache state to the scheduler increases.
+Table~\ref{tab:l4-detector-bench} reports the measured detector-inclusive CUDA tier. Unlike the earlier operator-only run, this experiment executes GroundingDINO+SAM2 on the L4 for every sample. The detector is loaded once, and warm per-sample detector inference averages 0.235 s. Full-image naive editing averages 4.882 s, local semantic diffusion averages 0.939 s, and the detector-inclusive semantic path averages 1.174 s. The resulting detector-inclusive speedup is 4.28x, while cached re-edits average 5.52x. This directly changes the interpretation of the local Apple MPS result: the first-edit penalty is not inherent to the workflow model, but depends on the relative speed of detector inference and diffusion on the chosen resource tier.
 
 \begin{table}[t]
 \centering
 \scriptsize
-\caption{Measured CUDA SDXL operator benchmark on GCP NVIDIA L4. The benchmark uses 20 samples across four edit categories and excludes detector/segmentation time.}
-\label{tab:l4-bench}
-\begin{tabular}{lrrrr}
+\caption{Measured detector-inclusive SDXL workflow benchmark on GCP NVIDIA L4. The run uses 100 samples across four edit categories at 20 denoising steps.}
+\label{tab:l4-detector-bench}
+\begin{tabular}{lr}
 \toprule
-Case & Crop & Naive & Local & Speedup \\
+Metric & Value \\
 \midrule
-Face/lips & 384 & 4.741 & 0.723 & 6.57x \\
-Human body/shirt & 512 & 4.741 & 0.968 & 4.90x \\
-Object/mug & 512 & 4.744 & 1.059 & 4.48x \\
-Landscape/sky & 512 & 4.738 & 0.956 & 4.96x \\
-\midrule
-All samples & -- & 4.741 & 0.926 & 5.23x \\
+Samples completed & 100 \\
+Naive full-image edit & 4.882 s \\
+Detector inference & 0.235 s \\
+Semantic local diffusion & 0.939 s \\
+Detector-inclusive semantic edit & 1.174 s \\
+Cached local re-edit & 0.931 s \\
+Generation-only speedup & 5.45x \\
+Detector-inclusive speedup & 4.28x \\
+Cached speedup & 5.52x \\
+Naive outside-mask drift & 85.009\% \\
+Semantic outside-mask drift & 0.000\% \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+Table~\ref{tab:l4-sweep} reports the larger L4 operator sweep. It shows the expected dependency between crop area and speedup: small and medium crops benefit most, while a \(768 \times 768\) img2img pass is still faster than full txt2img in this configuration but no longer represents a locality win. Across 45 timing samples, mean operator speedup is 4.42x and median speedup is 5.08x. At the paper's 20-step setting, \(384 \times 384\) and \(512 \times 512\) crops achieve 6.18x and 5.17x speedup, respectively.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{GCP NVIDIA L4 crop/step operator sweep. Each condition has three repeats. Area is relative to a \(768 \times 768\) full image.}
+\label{tab:l4-sweep}
+\begin{tabular}{rrrrr}
+\toprule
+Steps & Crop & Area & Full & Local / speedup \\
+\midrule
+10 & 256 & 11.1\% & 2.662 & 0.461 / 5.82x \\
+10 & 384 & 25.0\% & 2.662 & 0.535 / 4.99x \\
+10 & 512 & 44.4\% & 2.662 & 0.681 / 3.91x \\
+20 & 256 & 11.1\% & 4.988 & 0.722 / 6.91x \\
+20 & 384 & 25.0\% & 4.988 & 0.807 / 6.18x \\
+20 & 512 & 44.4\% & 4.988 & 0.965 / 5.17x \\
+20 & 640 & 69.4\% & 4.988 & 1.539 / 3.24x \\
+30 & 384 & 25.0\% & 7.074 & 1.183 / 5.98x \\
+30 & 512 & 44.4\% & 7.074 & 1.360 / 5.20x \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:t4-tier} adds a compact T4 tier. The T4 required CPU offload and VAE tiling to avoid out-of-memory failures with both SDXL pipelines. Under that constrained execution mode, the 20-step full-image edit averages 16.658 s and local crops average 7.882 s, giving 2.21x mean speedup. This is slower than the L4 tier, but it is still useful: it shows that memory capacity and pipeline residency are scheduling variables, not incidental implementation details.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Compact GCP NVIDIA T4 operator tier with CPU offload and VAE tiling. Each condition has two repeats at 20 denoising steps.}
+\label{tab:t4-tier}
+\begin{tabular}{rrrrr}
+\toprule
+Crop & Area & Full & Local & Speedup \\
+\midrule
+384 & 25.0\% & 16.658 & 7.929 & 2.26x \\
+512 & 44.4\% & 16.658 & 6.526 & 2.55x \\
+768 & 100.0\% & 16.658 & 9.192 & 1.81x \\
+\midrule
+All samples & -- & 16.658 & 7.882 & 2.21x \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The project bucket also contains Flux, Wan, Qwen, Z-image, GGUF, and ComfyUI-specific weights. A runtime audit found 189 model objects: one directly measured SDXL checkpoint in the paper runtime, 52 objects requiring a separate runtime family, five GGUF objects that are not comparable under the SDXL Diffusers path, and 131 non-checkpoint or manually triaged objects. For this reason, the paper reports the bucket audit as a reproducibility and scope result rather than claiming a direct multi-model parity benchmark across incompatible runtimes.
 
 Table~\ref{tab:stress-sim} adds a break-even stress test rather than only reporting projected mean times. Under the measured Apple MPS profile, the median break-even session length is \(k=1.79\), and 98.0\% of samples prefer semantic execution by \(k=3\). The conclusion remains strong for CUDA-class and cloud-accelerator scenarios, and it becomes stronger when detector inference is fast relative to diffusion. The deliberately adverse case is slow detector plus fast full-image diffusion: median break-even increases to \(k=5.55\), and only 24.0\% of three-edit sessions prefer semantic execution. This negative case is important because it defines where the proposed policy should avoid local semantic execution unless preservation, provenance, or privacy constraints dominate latency.
 
@@ -736,7 +787,25 @@ Projection-only & 0.0339 & 0.0004 & 0.2403 \\
 \end{tabular}
 \end{table}
 
-The LPIPS audit supports the locality result with a learned perceptual metric. Naive regeneration has high full-image and outside-mask perceptual distance because the whole image is resampled. Semantic local editing, cached editing, and projection keep outside-mask LPIPS close to zero because non-target pixels are preserved by compositing. The target-crop distances remain non-zero, as expected: a useful edit should change the target. LPIPS still cannot prove that the requested semantic edit succeeded. It only shows that the preservation result is not an artifact of a single pixel-change threshold.
+The cloud detector-inclusive run was also scored with LPIPS, reported in Table~\ref{tab:cloud-lpips-results}. The pattern is stronger than in the local mixed-model audit because all cloud samples use the same SDXL checkpoint and mask-compositing path: naive regeneration has outside-mask LPIPS 0.4801, while semantic and cached outputs remain near zero at 0.00019. The target-crop scores remain non-zero, as expected for a successful local edit.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Cloud LPIPS audit over the 100-sample GCP L4 detector-inclusive run. The table reports 300 variant comparisons: naive, semantic, and cached outputs for each sample.}
+\label{tab:cloud-lpips-results}
+\begin{tabular}{lrrr}
+\toprule
+Variant & Full image & Outside mask & Target crop \\
+\midrule
+Naive regeneration & 0.5266 & 0.4801 & 0.6714 \\
+Semantic local & 0.0085 & 0.0002 & 0.0895 \\
+Cached semantic & 0.0071 & 0.0002 & 0.0802 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Together, the local and cloud LPIPS audits support the locality result with a learned perceptual metric. Naive regeneration has high full-image and outside-mask perceptual distance because the whole image is resampled. Semantic local editing, cached editing, and projection keep outside-mask LPIPS close to zero because non-target pixels are preserved by compositing. LPIPS still cannot prove that the requested semantic edit succeeded. It only shows that the preservation result is not an artifact of a single pixel-change threshold.
 
 Table~\ref{tab:perceptual-layer} therefore defines the remaining validation layer that should accompany a production scheduler or a follow-up benchmark. CLIP/BLIP alignment and human ratings are retained as future semantic-quality checks rather than claimed as completed measurements in this paper.
 
@@ -891,19 +960,19 @@ The image domain supplies a demanding case study, but the underlying contributio
 
 \textbf{Quality metrics.} The benchmark reports time, drift, inside change, boundary change, and LPIPS perceptual distance. These are useful systems and perceptual-preservation metrics, but they do not replace human evaluation, task success judgments, CLIP/BLIP semantic alignment, or VLM-based quality assessment. A diffusion edit can preserve outside pixels and still look visually poor or semantically wrong inside the target.
 
-\textbf{Hardware generality.} The full 200-sample workflow ran in a local Apple MPS environment. GPU memory behavior, img2img throughput, and detector latency may differ on CUDA, cloud GPUs, edge accelerators, or HPC nodes. The GCP NVIDIA L4 experiment measures a CUDA diffusion-operator tier, but it does not rerun detector inference or implement a full multi-tier deployment. The sensitivity projection varies detector and diffusion scaling factors, but it is still not a substitute for an end-to-end measured continuum scheduler.
+\textbf{Hardware generality.} The full 200-sample multi-checkpoint workflow ran in a local Apple MPS environment, while the cloud revision measures one SDXL checkpoint on NVIDIA L4 and a compact T4 offload tier. GPU memory behavior, img2img throughput, and detector latency may still differ on H100-class GPUs, edge accelerators, optimized TensorRT deployments, batched inference servers, or HPC nodes. The sensitivity projection varies detector and diffusion scaling factors, but it is still not a substitute for an end-to-end measured continuum scheduler across several coordinated tiers.
 
-\textbf{Model set.} The benchmark includes 10 compatible local checkpoints but skips incompatible files. Newer diffusion architectures and optimized inference engines may change the latency balance.
+\textbf{Model set.} The benchmark includes 10 compatible local checkpoints and one directly measured SDXL checkpoint from the GCP bucket. The bucket audit found many Flux, Wan, Qwen, Z-image, GGUF, and ComfyUI-specific objects, but these require different runtimes and are not directly comparable to the SDXL Diffusers pipeline. Newer diffusion architectures and optimized inference engines may change the latency balance.
 
-\textbf{No watt-level energy measurement or deployed multi-tier scheduler.} The objective includes resource cost, but the current experiment does not measure power draw or execute one workflow across multiple coordinated resource tiers. The benchmark instantiates resource cost as a compute-work proxy based on rendered area, step count, and detector invocation. The compute-continuum claims are therefore limited to the workflow representation, measured local operators, the measured GCP CUDA operator tier, and resource-sensitivity scheduling projection.
+\textbf{No watt-level energy measurement or deployed multi-tier scheduler.} The objective includes resource cost, but the current experiment does not measure power draw or execute one workflow across multiple coordinated resource tiers. The benchmark instantiates resource cost as a compute-work proxy based on rendered area, step count, detector invocation, and measured accelerator tier. The compute-continuum claims are therefore limited to the workflow representation, measured local operators, measured GCP CUDA tiers, and resource-sensitivity scheduling projection.
 
 \section{Conclusion}
 
 This paper presented semantic layer workflows for adaptive generative AI editing. The core idea is to treat an image-editing session as a provenance-aware workflow over semantic layers rather than as a sequence of independent diffusion calls. The \imageDOM{} stores named masks, boxes, provenance, cache keys, version history, and dependency context. A policy chooses between full regeneration, local diffusion, deterministic projection, cached re-edit, and rollback.
 
-The 200-sample benchmark gives a realistic result. Semantic local rendering is faster than naive regeneration when detector overhead is excluded, but first edits are not universally faster once GroundingDINO+SAM2 is included. The strongest results are workflow-level: cached semantic re-edits average 7.041x speedup, deterministic projection averages 1227x for simple color edits, rollback averages 0.188 s, semantic compositing preserves non-target pixels under the implemented metric, and LPIPS outside-mask distance remains close to zero for semantic outputs. Policy ablations and stress tests show where semantic execution is useful and where a latency-only scheduler should avoid it. These results support the claim that semantic workflow state is valuable for repeated, local, provenance-sensitive generative AI workloads.
+The 200-sample local benchmark gives a realistic baseline: semantic local rendering is faster than naive regeneration when detector overhead is excluded, but first edits are not universally faster once GroundingDINO+SAM2 is included. The cloud revision shows why placement matters. On an NVIDIA L4, the same workflow averages 4.882 s for full-image regeneration and 1.174 s for detector-inclusive semantic editing, giving 4.28x speedup. The strongest results remain workflow-level: cached semantic re-edits average 7.041x on the local benchmark and 5.52x on the L4 run, deterministic projection averages 1227x for simple color edits, rollback averages 0.188 s, semantic compositing preserves non-target pixels under the implemented metric, and LPIPS outside-mask distance remains close to zero for semantic outputs. Policy ablations, stress tests, and measured CUDA tiers show where semantic execution is useful and where a latency-only scheduler should avoid it. These results support the claim that semantic workflow state is valuable for repeated, local, provenance-sensitive generative AI workloads.
 
-Future work should add hand-labeled mask evaluation, CLIP/BLIP semantic-alignment scoring, human quality ratings, cloud-side detector measurements, watt-level energy measurement, and measured multi-tier scheduling experiments. A natural next technical step is to persist and reuse latent denoising trajectories, allowing the policy to restart from selected timesteps and preserve unchanged latent regions, rather than only caching masks and image-space layers.
+Future work should add hand-labeled mask evaluation, CLIP/BLIP semantic-alignment scoring, human quality ratings, optimized inference-server deployments, watt-level energy measurement, and measured multi-tier scheduling experiments. A natural next technical step is to persist and reuse latent denoising trajectories, allowing the policy to restart from selected timesteps and preserve unchanged latent regions, rather than only caching masks and image-space layers.
 
 \section*{Data and code availability}
 
@@ -911,7 +980,7 @@ The benchmark scripts, generated metrics, reports, manuscript source, and repres
 \begin{quote}
 \small\href{https://github.com/steliosot/semantic-layer-workflows-fgcs}{github.com/steliosot/semantic-layer-workflows-fgcs}
 \end{quote}
-The repository includes the benchmark summary files, model-by-case matrix, revision-analysis scripts and outputs, the GCP CUDA operator benchmark script and results, selected paper figures, citation metadata, SHA-256 checksums for release assets, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
+The repository includes the benchmark summary files, model-by-case matrix, revision-analysis scripts and outputs, the GCP CUDA detector-inclusive benchmark, L4 operator sweep, T4 offload tier, bucket runtime audit, cloud LPIPS audit, selected paper figures, citation metadata, SHA-256 checksums for release assets, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
 
 \section*{Funding}
 

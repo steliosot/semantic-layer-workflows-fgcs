@@ -1,0 +1,1338 @@
+{
+  "created_at": "2026-07-14T18:19:57.890510+00:00",
+  "bucket": "gs://bbk-q2-comfyui-models",
+  "summary": {
+    "objects": 189,
+    "status_counts": {
+      "requires_manual_triage": 131,
+      "separate_runtime": 52,
+      "measured": 1,
+      "not_comparable": 5
+    }
+  },
+  "rows": [
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip_gguf",
+      "size_bytes": 24,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models",
+      "size_bytes": 24,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/text_encoders",
+      "size_bytes": 24,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/unet_gguf",
+      "size_bytes": 24,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/chat_template.json",
+      "size_bytes": 5502,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/config.json",
+      "size_bytes": 1505,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/generation_config.json",
+      "size_bytes": 269,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/merges.txt",
+      "size_bytes": 1671839,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/model.safetensors",
+      "size_bytes": 4255140312,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/preprocessor_config.json",
+      "size_bytes": 390,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/tokenizer.json",
+      "size_bytes": 7032403,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/tokenizer_config.json",
+      "size_bytes": 10868,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/video_preprocessor_config.json",
+      "size_bytes": 385,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/vocab.json",
+      "size_bytes": 2776833,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/.gitignore",
+      "size_bytes": 1,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/CACHEDIR.TAG",
+      "size_bytes": 191,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/chat_template.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/config.json.metadata",
+      "size_bytes": 100,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/generation_config.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/merges.txt.metadata",
+      "size_bytes": 99,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/model.safetensors.metadata",
+      "size_bytes": 124,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/preprocessor_config.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/tokenizer.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/tokenizer_config.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/video_preprocessor_config.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/LLM/Qwen-VL/Qwen3-VL-2B-Instruct/.cache/huggingface/download/vocab.json.metadata",
+      "size_bytes": 101,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/checkpoints/Juggernaut_X_RunDiffusion.safetensors",
+      "size_bytes": 7105348672,
+      "family": "SDXL checkpoint",
+      "paper_runtime_status": "measured",
+      "reason": "Compatible with the single-file SDXL Diffusers pipeline used by the CUDA benchmarks."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/checkpoints/z-image-turbo-fp8-aio.safetensors",
+      "size_bytes": 10345190658,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip/clip_l.safetensors",
+      "size_bytes": 246144152,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "size_bytes": 9384670680,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip/t5-v1_1-xxl-encoder-Q8_0.gguf",
+      "size_bytes": 5061584064,
+      "family": "GGUF diffusion/LLM-style weight",
+      "paper_runtime_status": "not_comparable",
+      "reason": "Requires a GGUF-capable ComfyUI or custom runtime rather than the SDXL Diffusers pipeline."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip/t5xxl_fp16.safetensors",
+      "size_bytes": 9787841024,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip/t5xxl_fp8_e4m3fn_scaled.safetensors",
+      "size_bytes": 5157348688,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/clip_vision/clip_vision_h.safetensors",
+      "size_bytes": 1264219396,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/controlnet/flux-cn-pro-2.safetensors",
+      "size_bytes": 4281779224,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/controlnet/flux-dev-controlnet-union.safetensors",
+      "size_bytes": 6603953920,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models/Qwen_Image_Edit-Q8_0.gguf",
+      "size_bytes": 21761817120,
+      "family": "GGUF diffusion/LLM-style weight",
+      "paper_runtime_status": "not_comparable",
+      "reason": "Requires a GGUF-capable ComfyUI or custom runtime rather than the SDXL Diffusers pipeline."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models/Wan2.1-VACE-14B-Q4_K_M.gguf",
+      "size_bytes": 11639453600,
+      "family": "GGUF diffusion/LLM-style weight",
+      "paper_runtime_status": "not_comparable",
+      "reason": "Requires a GGUF-capable ComfyUI or custom runtime rather than the SDXL Diffusers pipeline."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors",
+      "size_bytes": 11904640136,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models/fluxmania_Legacy.safetensors",
+      "size_bytes": 11901586856,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/diffusion_models/wan2.1_i2v_480p_14B_fp8_scaled.safetensors",
+      "size_bytes": 16401356938,
+      "family": "Wan video/image-to-video checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Targets a video or Wan-specific pipeline, not paired SDXL image editing."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_0",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_1",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_10",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_11",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_12",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_13",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_14",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_15",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_16",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_17",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_18",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_19",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_2",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_20",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_21",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_22",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_23",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_24",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_25",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_26",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_27",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_28",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_29",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_3",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_30",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_31",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_4",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_5",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_6",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_7",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_8",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/gcloud/tmp/parallel_composite_uploads/see_gcloud_storage_cp_help_for_details/284213010_c8045c717175886525fbde990e299b139687ccbd_9",
+      "size_bytes": 397326633,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/EP52_Flux_1_Kontext_Dev_-_Product_Placement_Input.webp",
+      "size_bytes": 494124,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/bedroom.jpg",
+      "size_bytes": 103790,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/cloudrun-final-user-1.png",
+      "size_bytes": 26866,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/cloudrun-final-user-2.png",
+      "size_bytes": 26673,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/cloudrun-final-user-3.png",
+      "size_bytes": 26473,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/example.png",
+      "size_bytes": 8589,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/logo.jpg",
+      "size_bytes": 9074,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/mary.JPG",
+      "size_bytes": 81545,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-input-upload-fix-20260515T170611Z.png",
+      "size_bytes": 99491,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-man-20260515T082706Z.png",
+      "size_bytes": 99491,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-man-20260515T083944Z.png",
+      "size_bytes": 99491,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-step1-20260515T162358Z.png",
+      "size_bytes": 99491,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-woman-20260515T082706Z.jpg",
+      "size_bytes": 1102233,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/qa-woman-20260515T083944Z.jpg",
+      "size_bytes": 1102233,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/unnamed.webp",
+      "size_bytes": 279982,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/01_Flux_Kontext/Product_Placement/EP52_Flux_1_Kontext_Dev_-_Product_Placement_Input.webp",
+      "size_bytes": 494124,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/input/pasted/image.png",
+      "size_bytes": 863664,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/Qwen-Image-Edit-Lightning-8steps-V1.0.safetensors",
+      "size_bytes": 1698951104,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/Wan21_CausVid_14B_T2V_lora_rank32.safetensors",
+      "size_bytes": 204551064,
+      "family": "Wan video/image-to-video checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Targets a video or Wan-specific pipeline, not paired SDXL image editing."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/cakeify_16_epochs.safetensors",
+      "size_bytes": 359257680,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/crush_20_epochs.safetensors",
+      "size_bytes": 359257680,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/ghibsky.safetensors",
+      "size_bytes": 171969416,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/inflate_20_epochs.safetensors",
+      "size_bytes": 359257680,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/loras/rotate_20_epochs.safetensors",
+      "size_bytes": 359257680,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "size_bytes": 6735906897,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/unet/flux1-dev-Q8_0.gguf",
+      "size_bytes": 12708281504,
+      "family": "GGUF diffusion/LLM-style weight",
+      "paper_runtime_status": "not_comparable",
+      "reason": "Requires a GGUF-capable ComfyUI or custom runtime rather than the SDXL Diffusers pipeline."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/unet/flux1-krea-dev-Q8_0.gguf",
+      "size_bytes": 12714452256,
+      "family": "GGUF diffusion/LLM-style weight",
+      "paper_runtime_status": "not_comparable",
+      "reason": "Requires a GGUF-capable ComfyUI or custom runtime rather than the SDXL Diffusers pipeline."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/upscale_models/4xNomos2_hq_dat2.safetensors",
+      "size_bytes": 139792588,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/upscale_models/4x_NMKD-Siax_200k.pth",
+      "size_bytes": 66957746,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/user/genasset.json",
+      "size_bytes": 69,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/vae/ae.safetensors",
+      "size_bytes": 335304388,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/vae/qwen_image_vae.safetensors",
+      "size_bytes": 253806246,
+      "family": "Qwen image edit checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Uses a different image-edit model family and runtime interface."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/vae/wan_2.1_vae.safetensors",
+      "size_bytes": 253815318,
+      "family": "Wan video/image-to-video checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Targets a video or Wan-specific pipeline, not paired SDXL image editing."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/.index.json",
+      "size_bytes": 70,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/Empty.json",
+      "size_bytes": 194,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/Tutorial-image2image-lora.json",
+      "size_bytes": 7452,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/Tutorial-image2image.json",
+      "size_bytes": 6754,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/Tutorial-text2image-flux.json",
+      "size_bytes": 6898,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/Tutorial-text2image.json",
+      "size_bytes": 5049,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/hello-genasset-3.json",
+      "size_bytes": 4377,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Candidates/manifest.csv",
+      "size_bytes": 2662,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-123814.csv",
+      "size_bytes": 683,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-123814.json",
+      "size_bytes": 839,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-133726.csv",
+      "size_bytes": 703,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-133726.json",
+      "size_bytes": 859,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-151804.csv",
+      "size_bytes": 760,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-151804.json",
+      "size_bytes": 916,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-152453.csv",
+      "size_bytes": 736,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-152453.json",
+      "size_bytes": 892,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-160721.csv",
+      "size_bytes": 1438,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-160721.json",
+      "size_bytes": 1939,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161532.csv",
+      "size_bytes": 2039,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161532.json",
+      "size_bytes": 2885,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161540.csv",
+      "size_bytes": 2591,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161540.json",
+      "size_bytes": 3782,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161548.csv",
+      "size_bytes": 3146,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161548.json",
+      "size_bytes": 4682,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161714.csv",
+      "size_bytes": 4871,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260512-161714.json",
+      "size_bytes": 6750,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-222751.csv",
+      "size_bytes": 737,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-222751.json",
+      "size_bytes": 893,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-223015.csv",
+      "size_bytes": 721,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-223015.json",
+      "size_bytes": 877,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232210.csv",
+      "size_bytes": 745,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232210.json",
+      "size_bytes": 901,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232428.csv",
+      "size_bytes": 1521,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232428.json",
+      "size_bytes": 2020,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232541.csv",
+      "size_bytes": 1989,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-232541.json",
+      "size_bytes": 2833,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-233352.csv",
+      "size_bytes": 2634,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-233352.json",
+      "size_bytes": 3823,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-234305.csv",
+      "size_bytes": 3237,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-234305.json",
+      "size_bytes": 4771,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-235232.csv",
+      "size_bytes": 812,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260514-235232.json",
+      "size_bytes": 968,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260515-000948.csv",
+      "size_bytes": 800,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260515-000948.json",
+      "size_bytes": 956,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260515-002458.csv",
+      "size_bytes": 1359,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_20260515-002458.json",
+      "size_bytes": 1860,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_latest.csv",
+      "size_bytes": 1359,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_batch_run_report_latest.json",
+      "size_bytes": 1860,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_folder_variant_report_latest.csv",
+      "size_bytes": 11462,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/00_Run_Reports/genasset_folder_variant_report_latest.json",
+      "size_bytes": 31438,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-04-Z-Image-Turbo-BF16-Image-Upscale.json",
+      "size_bytes": 27436,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-05-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-Plus-Lora.json",
+      "size_bytes": 18080,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-05-Z-Image-Turbo-Text-To-Image-BF16-Plus-Lora.json",
+      "size_bytes": 19107,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Background-Exit-Text-To-Image-Plus-Upscale.json",
+      "size_bytes": 29106,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Background-Tiles-Text-To-Image-Plus-ControlNet-Plus-Upscale.json",
+      "size_bytes": 36086,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Buttons-GamePlay-Text-To-Image-Plus-ControlNet-Plus-Upscale.json",
+      "size_bytes": 36381,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Buttons-Menu-Text-To-Image-Plus-ControlNet-Plus-Upscale.json",
+      "size_bytes": 36873,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-EP52-Flux-1-Kontext-Dev-Lora.json",
+      "size_bytes": 34509,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-EP53-Flux-1-Kontext-Dev-Fantasy-Game-Items-Lora.json",
+      "size_bytes": 35857,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Flux-Krea-Text-To-Image-with-Lora-and-Upscaler.json",
+      "size_bytes": 30755,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Flux-Krea-Text-To-Image-with-Upscaler.json",
+      "size_bytes": 29163,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Icon-Design-Set-of-4-Flux-Text-To-Image-Plus-ControlNet-Plus-Upscale.json",
+      "size_bytes": 36676,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Icon-Design-Set-of-6-Flux-Text-To-Image-Plus-Upscale.json",
+      "size_bytes": 29773,
+      "family": "Flux checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Requires a Flux pipeline/runtime and different scheduler assumptions."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-NetaYume-v3-5-Text-To-Image-Plus-Upscaler-2K-Landscape.json",
+      "size_bytes": 30050,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Canny-2.json",
+      "size_bytes": 25965,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Canny.json",
+      "size_bytes": 25396,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Depth-2.json",
+      "size_bytes": 25869,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Depth.json",
+      "size_bytes": 25807,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Pose-2.json",
+      "size_bytes": 25316,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-AIO-FP8-or-BF16-ControlNet-Pose.json",
+      "size_bytes": 25331,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/GenAsset-Z-Image-Turbo-Text-To-Image-BF16-ControlNet-Canny.json",
+      "size_bytes": 26380,
+      "family": "Z-image checkpoint",
+      "paper_runtime_status": "separate_runtime",
+      "reason": "Not directly loadable by the SDXL single-file benchmark path."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/manifest.csv",
+      "size_bytes": 4503,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/08_new_workflows/manifest.json",
+      "size_bytes": 9370,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/09_custom/GenAsset-Import-Demo.json",
+      "size_bytes": 1977,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/09_custom/GenAsset-Simple-Text-To-Image-AI-Save.json",
+      "size_bytes": 15291,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows/09_custom/GenAsset-Simple-Text-To-Image-Save.json",
+      "size_bytes": 10511,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/01_candidates/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/02_drafts/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/03_tested/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/04_blocked_missing_input/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/05_blocked_custom_node/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/06_blocked_runtime/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    },
+    {
+      "path": "gs://bbk-q2-comfyui-models/workflows_genasset/99_reports/.keep",
+      "size_bytes": 0,
+      "family": "unknown",
+      "paper_runtime_status": "requires_manual_triage",
+      "reason": "Model family could not be inferred from the object name."
+    }
+  ]
+}

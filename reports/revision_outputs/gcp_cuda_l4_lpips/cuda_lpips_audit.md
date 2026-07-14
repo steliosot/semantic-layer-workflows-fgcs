@@ -1,0 +1,23 @@
+# GCP CUDA LPIPS Audit
+
+| Metric | Value |
+| --- | ---: |
+| samples | 300 |
+| cached_lpips_full_mean | 0.007113 |
+| cached_lpips_full_median | 0.006506 |
+| cached_lpips_outside_mean | 0.000186 |
+| cached_lpips_outside_median | 0.000160 |
+| cached_lpips_target_crop_mean | 0.080215 |
+| cached_lpips_target_crop_median | 0.068065 |
+| naive_lpips_full_mean | 0.526630 |
+| naive_lpips_full_median | 0.555014 |
+| naive_lpips_outside_mean | 0.480056 |
+| naive_lpips_outside_median | 0.487023 |
+| naive_lpips_target_crop_mean | 0.671393 |
+| naive_lpips_target_crop_median | 0.697764 |
+| semantic_lpips_full_mean | 0.008494 |
+| semantic_lpips_full_median | 0.006755 |
+| semantic_lpips_outside_mean | 0.000188 |
+| semantic_lpips_outside_median | 0.000124 |
+| semantic_lpips_target_crop_mean | 0.089545 |
+| semantic_lpips_target_crop_median | 0.085359 |

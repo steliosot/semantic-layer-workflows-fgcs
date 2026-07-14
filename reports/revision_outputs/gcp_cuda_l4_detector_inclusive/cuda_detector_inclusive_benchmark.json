@@ -1,0 +1,5141 @@
+{
+  "created_at": "2026-07-14T18:34:38.148872+00:00",
+  "benchmark": "gcp_cuda_detector_inclusive_benchmark",
+  "device": {
+    "platform": "Linux-6.8.0-1063-gcp-x86_64-with-glibc2.35",
+    "torch": "2.5.1+cu121",
+    "cuda": "12.1",
+    "gpu": "NVIDIA L4"
+  },
+  "config": {
+    "checkpoint": "/mnt/comfyui-cache/fgcs_cuda/models/Juggernaut_X_RunDiffusion.safetensors",
+    "out_dir": "/mnt/comfyui-cache/fgcs_cuda/outputs/l4_detector_inclusive_20steps_25samples",
+    "steps": 20,
+    "samples_per_case": 25,
+    "height": 768,
+    "width": 768,
+    "guidance_scale": 5.0,
+    "dino_model": "IDEA-Research/grounding-dino-tiny",
+    "sam2_model": "facebook/sam2.1-hiera-tiny",
+    "dino_threshold": 0.12,
+    "dino_text_threshold": 0.1
+  },
+  "summary": {
+    "samples": 100,
+    "dino_load_seconds": 3.2787638710000238,
+    "sam2_load_seconds": 1.5404172520001111,
+    "mean_naive_seconds": 4.882139251210004,
+    "mean_detector_seconds": 0.23506924602001844,
+    "median_detector_seconds": 0.23228150800002823,
+    "mean_semantic_local_seconds": 0.9386406659799956,
+    "mean_cached_local_seconds": 0.930870710060018,
+    "mean_detector_inclusive_semantic_seconds": 1.173709912000014,
+    "mean_generation_only_speedup": 5.448893072868951,
+    "mean_detector_inclusive_speedup": 4.276703987214646,
+    "mean_cached_speedup": 5.520986710203568,
+    "mean_outside_drift_naive": 85.00871231638017,
+    "mean_outside_drift_semantic": 0.0
+  },
+  "rows": [
+    {
+      "case_key": "face_lips",
+      "sample_index": 1,
+      "seed": 80000,
+      "crop_box": [
+        244,
+        353,
+        500,
+        609
+      ],
+      "crop_size": 256,
+      "base_seconds": 5.791489123000019,
+      "naive_seconds": 4.835014420999983,
+      "detector_seconds": 0.47560911900006886,
+      "dino_inference_seconds": 0.3969046400000025,
+      "sam2_inference_seconds": 0.07870447900006639,
+      "semantic_local_seconds": 0.6799137069999688,
+      "cached_local_seconds": 0.6055633150000403,
+      "semantic_detector_inclusive_seconds": 1.1555228260000376,
+      "generation_only_speedup": 7.111217748990321,
+      "detector_inclusive_speedup": 4.184265608786706,
+      "cached_speedup": 7.984325174981349,
+      "naive_outside_drift": 49.02383341182252,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 35.16169684061058,
+      "detector": {
+        "dino_inference_seconds": 0.3969046400000025,
+        "sam2_inference_seconds": 0.07870447900006639,
+        "detector_seconds": 0.47560911900006886,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            315.3822326660156,
+            453.51544189453125,
+            428.230224609375,
+            504.6307067871094
+          ],
+          "score": 0.3592664897441864,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6044125878922565
+        },
+        "bbox": [
+          319,
+          458,
+          424,
+          504
+        ],
+        "mask_pixels": 3443
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 2,
+      "seed": 80001,
+      "crop_box": [
+        234,
+        407,
+        530,
+        703
+      ],
+      "crop_size": 296,
+      "base_seconds": 4.909385959000019,
+      "naive_seconds": 4.966657479999981,
+      "detector_seconds": 0.23680380399991918,
+      "dino_inference_seconds": 0.1775688339999988,
+      "sam2_inference_seconds": 0.059234969999920395,
+      "semantic_local_seconds": 0.7244544180000503,
+      "cached_local_seconds": 0.6223051670000359,
+      "semantic_detector_inclusive_seconds": 0.9612582219999695,
+      "generation_only_speedup": 6.855721155943915,
+      "detector_inclusive_speedup": 5.166829647153997,
+      "cached_speedup": 7.981064184221524,
+      "naive_outside_drift": 88.6373705701329,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 21.133117089613943,
+      "detector": {
+        "dino_inference_seconds": 0.1775688339999988,
+        "sam2_inference_seconds": 0.059234969999920395,
+        "detector_seconds": 0.23680380399991918,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            315.26483154296875,
+            523.46044921875,
+            450.7979736328125,
+            582.9935302734375
+          ],
+          "score": 0.3564780354499817,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5803214968474811
+        },
+        "bbox": [
+          319,
+          529,
+          446,
+          581
+        ],
+        "mask_pixels": 4869
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 3,
+      "seed": 80002,
+      "crop_box": [
+        242,
+        356,
+        522,
+        636
+      ],
+      "crop_size": 280,
+      "base_seconds": 5.044407480000018,
+      "naive_seconds": 5.083117477999963,
+      "detector_seconds": 0.2350001949999978,
+      "dino_inference_seconds": 0.1784998219999352,
+      "sam2_inference_seconds": 0.05650037300006261,
+      "semantic_local_seconds": 0.6847705019999921,
+      "cached_local_seconds": 0.621743046000006,
+      "semantic_detector_inclusive_seconds": 0.9197706969999899,
+      "generation_only_speedup": 7.4230964434855595,
+      "detector_inclusive_speedup": 5.526505132833144,
+      "cached_speedup": 8.175592008149158,
+      "naive_outside_drift": 80.70062986607867,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 14.8063751133431,
+      "detector": {
+        "dino_inference_seconds": 0.1784998219999352,
+        "sam2_inference_seconds": 0.05650037300006261,
+        "detector_seconds": 0.2350001949999978,
+        "raw_detection_count": 12,
+        "selected": {
+          "box": [
+            318.3282775878906,
+            467.0245361328125,
+            445.45623779296875,
+            521.60107421875
+          ],
+          "score": 0.3563038408756256,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5997446275875212
+        },
+        "bbox": [
+          322,
+          471,
+          442,
+          521
+        ],
+        "mask_pixels": 4428
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 4,
+      "seed": 80003,
+      "crop_box": [
+        219,
+        382,
+        531,
+        694
+      ],
+      "crop_size": 312,
+      "base_seconds": 5.035793768999952,
+      "naive_seconds": 5.028959545000021,
+      "detector_seconds": 0.23682575700001962,
+      "dino_inference_seconds": 0.1793410989999984,
+      "sam2_inference_seconds": 0.05748465800002123,
+      "semantic_local_seconds": 0.6830680539999321,
+      "cached_local_seconds": 0.6389583070000526,
+      "semantic_detector_inclusive_seconds": 0.9198938109999517,
+      "generation_only_speedup": 7.362311142427576,
+      "detector_inclusive_speedup": 5.46689137905319,
+      "cached_speedup": 7.8705597687762845,
+      "naive_outside_drift": 57.702222054861586,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 27.102623732856294,
+      "detector": {
+        "dino_inference_seconds": 0.1793410989999984,
+        "sam2_inference_seconds": 0.05748465800002123,
+        "detector_seconds": 0.23682575700001962,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            305.30596923828125,
+            505.9500732421875,
+            445.077880859375,
+            565.421630859375
+          ],
+          "score": 0.3494160771369934,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5780684233682567
+        },
+        "bbox": [
+          307,
+          510,
+          443,
+          565
+        ],
+        "mask_pixels": 5194
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 5,
+      "seed": 80004,
+      "crop_box": [
+        270,
+        353,
+        526,
+        609
+      ],
+      "crop_size": 256,
+      "base_seconds": 4.953505110000037,
+      "naive_seconds": 4.92441669699997,
+      "detector_seconds": 0.23037016299997504,
+      "dino_inference_seconds": 0.17569027299998652,
+      "sam2_inference_seconds": 0.05467988999998852,
+      "semantic_local_seconds": 0.6074238960000002,
+      "cached_local_seconds": 0.608345202999999,
+      "semantic_detector_inclusive_seconds": 0.8377940589999753,
+      "generation_only_speedup": 8.10705131857369,
+      "detector_inclusive_speedup": 5.877836735770067,
+      "cached_speedup": 8.094773613263747,
+      "naive_outside_drift": 84.40372761910609,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 43.841337907375646,
+      "detector": {
+        "dino_inference_seconds": 0.17569027299998652,
+        "sam2_inference_seconds": 0.05467988999998852,
+        "detector_seconds": 0.23037016299997504,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            344.58697509765625,
+            454.4294128417969,
+            452.85986328125,
+            503.09234619140625
+          ],
+          "score": 0.3692275583744049,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6141080016704812
+        },
+        "bbox": [
+          347,
+          459,
+          448,
+          503
+        ],
+        "mask_pixels": 3195
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 6,
+      "seed": 80005,
+      "crop_box": [
+        228,
+        356,
+        524,
+        652
+      ],
+      "crop_size": 296,
+      "base_seconds": 4.7742737699999225,
+      "naive_seconds": 4.80594609100001,
+      "detector_seconds": 0.2321610710000641,
+      "dino_inference_seconds": 0.17514514000004056,
+      "sam2_inference_seconds": 0.057015931000023556,
+      "semantic_local_seconds": 0.6317196769999782,
+      "cached_local_seconds": 0.6318880700000591,
+      "semantic_detector_inclusive_seconds": 0.8638807480000423,
+      "generation_only_speedup": 7.6077194774481836,
+      "detector_inclusive_speedup": 5.563205456454708,
+      "cached_speedup": 7.605692082459415,
+      "naive_outside_drift": 42.504653263443146,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 27.67448310640444,
+      "detector": {
+        "dino_inference_seconds": 0.17514514000004056,
+        "sam2_inference_seconds": 0.057015931000023556,
+        "detector_seconds": 0.2321610710000641,
+        "raw_detection_count": 11,
+        "selected": {
+          "box": [
+            308.6533203125,
+            472.7350158691406,
+            441.0972900390625,
+            531.8417358398438
+          ],
+          "score": 0.34426021575927734,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5827533974491896
+        },
+        "bbox": [
+          312,
+          477,
+          439,
+          531
+        ],
+        "mask_pixels": 4910
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 7,
+      "seed": 80006,
+      "crop_box": [
+        242,
+        374,
+        530,
+        662
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.781648706000055,
+      "naive_seconds": 4.786349505000089,
+      "detector_seconds": 0.23151041800008443,
+      "dino_inference_seconds": 0.1763457560000461,
+      "sam2_inference_seconds": 0.055164662000038334,
+      "semantic_local_seconds": 0.6466269369999509,
+      "cached_local_seconds": 0.6220589150000251,
+      "semantic_detector_inclusive_seconds": 0.8781373550000353,
+      "generation_only_speedup": 7.40202616242146,
+      "detector_inclusive_speedup": 5.450570434963328,
+      "cached_speedup": 7.694366867163854,
+      "naive_outside_drift": 86.2969962783022,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 26.439809926082365,
+      "detector": {
+        "dino_inference_seconds": 0.1763457560000461,
+        "sam2_inference_seconds": 0.055164662000038334,
+        "detector_seconds": 0.23151041800008443,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            318.9873962402344,
+            485.18255615234375,
+            453.5137939453125,
+            548.1358642578125
+          ],
+          "score": 0.36966443061828613,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6038953570846914
+        },
+        "bbox": [
+          323,
+          489,
+          448,
+          547
+        ],
+        "mask_pixels": 5305
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 8,
+      "seed": 80007,
+      "crop_box": [
+        220,
+        352,
+        524,
+        656
+      ],
+      "crop_size": 304,
+      "base_seconds": 4.794238082000106,
+      "naive_seconds": 4.821687405000034,
+      "detector_seconds": 0.23185508599999594,
+      "dino_inference_seconds": 0.17650462599999628,
+      "sam2_inference_seconds": 0.05535045999999966,
+      "semantic_local_seconds": 0.6604770989999906,
+      "cached_local_seconds": 0.6297595589999219,
+      "semantic_detector_inclusive_seconds": 0.8923321849999866,
+      "generation_only_speedup": 7.300309749271265,
+      "detector_inclusive_speedup": 5.403466877080207,
+      "cached_speedup": 7.656394152487382,
+      "naive_outside_drift": 42.28676441623435,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 20.077634011090574,
+      "detector": {
+        "dino_inference_seconds": 0.17650462599999628,
+        "sam2_inference_seconds": 0.05535045999999966,
+        "detector_seconds": 0.23185508599999594,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            302.799072265625,
+            468.12152099609375,
+            441.6091003417969,
+            535.6703491210938
+          ],
+          "score": 0.3378792405128479,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.574154036392093
+        },
+        "bbox": [
+          307,
+          474,
+          437,
+          533
+        ],
+        "mask_pixels": 5559
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 9,
+      "seed": 80008,
+      "crop_box": [
+        222,
+        370,
+        510,
+        658
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.938667950999957,
+      "naive_seconds": 4.967595061999987,
+      "detector_seconds": 0.23032021799997437,
+      "dino_inference_seconds": 0.17560577400001876,
+      "sam2_inference_seconds": 0.05471444399995562,
+      "semantic_local_seconds": 0.6291075870000213,
+      "cached_local_seconds": 0.6246110280000039,
+      "semantic_detector_inclusive_seconds": 0.8594278049999957,
+      "generation_only_speedup": 7.89625680034887,
+      "detector_inclusive_speedup": 5.780119089816988,
+      "cached_speedup": 7.953101753432307,
+      "naive_outside_drift": 94.26900544807745,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 24.99243518327488,
+      "detector": {
+        "dino_inference_seconds": 0.17560577400001876,
+        "sam2_inference_seconds": 0.05471444399995562,
+        "detector_seconds": 0.23032021799997437,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            301.75946044921875,
+            483.680908203125,
+            431.67059326171875,
+            538.8533325195312
+          ],
+          "score": 0.3691921830177307,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6041111429243979
+        },
+        "bbox": [
+          304,
+          488,
+          428,
+          539
+        ],
+        "mask_pixels": 4484
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 10,
+      "seed": 80009,
+      "crop_box": [
+        244,
+        354,
+        508,
+        618
+      ],
+      "crop_size": 264,
+      "base_seconds": 4.945855514000073,
+      "naive_seconds": 4.958514911000066,
+      "detector_seconds": 0.23206608700002107,
+      "dino_inference_seconds": 0.17654401200002212,
+      "sam2_inference_seconds": 0.05552207499999895,
+      "semantic_local_seconds": 0.664002956000104,
+      "cached_local_seconds": 0.6133844549999594,
+      "semantic_detector_inclusive_seconds": 0.896069043000125,
+      "generation_only_speedup": 7.467609693893124,
+      "detector_inclusive_speedup": 5.533630415797518,
+      "cached_speedup": 8.083861386738915,
+      "naive_outside_drift": 67.65035908559132,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 26.285449060106753,
+      "detector": {
+        "dino_inference_seconds": 0.17654401200002212,
+        "sam2_inference_seconds": 0.05552207499999895,
+        "detector_seconds": 0.23206608700002107,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            316.3076477050781,
+            457.44769287109375,
+            435.5530700683594,
+            511.54095458984375
+          ],
+          "score": 0.3710940182209015,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6152997651911759
+        },
+        "bbox": [
+          320,
+          461,
+          432,
+          511
+        ],
+        "mask_pixels": 3970
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 11,
+      "seed": 80010,
+      "crop_box": [
+        235,
+        356,
+        507,
+        628
+      ],
+      "crop_size": 272,
+      "base_seconds": 4.930827179000062,
+      "naive_seconds": 4.947797238000021,
+      "detector_seconds": 0.2352846660000978,
+      "dino_inference_seconds": 0.17997258500008684,
+      "sam2_inference_seconds": 0.05531208100001095,
+      "semantic_local_seconds": 0.6647487410000394,
+      "cached_local_seconds": 0.6245857159999559,
+      "semantic_detector_inclusive_seconds": 0.9000334070001372,
+      "generation_only_speedup": 7.443108851258024,
+      "detector_inclusive_speedup": 5.49734843120025,
+      "cached_speedup": 7.921726532087983,
+      "naive_outside_drift": 88.36385508816478,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 28.309415420189318,
+      "detector": {
+        "dino_inference_seconds": 0.17997258500008684,
+        "sam2_inference_seconds": 0.05531208100001095,
+        "detector_seconds": 0.2352846660000978,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            309.763916015625,
+            462.4327697753906,
+            432.1286315917969,
+            518.9873657226562
+          ],
+          "score": 0.3753507733345032,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.616074113782221
+        },
+        "bbox": [
+          313,
+          467,
+          429,
+          518
+        ],
+        "mask_pixels": 4266
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 12,
+      "seed": 80011,
+      "crop_box": [
+        242,
+        350,
+        506,
+        614
+      ],
+      "crop_size": 264,
+      "base_seconds": 4.915028598000163,
+      "naive_seconds": 4.919131532999927,
+      "detector_seconds": 0.232621361999918,
+      "dino_inference_seconds": 0.1765507019999859,
+      "sam2_inference_seconds": 0.056070659999932104,
+      "semantic_local_seconds": 0.6200944930001242,
+      "cached_local_seconds": 0.6196782450001592,
+      "semantic_detector_inclusive_seconds": 0.8527158550000422,
+      "generation_only_speedup": 7.932874083755073,
+      "detector_inclusive_speedup": 5.768781598413792,
+      "cached_speedup": 7.938202724865165,
+      "naive_outside_drift": 61.79270723814465,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 33.46894093686355,
+      "detector": {
+        "dino_inference_seconds": 0.1765507019999859,
+        "sam2_inference_seconds": 0.056070659999932104,
+        "detector_seconds": 0.232621361999918,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            313.33148193359375,
+            455.9433288574219,
+            434.3817443847656,
+            505.0719909667969
+          ],
+          "score": 0.3702872097492218,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6178548736675175
+        },
+        "bbox": [
+          317,
+          459,
+          431,
+          505
+        ],
+        "mask_pixels": 3596
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 13,
+      "seed": 80012,
+      "crop_box": [
+        224,
+        347,
+        544,
+        667
+      ],
+      "crop_size": 320,
+      "base_seconds": 4.849018517000104,
+      "naive_seconds": 4.910301241999832,
+      "detector_seconds": 0.23088036599983752,
+      "dino_inference_seconds": 0.17557000699980563,
+      "sam2_inference_seconds": 0.055310359000031895,
+      "semantic_local_seconds": 0.6611227490000147,
+      "cached_local_seconds": 0.639320878000035,
+      "semantic_detector_inclusive_seconds": 0.8920031149998522,
+      "generation_only_speedup": 7.427215671260653,
+      "detector_inclusive_speedup": 5.504802796569433,
+      "cached_speedup": 7.680495680604949,
+      "naive_outside_drift": 59.42155958426631,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 22.429129860899582,
+      "detector": {
+        "dino_inference_seconds": 0.17557000699980563,
+        "sam2_inference_seconds": 0.055310359000031895,
+        "detector_seconds": 0.23088036599983752,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            310.1162109375,
+            473.3121643066406,
+            455.1459045410156,
+            537.978271484375
+          ],
+          "score": 0.3517947494983673,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5908415187151258
+        },
+        "bbox": [
+          314,
+          477,
+          453,
+          537
+        ],
+        "mask_pixels": 6151
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 14,
+      "seed": 80013,
+      "crop_box": [
+        255,
+        324,
+        511,
+        580
+      ],
+      "crop_size": 256,
+      "base_seconds": 4.798414502000014,
+      "naive_seconds": 4.802800685999955,
+      "detector_seconds": 0.23277115400014736,
+      "dino_inference_seconds": 0.17702436100012164,
+      "sam2_inference_seconds": 0.05574679300002572,
+      "semantic_local_seconds": 0.6184997479999765,
+      "cached_local_seconds": 0.6133229399999891,
+      "semantic_detector_inclusive_seconds": 0.8512709020001239,
+      "generation_only_speedup": 7.765242753179161,
+      "detector_inclusive_speedup": 5.641918071809362,
+      "cached_speedup": 7.830785990167008,
+      "naive_outside_drift": 86.24489203968639,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 34.14507910968088,
+      "detector": {
+        "dino_inference_seconds": 0.17702436100012164,
+        "sam2_inference_seconds": 0.05574679300002572,
+        "detector_seconds": 0.23277115400014736,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            326.823974609375,
+            425.0626220703125,
+            440.7503356933594,
+            474.915771484375
+          ],
+          "score": 0.3766495883464813,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6325556909345259
+        },
+        "bbox": [
+          330,
+          429,
+          436,
+          474
+        ],
+        "mask_pixels": 3416
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 15,
+      "seed": 80014,
+      "crop_box": [
+        242,
+        384,
+        522,
+        664
+      ],
+      "crop_size": 280,
+      "base_seconds": 4.797553751000123,
+      "naive_seconds": 4.800966704000075,
+      "detector_seconds": 0.23256031400023858,
+      "dino_inference_seconds": 0.17671405400005824,
+      "sam2_inference_seconds": 0.05584626000018034,
+      "semantic_local_seconds": 0.6264654330000212,
+      "cached_local_seconds": 0.6199402390000159,
+      "semantic_detector_inclusive_seconds": 0.8590257470002598,
+      "generation_only_speedup": 7.66357799026385,
+      "detector_inclusive_speedup": 5.588850765841624,
+      "cached_speedup": 7.744241141281929,
+      "naive_outside_drift": 44.13945508999447,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 20.217178546133542,
+      "detector": {
+        "dino_inference_seconds": 0.17671405400005824,
+        "sam2_inference_seconds": 0.05584626000018034,
+        "detector_seconds": 0.23256031400023858,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            316.90985107421875,
+            492.62957763671875,
+            446.10076904296875,
+            553.033203125
+          ],
+          "score": 0.37619200348854065,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6083641532450679
+        },
+        "bbox": [
+          321,
+          496,
+          442,
+          552
+        ],
+        "mask_pixels": 4812
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 16,
+      "seed": 80015,
+      "crop_box": [
+        213,
+        405,
+        533,
+        725
+      ],
+      "crop_size": 320,
+      "base_seconds": 4.800938747000146,
+      "naive_seconds": 4.813996289999977,
+      "detector_seconds": 0.23578056600013042,
+      "dino_inference_seconds": 0.1784889570001269,
+      "sam2_inference_seconds": 0.05729160900000352,
+      "semantic_local_seconds": 0.6518754789999548,
+      "cached_local_seconds": 0.6530524540000897,
+      "semantic_detector_inclusive_seconds": 0.8876560450000852,
+      "generation_only_speedup": 7.384840272539706,
+      "detector_inclusive_speedup": 5.423267623890868,
+      "cached_speedup": 7.371530817338168,
+      "naive_outside_drift": 41.18793749679098,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 33.11890133718829,
+      "detector": {
+        "dino_inference_seconds": 0.1784889570001269,
+        "sam2_inference_seconds": 0.05729160900000352,
+        "detector_seconds": 0.23578056600013042,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            300.6083679199219,
+            534.2288818359375,
+            446.23681640625,
+            592.4610595703125
+          ],
+          "score": 0.3576318919658661,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5782810653232607
+        },
+        "bbox": [
+          304,
+          538,
+          442,
+          592
+        ],
+        "mask_pixels": 5133
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 17,
+      "seed": 80016,
+      "crop_box": [
+        259,
+        366,
+        515,
+        622
+      ],
+      "crop_size": 256,
+      "base_seconds": 4.819741308999937,
+      "naive_seconds": 4.837993516999859,
+      "detector_seconds": 0.23416163800015966,
+      "dino_inference_seconds": 0.17738419100010105,
+      "sam2_inference_seconds": 0.0567774470000586,
+      "semantic_local_seconds": 0.6024044649998359,
+      "cached_local_seconds": 0.6133092149998447,
+      "semantic_detector_inclusive_seconds": 0.8365661029999956,
+      "generation_only_speedup": 8.031138210440018,
+      "detector_inclusive_speedup": 5.78315748110091,
+      "cached_speedup": 7.8883431043850925,
+      "naive_outside_drift": 44.774206977506005,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 33.30648347701149,
+      "detector": {
+        "dino_inference_seconds": 0.17738419100010105,
+        "sam2_inference_seconds": 0.0567774470000586,
+        "detector_seconds": 0.23416163800015966,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            331.52374267578125,
+            468.5059814453125,
+            442.197265625,
+            517.6478271484375
+          ],
+          "score": 0.389760285615921,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6327064277999566
+        },
+        "bbox": [
+          335,
+          472,
+          439,
+          517
+        ],
+        "mask_pixels": 3400
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 18,
+      "seed": 80017,
+      "crop_box": [
+        245,
+        390,
+        533,
+        678
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.827342736999981,
+      "naive_seconds": 4.822717026999953,
+      "detector_seconds": 0.23065223899993725,
+      "dino_inference_seconds": 0.17514504399991893,
+      "sam2_inference_seconds": 0.05550719500001833,
+      "semantic_local_seconds": 0.6202639670000281,
+      "cached_local_seconds": 0.6227732070001366,
+      "semantic_detector_inclusive_seconds": 0.8509162059999653,
+      "generation_only_speedup": 7.77526550562905,
+      "detector_inclusive_speedup": 5.667675610117772,
+      "cached_speedup": 7.743937877852371,
+      "naive_outside_drift": 79.01067392965773,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 20.623895297847938,
+      "detector": {
+        "dino_inference_seconds": 0.17514504399991893,
+        "sam2_inference_seconds": 0.05550719500001833,
+        "detector_seconds": 0.23065223899993725,
+        "raw_detection_count": 10,
+        "selected": {
+          "box": [
+            324.59344482421875,
+            505.0247497558594,
+            453.7764587402344,
+            561.0642700195312
+          ],
+          "score": 0.3509501814842224,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5808012928482824
+        },
+        "bbox": [
+          327,
+          509,
+          451,
+          560
+        ],
+        "mask_pixels": 4579
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 19,
+      "seed": 80018,
+      "crop_box": [
+        232,
+        364,
+        520,
+        652
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.9342123569999785,
+      "naive_seconds": 4.928886206000016,
+      "detector_seconds": 0.2349046899998939,
+      "dino_inference_seconds": 0.17665524199992433,
+      "sam2_inference_seconds": 0.05824944799996956,
+      "semantic_local_seconds": 0.6246166739999808,
+      "cached_local_seconds": 0.6247621069999241,
+      "semantic_detector_inclusive_seconds": 0.8595213639998747,
+      "generation_only_speedup": 7.8910576857257695,
+      "detector_inclusive_speedup": 5.734454560923205,
+      "cached_speedup": 7.889220794244832,
+      "naive_outside_drift": 58.85926772281157,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 25.76823620223852,
+      "detector": {
+        "dino_inference_seconds": 0.17665524199992433,
+        "sam2_inference_seconds": 0.05824944799996956,
+        "detector_seconds": 0.2349046899998939,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            311.5052795410156,
+            476.1378479003906,
+            442.3700866699219,
+            536.069580078125
+          ],
+          "score": 0.37016746401786804,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.607294695287526
+        },
+        "bbox": [
+          314,
+          480,
+          439,
+          535
+        ],
+        "mask_pixels": 4807
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 20,
+      "seed": 80019,
+      "crop_box": [
+        242,
+        356,
+        514,
+        628
+      ],
+      "crop_size": 272,
+      "base_seconds": 4.92253759800019,
+      "naive_seconds": 4.9341725040001165,
+      "detector_seconds": 0.2305010810002841,
+      "dino_inference_seconds": 0.1763441480002257,
+      "sam2_inference_seconds": 0.054156933000058416,
+      "semantic_local_seconds": 0.6192452360000971,
+      "cached_local_seconds": 0.6181380579998859,
+      "semantic_detector_inclusive_seconds": 0.8497463170003812,
+      "generation_only_speedup": 7.968042735171471,
+      "detector_inclusive_speedup": 5.806641823900843,
+      "cached_speedup": 7.982314695143763,
+      "naive_outside_drift": 76.45037379139076,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 33.07247713473215,
+      "detector": {
+        "dino_inference_seconds": 0.1763441480002257,
+        "sam2_inference_seconds": 0.054156933000058416,
+        "detector_seconds": 0.2305010810002841,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            316.5235290527344,
+            463.69970703125,
+            439.5777587890625,
+            517.9246826171875
+          ],
+          "score": 0.37880939245224,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6220122429847288
+        },
+        "bbox": [
+          321,
+          468,
+          436,
+          517
+        ],
+        "mask_pixels": 3999
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 21,
+      "seed": 80020,
+      "crop_box": [
+        223,
+        394,
+        511,
+        682
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.826071367000168,
+      "naive_seconds": 4.830782390999957,
+      "detector_seconds": 0.23177291699994385,
+      "dino_inference_seconds": 0.17661579499986146,
+      "sam2_inference_seconds": 0.05515712200008238,
+      "semantic_local_seconds": 0.6280617170000369,
+      "cached_local_seconds": 0.6269504289998622,
+      "semantic_detector_inclusive_seconds": 0.8598346339999807,
+      "generation_only_speedup": 7.691572755101826,
+      "detector_inclusive_speedup": 5.618269141505721,
+      "cached_speedup": 7.705206293113516,
+      "naive_outside_drift": 56.28702171028331,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 19.18667196608373,
+      "detector": {
+        "dino_inference_seconds": 0.17661579499986146,
+        "sam2_inference_seconds": 0.05515712200008238,
+        "detector_seconds": 0.23177291699994385,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            302.2496643066406,
+            506.1756591796875,
+            433.44140625,
+            566.5442504882812
+          ],
+          "score": 0.3571828007698059,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5823646245286351
+        },
+        "bbox": [
+          306,
+          511,
+          428,
+          565
+        ],
+        "mask_pixels": 4666
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 22,
+      "seed": 80021,
+      "crop_box": [
+        245,
+        356,
+        501,
+        612
+      ],
+      "crop_size": 256,
+      "base_seconds": 4.904888908000203,
+      "naive_seconds": 4.910540422000167,
+      "detector_seconds": 0.23888100399994983,
+      "dino_inference_seconds": 0.17871738299982098,
+      "sam2_inference_seconds": 0.06016362100012884,
+      "semantic_local_seconds": 0.6192031980001502,
+      "cached_local_seconds": 0.616147318000003,
+      "semantic_detector_inclusive_seconds": 0.8580842020001,
+      "generation_only_speedup": 7.930418379394378,
+      "detector_inclusive_speedup": 5.722678975506409,
+      "cached_speedup": 7.96975054267808,
+      "naive_outside_drift": 70.07287192486277,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 31.845775301764164,
+      "detector": {
+        "dino_inference_seconds": 0.17871738299982098,
+        "sam2_inference_seconds": 0.06016362100012884,
+        "detector_seconds": 0.23888100399994983,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            314.10992431640625,
+            458.15997314453125,
+            430.44647216796875,
+            507.12933349609375
+          ],
+          "score": 0.38016635179519653,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6258527349067692
+        },
+        "bbox": [
+          319,
+          463,
+          427,
+          506
+        ],
+        "mask_pixels": 3276
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 23,
+      "seed": 80022,
+      "crop_box": [
+        222,
+        412,
+        518,
+        708
+      ],
+      "crop_size": 296,
+      "base_seconds": 4.804361996000125,
+      "naive_seconds": 4.814007275999984,
+      "detector_seconds": 0.23443674100030876,
+      "dino_inference_seconds": 0.17772183000010955,
+      "sam2_inference_seconds": 0.05671491100019921,
+      "semantic_local_seconds": 0.6311102800000299,
+      "cached_local_seconds": 0.6261819189999187,
+      "semantic_detector_inclusive_seconds": 0.8655470210003386,
+      "generation_only_speedup": 7.627838475392535,
+      "detector_inclusive_speedup": 5.561809074723972,
+      "cached_speedup": 7.687873331904061,
+      "naive_outside_drift": 50.98617372803087,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 28.263359273670563,
+      "detector": {
+        "dino_inference_seconds": 0.17772183000010955,
+        "sam2_inference_seconds": 0.05671491100019921,
+        "detector_seconds": 0.23443674100030876,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            300.4979553222656,
+            526.9332885742188,
+            438.2156066894531,
+            589.0421752929688
+          ],
+          "score": 0.35453012585639954,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5733582363550169
+        },
+        "bbox": [
+          306,
+          533,
+          433,
+          586
+        ],
+        "mask_pixels": 4766
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 24,
+      "seed": 80023,
+      "crop_box": [
+        240,
+        362,
+        528,
+        650
+      ],
+      "crop_size": 288,
+      "base_seconds": 4.790793148000148,
+      "naive_seconds": 4.812621261000004,
+      "detector_seconds": 0.23204273200008174,
+      "dino_inference_seconds": 0.1765315309999096,
+      "sam2_inference_seconds": 0.05551120100017215,
+      "semantic_local_seconds": 0.6279658270000255,
+      "cached_local_seconds": 0.6388186990000122,
+      "semantic_detector_inclusive_seconds": 0.8600085590001072,
+      "generation_only_speedup": 7.663826683039886,
+      "detector_inclusive_speedup": 5.596015540351621,
+      "cached_speedup": 7.533626157990581,
+      "naive_outside_drift": 89.4958730549655,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 25.388758934372966,
+      "detector": {
+        "dino_inference_seconds": 0.1765315309999096,
+        "sam2_inference_seconds": 0.05551120100017215,
+        "detector_seconds": 0.23204273200008174,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            318.660400390625,
+            475.4923095703125,
+            450.82989501953125,
+            533.2816162109375
+          ],
+          "score": 0.36250412464141846,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.6025210616514101
+        },
+        "bbox": [
+          322,
+          480,
+          447,
+          533
+        ],
+        "mask_pixels": 4761
+      },
+      "error": null
+    },
+    {
+      "case_key": "face_lips",
+      "sample_index": 25,
+      "seed": 80024,
+      "crop_box": [
+        204,
+        385,
+        540,
+        721
+      ],
+      "crop_size": 336,
+      "base_seconds": 4.807349083999952,
+      "naive_seconds": 4.8411867930001335,
+      "detector_seconds": 0.235348889000079,
+      "dino_inference_seconds": 0.17744605899997623,
+      "sam2_inference_seconds": 0.05790283000010277,
+      "semantic_local_seconds": 0.7206266119999327,
+      "cached_local_seconds": 0.6621890440001152,
+      "semantic_detector_inclusive_seconds": 0.9559755010000117,
+      "generation_only_speedup": 6.718023886967673,
+      "detector_inclusive_speedup": 5.064132697894393,
+      "cached_speedup": 7.310883254358541,
+      "naive_outside_drift": 51.01713117200822,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 29.959623733719248,
+      "detector": {
+        "dino_inference_seconds": 0.17744605899997623,
+        "sam2_inference_seconds": 0.05790283000010277,
+        "detector_seconds": 0.235348889000079,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            293.6844482421875,
+            515.6962280273438,
+            450.2048034667969,
+            585.351806640625
+          ],
+          "score": 0.3402631878852844,
+          "label": "lips mouth closed lips pink lips woman lips",
+          "selection_score": 0.5623713527204346
+        },
+        "bbox": [
+          300,
+          522,
+          445,
+          584
+        ],
+        "mask_pixels": 6479
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 1,
+      "seed": 81000,
+      "crop_box": [
+        127,
+        32,
+        639,
+        544
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.812312242999951,
+      "naive_seconds": 4.830897842000013,
+      "detector_seconds": 0.23572321500023463,
+      "dino_inference_seconds": 0.17837395200012907,
+      "sam2_inference_seconds": 0.057349263000105566,
+      "semantic_local_seconds": 0.9920663069999591,
+      "cached_local_seconds": 0.9424076640000294,
+      "semantic_detector_inclusive_seconds": 1.2277895220001938,
+      "generation_only_speedup": 4.869531207655672,
+      "detector_inclusive_speedup": 3.9346302891801765,
+      "cached_speedup": 5.126123254871856,
+      "naive_outside_drift": 86.05658986175115,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.436304341701181,
+      "detector": {
+        "dino_inference_seconds": 0.17837395200012907,
+        "sam2_inference_seconds": 0.057349263000105566,
+        "detector_seconds": 0.23572321500023463,
+        "raw_detection_count": 21,
+        "selected": {
+          "box": [
+            260.58282470703125,
+            144.58010864257812,
+            505.79022216796875,
+            428.7781677246094
+          ],
+          "score": 0.44372138381004333,
+          "label": "shirt t - shirt white shirt upper",
+          "selection_score": 0.5618505241120624
+        },
+        "bbox": [
+          261,
+          147,
+          505,
+          429
+        ],
+        "mask_pixels": 46121
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 2,
+      "seed": 81001,
+      "crop_box": [
+        127,
+        15,
+        639,
+        527
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.868325501000072,
+      "naive_seconds": 4.944261835999896,
+      "detector_seconds": 0.2321852189998026,
+      "dino_inference_seconds": 0.17651815599992915,
+      "sam2_inference_seconds": 0.05566706299987345,
+      "semantic_local_seconds": 0.9393342830001075,
+      "cached_local_seconds": 0.9361497599998074,
+      "semantic_detector_inclusive_seconds": 1.17151950199991,
+      "generation_only_speedup": 5.263580735293285,
+      "detector_inclusive_speedup": 4.220383721789956,
+      "cached_speedup": 5.281485983611119,
+      "naive_outside_drift": 86.42047096149338,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.265836349981857,
+      "detector": {
+        "dino_inference_seconds": 0.17651815599992915,
+        "sam2_inference_seconds": 0.05566706299987345,
+        "detector_seconds": 0.2321852189998026,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            270.3380126953125,
+            139.986328125,
+            496.1869812011719,
+            400.94354248046875
+          ],
+          "score": 0.4749760329723358,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6425065583269471
+        },
+        "bbox": [
+          271,
+          142,
+          495,
+          400
+        ],
+        "mask_pixels": 38396
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 3,
+      "seed": 81002,
+      "crop_box": [
+        146,
+        16,
+        658,
+        528
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.927675189999945,
+      "naive_seconds": 4.837327706999986,
+      "detector_seconds": 0.2335036729998592,
+      "dino_inference_seconds": 0.1773765379998622,
+      "sam2_inference_seconds": 0.056127134999997,
+      "semantic_local_seconds": 0.9448057089998656,
+      "cached_local_seconds": 0.9424583429999984,
+      "semantic_detector_inclusive_seconds": 1.1783093819997248,
+      "generation_only_speedup": 5.119917948125644,
+      "detector_inclusive_speedup": 4.105312052077945,
+      "cached_speedup": 5.132670046298263,
+      "naive_outside_drift": 57.27984938552384,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.340518324239045,
+      "detector": {
+        "dino_inference_seconds": 0.1773765379998622,
+        "sam2_inference_seconds": 0.056127134999997,
+        "detector_seconds": 0.2335036729998592,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            303.4861755371094,
+            142.1068115234375,
+            501.665771484375,
+            399.2304382324219
+          ],
+          "score": 0.4752056300640106,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6787207040933796
+        },
+        "bbox": [
+          306,
+          144,
+          499,
+          400
+        ],
+        "mask_pixels": 32039
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 4,
+      "seed": 81003,
+      "crop_box": [
+        132,
+        3,
+        644,
+        515
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.80787139600011,
+      "naive_seconds": 4.812156632000097,
+      "detector_seconds": 0.23281323199989856,
+      "dino_inference_seconds": 0.17773861299997407,
+      "sam2_inference_seconds": 0.055074618999924496,
+      "semantic_local_seconds": 0.9415304550000201,
+      "cached_local_seconds": 0.9391875469998467,
+      "semantic_detector_inclusive_seconds": 1.1743436869999186,
+      "generation_only_speedup": 5.110994133482378,
+      "detector_inclusive_speedup": 4.09774130458661,
+      "cached_speedup": 5.123744077923641,
+      "naive_outside_drift": 77.85967147987417,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.691412281743676,
+      "detector": {
+        "dino_inference_seconds": 0.17773861299997407,
+        "sam2_inference_seconds": 0.055074618999924496,
+        "detector_seconds": 0.23281323199989856,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            271.66156005859375,
+            123.52354431152344,
+            503.39093017578125,
+            392.67950439453125
+          ],
+          "score": 0.45190510153770447,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.5972789049411646
+        },
+        "bbox": [
+          274,
+          126,
+          502,
+          392
+        ],
+        "mask_pixels": 40955
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 5,
+      "seed": 81004,
+      "crop_box": [
+        124,
+        256,
+        636,
+        768
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.896556873000009,
+      "naive_seconds": 4.908008285000051,
+      "detector_seconds": 0.23384639000005336,
+      "dino_inference_seconds": 0.1770524450000721,
+      "sam2_inference_seconds": 0.05679394499998125,
+      "semantic_local_seconds": 0.9367904289999842,
+      "cached_local_seconds": 0.9393801180001446,
+      "semantic_detector_inclusive_seconds": 1.1706368190000376,
+      "generation_only_speedup": 5.239174241179329,
+      "detector_inclusive_speedup": 4.192596888582823,
+      "cached_speedup": 5.224730852776357,
+      "naive_outside_drift": 87.68222874470949,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 9.948776121689018,
+      "detector": {
+        "dino_inference_seconds": 0.1770524450000721,
+        "sam2_inference_seconds": 0.05679394499998125,
+        "detector_seconds": 0.23384639000005336,
+        "raw_detection_count": 25,
+        "selected": {
+          "box": [
+            233.11940002441406,
+            621.824951171875,
+            527.5567626953125,
+            765.8546752929688
+          ],
+          "score": 0.3583604097366333,
+          "label": "t - shirt upper clothing torso clothing",
+          "selection_score": 0.4998966785107773
+        },
+        "bbox": [
+          238,
+          630,
+          522,
+          767
+        ],
+        "mask_pixels": 33942
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 6,
+      "seed": 81005,
+      "crop_box": [
+        138,
+        0,
+        650,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.887706463000086,
+      "naive_seconds": 4.916105250000101,
+      "detector_seconds": 0.2321026909999091,
+      "dino_inference_seconds": 0.17739465299996482,
+      "sam2_inference_seconds": 0.05470803799994428,
+      "semantic_local_seconds": 0.9379841810000471,
+      "cached_local_seconds": 0.9395735190000778,
+      "semantic_detector_inclusive_seconds": 1.1700868719999562,
+      "generation_only_speedup": 5.241138762872008,
+      "detector_inclusive_speedup": 4.2014874003306355,
+      "cached_speedup": 5.232273101132061,
+      "naive_outside_drift": 75.64417510853835,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.953489628349179,
+      "detector": {
+        "dino_inference_seconds": 0.17739465299996482,
+        "sam2_inference_seconds": 0.05470803799994428,
+        "detector_seconds": 0.2321026909999091,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            280.05029296875,
+            126.99995422363281,
+            507.26513671875,
+            375.6468505859375
+          ],
+          "score": 0.45922380685806274,
+          "label": "shirt t - shirt white shirt upper",
+          "selection_score": 0.6312047264001539
+        },
+        "bbox": [
+          282,
+          129,
+          505,
+          375
+        ],
+        "mask_pixels": 35947
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 7,
+      "seed": 81006,
+      "crop_box": [
+        134,
+        2,
+        646,
+        514
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.903767173000006,
+      "naive_seconds": 4.914289507999911,
+      "detector_seconds": 0.23458566199997222,
+      "dino_inference_seconds": 0.1774631959999624,
+      "sam2_inference_seconds": 0.05712246600000981,
+      "semantic_local_seconds": 0.9432581139999456,
+      "cached_local_seconds": 0.9395717439999771,
+      "semantic_detector_inclusive_seconds": 1.1778437759999179,
+      "generation_only_speedup": 5.209909604870035,
+      "detector_inclusive_speedup": 4.172276161011232,
+      "cached_speedup": 5.230350464860329,
+      "naive_outside_drift": 77.89803115328617,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.484086480467663,
+      "detector": {
+        "dino_inference_seconds": 0.1774631959999624,
+        "sam2_inference_seconds": 0.05712246600000981,
+        "detector_seconds": 0.23458566199997222,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            271.45123291015625,
+            119.62873077392578,
+            507.93505859375,
+            392.7311096191406
+          ],
+          "score": 0.46692967414855957,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6000078966856807
+        },
+        "bbox": [
+          272,
+          123,
+          507,
+          393
+        ],
+        "mask_pixels": 41966
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 8,
+      "seed": 81007,
+      "crop_box": [
+        136,
+        0,
+        648,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.918324251000058,
+      "naive_seconds": 4.947853406999911,
+      "detector_seconds": 0.23241035099999863,
+      "dino_inference_seconds": 0.17733806399996865,
+      "sam2_inference_seconds": 0.055072287000029974,
+      "semantic_local_seconds": 0.9434144530000594,
+      "cached_local_seconds": 0.9424919880000289,
+      "semantic_detector_inclusive_seconds": 1.175824804000058,
+      "generation_only_speedup": 5.24462328435369,
+      "detector_inclusive_speedup": 4.207985228894412,
+      "cached_speedup": 5.249756464773003,
+      "naive_outside_drift": 93.99981416804675,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.738746000341956,
+      "detector": {
+        "dino_inference_seconds": 0.17733806399996865,
+        "sam2_inference_seconds": 0.055072287000029974,
+        "detector_seconds": 0.23241035099999863,
+        "raw_detection_count": 21,
+        "selected": {
+          "box": [
+            279.6814270019531,
+            119.85693359375,
+            505.4079895019531,
+            379.6912841796875
+          ],
+          "score": 0.46331483125686646,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6238923632590357
+        },
+        "bbox": [
+          282,
+          123,
+          503,
+          379
+        ],
+        "mask_pixels": 39866
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 9,
+      "seed": 81008,
+      "crop_box": [
+        122,
+        0,
+        634,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.929988244000015,
+      "naive_seconds": 4.922542893999889,
+      "detector_seconds": 0.23272309000003588,
+      "dino_inference_seconds": 0.17696879999994053,
+      "sam2_inference_seconds": 0.05575429000009535,
+      "semantic_local_seconds": 0.9446207119999599,
+      "cached_local_seconds": 0.9439310100001421,
+      "semantic_detector_inclusive_seconds": 1.1773438019999958,
+      "generation_only_speedup": 5.211131654712329,
+      "detector_inclusive_speedup": 4.181058146004413,
+      "cached_speedup": 5.21493927188508,
+      "naive_outside_drift": 98.53814225935116,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 4.354938114830429,
+      "detector": {
+        "dino_inference_seconds": 0.17696879999994053,
+        "sam2_inference_seconds": 0.05575429000009535,
+        "detector_seconds": 0.23272309000003588,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            250.27052307128906,
+            21.896724700927734,
+            507.53900146484375,
+            335.5633544921875
+          ],
+          "score": 0.4350029528141022,
+          "label": "shirt t - shirt white shirt upper",
+          "selection_score": 0.46040405320546207
+        },
+        "bbox": [
+          251,
+          24,
+          506,
+          335
+        ],
+        "mask_pixels": 57742
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 10,
+      "seed": 81009,
+      "crop_box": [
+        128,
+        0,
+        640,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.92287391800005,
+      "naive_seconds": 4.92710573599993,
+      "detector_seconds": 0.23263974399992549,
+      "dino_inference_seconds": 0.1778376820000176,
+      "sam2_inference_seconds": 0.05480206199990789,
+      "semantic_local_seconds": 0.945075068000051,
+      "cached_local_seconds": 0.9393315299998903,
+      "semantic_detector_inclusive_seconds": 1.1777148119999765,
+      "generation_only_speedup": 5.213454362336076,
+      "detector_inclusive_speedup": 4.183615325031701,
+      "cached_speedup": 5.2453320032816375,
+      "naive_outside_drift": 99.11287114390076,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.068851211824802,
+      "detector": {
+        "dino_inference_seconds": 0.1778376820000176,
+        "sam2_inference_seconds": 0.05480206199990789,
+        "detector_seconds": 0.23263974399992549,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            268.500732421875,
+            121.14236450195312,
+            499.77520751953125,
+            365.7325744628906
+          ],
+          "score": 0.47682398557662964,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6475583926143358
+        },
+        "bbox": [
+          270,
+          124,
+          498,
+          365
+        ],
+        "mask_pixels": 35778
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 11,
+      "seed": 81010,
+      "crop_box": [
+        115,
+        24,
+        627,
+        536
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.909370103000128,
+      "naive_seconds": 4.890290305000008,
+      "detector_seconds": 0.23337776900007157,
+      "dino_inference_seconds": 0.177914329000032,
+      "sam2_inference_seconds": 0.055463440000039554,
+      "semantic_local_seconds": 0.9525943059998099,
+      "cached_local_seconds": 0.9453206900000168,
+      "semantic_detector_inclusive_seconds": 1.1859720749998814,
+      "generation_only_speedup": 5.1336547722352055,
+      "detector_inclusive_speedup": 4.123444732035952,
+      "cached_speedup": 5.173154842300046,
+      "naive_outside_drift": 92.32967967922667,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.995223965712351,
+      "detector": {
+        "dino_inference_seconds": 0.177914329000032,
+        "sam2_inference_seconds": 0.055463440000039554,
+        "detector_seconds": 0.23337776900007157,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            261.7931213378906,
+            146.77847290039062,
+            479.7542724609375,
+            408.7862548828125
+          ],
+          "score": 0.4782881438732147,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6545678284833771
+        },
+        "bbox": [
+          264,
+          150,
+          478,
+          409
+        ],
+        "mask_pixels": 36331
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 12,
+      "seed": 81011,
+      "crop_box": [
+        130,
+        0,
+        642,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.889410700000099,
+      "naive_seconds": 4.905528785000115,
+      "detector_seconds": 0.2457634610000241,
+      "dino_inference_seconds": 0.18536523900002067,
+      "sam2_inference_seconds": 0.06039822200000344,
+      "semantic_local_seconds": 0.9460915610000029,
+      "cached_local_seconds": 0.9485932219999995,
+      "semantic_detector_inclusive_seconds": 1.191855022000027,
+      "generation_only_speedup": 5.1850465506901395,
+      "detector_inclusive_speedup": 4.115877094487759,
+      "cached_speedup": 5.171372376725793,
+      "naive_outside_drift": 77.2608096216429,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.812113720642769,
+      "detector": {
+        "dino_inference_seconds": 0.18536523900002067,
+        "sam2_inference_seconds": 0.06039822200000344,
+        "detector_seconds": 0.2457634610000241,
+        "raw_detection_count": 24,
+        "selected": {
+          "box": [
+            282.9150390625,
+            125.43303680419922,
+            489.0018310546875,
+            386.1309814453125
+          ],
+          "score": 0.47357818484306335,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6618159184919468
+        },
+        "bbox": [
+          285,
+          127,
+          487,
+          385
+        ],
+        "mask_pixels": 35353
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 13,
+      "seed": 81012,
+      "crop_box": [
+        124,
+        12,
+        636,
+        524
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.922353521999867,
+      "naive_seconds": 4.920531153999946,
+      "detector_seconds": 0.23312374500005717,
+      "dino_inference_seconds": 0.17802409199998692,
+      "sam2_inference_seconds": 0.05509965300007025,
+      "semantic_local_seconds": 0.9460632469999837,
+      "cached_local_seconds": 0.9396113210000294,
+      "semantic_detector_inclusive_seconds": 1.1791869920000408,
+      "generation_only_speedup": 5.20105941077746,
+      "detector_inclusive_speedup": 4.172816684191997,
+      "cached_speedup": 5.236772954973572,
+      "naive_outside_drift": 85.76583590588534,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.332587044786198,
+      "detector": {
+        "dino_inference_seconds": 0.17802409199998692,
+        "sam2_inference_seconds": 0.05509965300007025,
+        "detector_seconds": 0.23312374500005717,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            272.41290283203125,
+            137.39822387695312,
+            487.329345703125,
+            394.0335693359375
+          ],
+          "score": 0.46281781792640686,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6470406978802522
+        },
+        "bbox": [
+          274,
+          142,
+          485,
+          393
+        ],
+        "mask_pixels": 36450
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 14,
+      "seed": 81013,
+      "crop_box": [
+        126,
+        3,
+        638,
+        515
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.817297429000064,
+      "naive_seconds": 4.927243220000037,
+      "detector_seconds": 0.24231409099979828,
+      "dino_inference_seconds": 0.1848232499999085,
+      "sam2_inference_seconds": 0.05749084099988977,
+      "semantic_local_seconds": 0.9423854100000426,
+      "cached_local_seconds": 0.9411114699998961,
+      "semantic_detector_inclusive_seconds": 1.184699500999841,
+      "generation_only_speedup": 5.2284799485592774,
+      "detector_inclusive_speedup": 4.159065835548705,
+      "cached_speedup": 5.235557505213044,
+      "naive_outside_drift": 97.07605872047364,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.6978313253012045,
+      "detector": {
+        "dino_inference_seconds": 0.1848232499999085,
+        "sam2_inference_seconds": 0.05749084099988977,
+        "detector_seconds": 0.24231409099979828,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            265.42816162109375,
+            120.61823272705078,
+            499.783203125,
+            395.3110656738281
+          ],
+          "score": 0.45556938648223877,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.5910787034797883
+        },
+        "bbox": [
+          266,
+          124,
+          498,
+          394
+        ],
+        "mask_pixels": 42402
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 15,
+      "seed": 81014,
+      "crop_box": [
+        120,
+        256,
+        632,
+        768
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.924922027999855,
+      "naive_seconds": 4.936168471000201,
+      "detector_seconds": 0.23353847800012772,
+      "dino_inference_seconds": 0.1784321700001783,
+      "sam2_inference_seconds": 0.05510630799994942,
+      "semantic_local_seconds": 0.9591283449999537,
+      "cached_local_seconds": 0.9454405689998566,
+      "semantic_detector_inclusive_seconds": 1.1926668230000814,
+      "generation_only_speedup": 5.146515058941814,
+      "detector_inclusive_speedup": 4.138765643353411,
+      "cached_speedup": 5.221024602553256,
+      "naive_outside_drift": 66.22512947297099,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.941738931414184,
+      "detector": {
+        "dino_inference_seconds": 0.1784321700001783,
+        "sam2_inference_seconds": 0.05510630799994942,
+        "detector_seconds": 0.23353847800012772,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            257.7405090332031,
+            552.5299072265625,
+            495.61376953125,
+            765.84228515625
+          ],
+          "score": 0.3828185200691223,
+          "label": "t - shirt upper clothing torso clothing",
+          "selection_score": 0.5257894150634624
+        },
+        "bbox": [
+          262,
+          562,
+          491,
+          767
+        ],
+        "mask_pixels": 38164
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 16,
+      "seed": 81015,
+      "crop_box": [
+        100,
+        7,
+        612,
+        519
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.926936882000064,
+      "naive_seconds": 4.812127831999987,
+      "detector_seconds": 0.2333491680001316,
+      "dino_inference_seconds": 0.17763358100000914,
+      "sam2_inference_seconds": 0.05571558700012247,
+      "semantic_local_seconds": 0.9450404709998566,
+      "cached_local_seconds": 0.9410535479998998,
+      "semantic_detector_inclusive_seconds": 1.1783896389999882,
+      "generation_only_speedup": 5.091980692539799,
+      "detector_inclusive_speedup": 4.083647439469752,
+      "cached_speedup": 5.1135536784570945,
+      "naive_outside_drift": 84.26144416358615,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.634898493159321,
+      "detector": {
+        "dino_inference_seconds": 0.17763358100000914,
+        "sam2_inference_seconds": 0.05571558700012247,
+        "detector_seconds": 0.2333491680001316,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            238.904296875,
+            128.64370727539062,
+            474.3209228515625,
+            395.2667541503906
+          ],
+          "score": 0.4789271354675293,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6187285484804278
+        },
+        "bbox": [
+          240,
+          132,
+          473,
+          394
+        ],
+        "mask_pixels": 41166
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 17,
+      "seed": 81016,
+      "crop_box": [
+        115,
+        0,
+        627,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.922474070999897,
+      "naive_seconds": 4.9125736440000765,
+      "detector_seconds": 0.2342094799998904,
+      "dino_inference_seconds": 0.17813542599992616,
+      "sam2_inference_seconds": 0.056074053999964235,
+      "semantic_local_seconds": 0.9483032939999703,
+      "cached_local_seconds": 0.9441954029998669,
+      "semantic_detector_inclusive_seconds": 1.1825127739998607,
+      "generation_only_speedup": 5.180382347169439,
+      "detector_inclusive_speedup": 4.154351438744505,
+      "cached_speedup": 5.202920527246804,
+      "naive_outside_drift": 62.121782708825194,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.5310344214494,
+      "detector": {
+        "dino_inference_seconds": 0.17813542599992616,
+        "sam2_inference_seconds": 0.056074053999964235,
+        "detector_seconds": 0.2342094799998904,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            258.15966796875,
+            128.45826721191406,
+            485.18212890625,
+            381.01788330078125
+          ],
+          "score": 0.4680178761482239,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.636402883514229
+        },
+        "bbox": [
+          259,
+          130,
+          483,
+          380
+        ],
+        "mask_pixels": 36446
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 18,
+      "seed": 81017,
+      "crop_box": [
+        128,
+        20,
+        640,
+        532
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.911895846000107,
+      "naive_seconds": 4.910643872000037,
+      "detector_seconds": 0.2333464460000414,
+      "dino_inference_seconds": 0.1774323600000116,
+      "sam2_inference_seconds": 0.05591408600002978,
+      "semantic_local_seconds": 0.9410293370001455,
+      "cached_local_seconds": 0.9379304240001147,
+      "semantic_detector_inclusive_seconds": 1.1743757830001869,
+      "generation_only_speedup": 5.218374899611953,
+      "detector_inclusive_speedup": 4.181492792243022,
+      "cached_speedup": 5.2356163595344,
+      "naive_outside_drift": 84.25009028530155,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.807211858760826,
+      "detector": {
+        "dino_inference_seconds": 0.1774323600000116,
+        "sam2_inference_seconds": 0.05591408600002978,
+        "detector_seconds": 0.2333464460000414,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            282.6665344238281,
+            149.2708740234375,
+            486.99993896484375,
+            399.9830322265625
+          ],
+          "score": 0.478806734085083,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.686403555710675
+        },
+        "bbox": [
+          284,
+          154,
+          485,
+          399
+        ],
+        "mask_pixels": 34982
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 19,
+      "seed": 81018,
+      "crop_box": [
+        132,
+        13,
+        644,
+        525
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.93252339899982,
+      "naive_seconds": 4.911434840999846,
+      "detector_seconds": 0.23297210299983817,
+      "dino_inference_seconds": 0.17797955799983356,
+      "sam2_inference_seconds": 0.05499254500000461,
+      "semantic_local_seconds": 0.9467084330001398,
+      "cached_local_seconds": 0.9381288670001595,
+      "semantic_detector_inclusive_seconds": 1.179680535999978,
+      "generation_only_speedup": 5.187906508274571,
+      "detector_inclusive_speedup": 4.163360071747371,
+      "cached_speedup": 5.23535200095171,
+      "naive_outside_drift": 92.63158469627018,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.878496215860481,
+      "detector": {
+        "dino_inference_seconds": 0.17797955799983356,
+        "sam2_inference_seconds": 0.05499254500000461,
+        "detector_seconds": 0.23297210299983817,
+        "raw_detection_count": 21,
+        "selected": {
+          "box": [
+            273.87554931640625,
+            132.81204223632812,
+            500.59161376953125,
+            404.41534423828125
+          ],
+          "score": 0.46983516216278076,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6225094151473964
+        },
+        "bbox": [
+          276,
+          135,
+          499,
+          403
+        ],
+        "mask_pixels": 39393
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 20,
+      "seed": 81019,
+      "crop_box": [
+        128,
+        0,
+        640,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.899015797999937,
+      "naive_seconds": 4.918607592999933,
+      "detector_seconds": 0.2324954359999083,
+      "dino_inference_seconds": 0.17767812299985053,
+      "sam2_inference_seconds": 0.054817313000057766,
+      "semantic_local_seconds": 0.950519186000065,
+      "cached_local_seconds": 0.9528669999999693,
+      "semantic_detector_inclusive_seconds": 1.1830146219999733,
+      "generation_only_speedup": 5.174653668694697,
+      "detector_inclusive_speedup": 4.157689602081726,
+      "cached_speedup": 5.161903595150312,
+      "naive_outside_drift": 98.56439882507235,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.478128964642286,
+      "detector": {
+        "dino_inference_seconds": 0.17767812299985053,
+        "sam2_inference_seconds": 0.054817313000057766,
+        "detector_seconds": 0.2324954359999083,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            268.94757080078125,
+            108.40438842773438,
+            500.4654541015625,
+            352.436767578125
+          ],
+          "score": 0.4894741475582123,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.656141202570003
+        },
+        "bbox": [
+          270,
+          111,
+          499,
+          350
+        ],
+        "mask_pixels": 35226
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 21,
+      "seed": 81020,
+      "crop_box": [
+        150,
+        0,
+        662,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.928986734000091,
+      "naive_seconds": 4.850371023999969,
+      "detector_seconds": 0.23250585100004173,
+      "dino_inference_seconds": 0.17734384400000636,
+      "sam2_inference_seconds": 0.055162007000035373,
+      "semantic_local_seconds": 0.9426327899998341,
+      "cached_local_seconds": 0.9415979729999435,
+      "semantic_detector_inclusive_seconds": 1.1751386409998759,
+      "generation_only_speedup": 5.145557289600357,
+      "detector_inclusive_speedup": 4.127488327567029,
+      "cached_speedup": 5.151212261584021,
+      "naive_outside_drift": 96.41779078764601,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.010359206417473,
+      "detector": {
+        "dino_inference_seconds": 0.17734384400000636,
+        "sam2_inference_seconds": 0.055162007000035373,
+        "detector_seconds": 0.23250585100004173,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            272.74139404296875,
+            46.169952392578125,
+            539.8599243164062,
+            343.087158203125
+          ],
+          "score": 0.44853681325912476,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.4833296661640958
+        },
+        "bbox": [
+          274,
+          49,
+          538,
+          343
+        ],
+        "mask_pixels": 52213
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 22,
+      "seed": 81021,
+      "crop_box": [
+        139,
+        8,
+        651,
+        520
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.818013818000054,
+      "naive_seconds": 4.82527878399992,
+      "detector_seconds": 0.23201482900003612,
+      "dino_inference_seconds": 0.17723042700004044,
+      "sam2_inference_seconds": 0.05478440199999568,
+      "semantic_local_seconds": 0.9388146349999715,
+      "cached_local_seconds": 0.9405943840001783,
+      "semantic_detector_inclusive_seconds": 1.1708294640000076,
+      "generation_only_speedup": 5.139756671986762,
+      "detector_inclusive_speedup": 4.121248168383888,
+      "cached_speedup": 5.1300314631678745,
+      "naive_outside_drift": 84.4313746127896,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.602737723665317,
+      "detector": {
+        "dino_inference_seconds": 0.17723042700004044,
+        "sam2_inference_seconds": 0.05478440199999568,
+        "detector_seconds": 0.23201482900003612,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            285.7289733886719,
+            135.42713928222656,
+            504.69342041015625,
+            389.1578063964844
+          ],
+          "score": 0.4737211763858795,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6535230619381609
+        },
+        "bbox": [
+          287,
+          139,
+          503,
+          388
+        ],
+        "mask_pixels": 37683
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 23,
+      "seed": 81022,
+      "crop_box": [
+        124,
+        7,
+        636,
+        519
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.81714840099994,
+      "naive_seconds": 4.817406055999982,
+      "detector_seconds": 0.2332298940000328,
+      "dino_inference_seconds": 0.17766770299999735,
+      "sam2_inference_seconds": 0.055562191000035455,
+      "semantic_local_seconds": 0.9471749849999469,
+      "cached_local_seconds": 0.9452228540001215,
+      "semantic_detector_inclusive_seconds": 1.1804048789999797,
+      "generation_only_speedup": 5.086078213942962,
+      "detector_inclusive_speedup": 4.0811471908530335,
+      "cached_speedup": 5.096582288095377,
+      "naive_outside_drift": 80.66407374359564,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 4.776252748978951,
+      "detector": {
+        "dino_inference_seconds": 0.17766770299999735,
+        "sam2_inference_seconds": 0.055562191000035455,
+        "detector_seconds": 0.2332298940000328,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            273.38055419921875,
+            141.526123046875,
+            486.55767822265625,
+            382.4537048339844
+          ],
+          "score": 0.47487226128578186,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6776499574124641
+        },
+        "bbox": [
+          275,
+          145,
+          484,
+          381
+        ],
+        "mask_pixels": 32944
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 24,
+      "seed": 81023,
+      "crop_box": [
+        98,
+        6,
+        610,
+        518
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.91545096599998,
+      "naive_seconds": 4.929883926000002,
+      "detector_seconds": 0.23265293899976314,
+      "dino_inference_seconds": 0.1769358869998996,
+      "sam2_inference_seconds": 0.05571705199986354,
+      "semantic_local_seconds": 0.9416987689999132,
+      "cached_local_seconds": 0.9418948410000212,
+      "semantic_detector_inclusive_seconds": 1.1743517079996764,
+      "generation_only_speedup": 5.235096496128537,
+      "detector_inclusive_speedup": 4.197962069129431,
+      "cached_speedup": 5.2340067185906705,
+      "naive_outside_drift": 98.61068939591104,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.915973134764199,
+      "detector": {
+        "dino_inference_seconds": 0.1769358869998996,
+        "sam2_inference_seconds": 0.05571705199986354,
+        "detector_seconds": 0.23265293899976314,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            246.96661376953125,
+            133.3638916015625,
+            461.4088439941406,
+            389.915771484375
+          ],
+          "score": 0.48575296998023987,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6639157041835341
+        },
+        "bbox": [
+          248,
+          136,
+          460,
+          389
+        ],
+        "mask_pixels": 35462
+      },
+      "error": null
+    },
+    {
+      "case_key": "human_body_shirt",
+      "sample_index": 25,
+      "seed": 81024,
+      "crop_box": [
+        122,
+        16,
+        634,
+        528
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.908934263999981,
+      "naive_seconds": 4.923609496999916,
+      "detector_seconds": 0.23232925600018461,
+      "dino_inference_seconds": 0.17688975500004744,
+      "sam2_inference_seconds": 0.05543950100013717,
+      "semantic_local_seconds": 0.9393781759999911,
+      "cached_local_seconds": 0.9413065700000516,
+      "semantic_detector_inclusive_seconds": 1.1717074320001757,
+      "generation_only_speedup": 5.241349674489311,
+      "detector_inclusive_speedup": 4.202080965378034,
+      "cached_speedup": 5.230612059787967,
+      "naive_outside_drift": 78.36437704570608,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.779929188850334,
+      "detector": {
+        "dino_inference_seconds": 0.17688975500004744,
+        "sam2_inference_seconds": 0.05543950100013717,
+        "detector_seconds": 0.23232925600018461,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            267.3927001953125,
+            141.0679168701172,
+            489.8207702636719,
+            399.8055419921875
+          ],
+          "score": 0.46809208393096924,
+          "label": "shirt t - shirt white shirt",
+          "selection_score": 0.6416272584966773
+        },
+        "bbox": [
+          269,
+          145,
+          488,
+          398
+        ],
+        "mask_pixels": 36684
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 1,
+      "seed": 82000,
+      "crop_box": [
+        49,
+        170,
+        561,
+        682
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.910673322000093,
+      "naive_seconds": 4.937787838000077,
+      "detector_seconds": 0.2288860169999225,
+      "dino_inference_seconds": 0.1743740560000333,
+      "sam2_inference_seconds": 0.0545119609998892,
+      "semantic_local_seconds": 1.039040765999971,
+      "cached_local_seconds": 1.039220048000061,
+      "semantic_detector_inclusive_seconds": 1.2679267829998935,
+      "generation_only_speedup": 4.752256118890541,
+      "detector_inclusive_speedup": 3.8943793160653595,
+      "cached_speedup": 4.7514362790658815,
+      "naive_outside_drift": 89.0222626079055,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 9.372795269621466,
+      "detector": {
+        "dino_inference_seconds": 0.1743740560000333,
+        "sam2_inference_seconds": 0.0545119609998892,
+        "detector_seconds": 0.2288860169999225,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            185.45384216308594,
+            339.2713317871094,
+            427.620361328125,
+            607.6126098632812
+          ],
+          "score": 0.1204284131526947,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.25679482747474464
+        },
+        "bbox": [
+          175,
+          327,
+          435,
+          526
+        ],
+        "mask_pixels": 38457
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 2,
+      "seed": 82001,
+      "crop_box": [
+        34,
+        180,
+        546,
+        692
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.9039096159999644,
+      "naive_seconds": 4.913036997000063,
+      "detector_seconds": 0.2291484610000225,
+      "dino_inference_seconds": 0.17429296099999192,
+      "sam2_inference_seconds": 0.05485550000003059,
+      "semantic_local_seconds": 1.036480339000036,
+      "cached_local_seconds": 1.0338132560000304,
+      "semantic_detector_inclusive_seconds": 1.2656288000000586,
+      "generation_only_speedup": 4.740115959884013,
+      "detector_inclusive_speedup": 3.881894120139993,
+      "cached_speedup": 4.752344747454001,
+      "naive_outside_drift": 96.90821744823842,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.225344069442064,
+      "detector": {
+        "dino_inference_seconds": 0.17429296099999192,
+        "sam2_inference_seconds": 0.05485550000003059,
+        "detector_seconds": 0.2291484610000225,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            152.91192626953125,
+            300.827392578125,
+            445.9263610839844,
+            569.4453125
+          ],
+          "score": 0.2656673789024353,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.34148078430702566
+        },
+        "bbox": [
+          139,
+          291,
+          442,
+          580
+        ],
+        "mask_pixels": 74217
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 3,
+      "seed": 82002,
+      "crop_box": [
+        95,
+        124,
+        607,
+        636
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.812220918000094,
+      "naive_seconds": 4.810379202999911,
+      "detector_seconds": 0.2301686539997263,
+      "dino_inference_seconds": 0.17522423599984904,
+      "sam2_inference_seconds": 0.05494441799987726,
+      "semantic_local_seconds": 1.0370223519998945,
+      "cached_local_seconds": 1.0368888390000848,
+      "semantic_detector_inclusive_seconds": 1.2671910059996208,
+      "generation_only_speedup": 4.638645631623185,
+      "detector_inclusive_speedup": 3.7960963897508524,
+      "cached_speedup": 4.639242917918531,
+      "naive_outside_drift": 96.07959775332961,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.068000421502658,
+      "detector": {
+        "dino_inference_seconds": 0.17522423599984904,
+        "sam2_inference_seconds": 0.05494441799987726,
+        "detector_seconds": 0.2301686539997263,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            188.70233154296875,
+            218.12782287597656,
+            534.55615234375,
+            555.2280883789062
+          ],
+          "score": 0.1260097622871399,
+          "label": "coffee mug ceramic mug cup",
+          "selection_score": 0.01536609275035139
+        },
+        "bbox": [
+          179,
+          202,
+          523,
+          557
+        ],
+        "mask_pixels": 108656
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 4,
+      "seed": 82003,
+      "crop_box": [
+        223,
+        208,
+        735,
+        720
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.824593427999844,
+      "naive_seconds": 4.8166321530000005,
+      "detector_seconds": 0.22909585499996865,
+      "dino_inference_seconds": 0.17438094899989665,
+      "sam2_inference_seconds": 0.054714906000072006,
+      "semantic_local_seconds": 1.042152440999871,
+      "cached_local_seconds": 1.0368660780000027,
+      "semantic_detector_inclusive_seconds": 1.2712482959998397,
+      "generation_only_speedup": 4.621811515769022,
+      "detector_inclusive_speedup": 3.78889959432489,
+      "cached_speedup": 4.6453753818340155,
+      "naive_outside_drift": 96.83721913984749,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 12.29529496323326,
+      "detector": {
+        "dino_inference_seconds": 0.17438094899989665,
+        "sam2_inference_seconds": 0.054714906000072006,
+        "detector_seconds": 0.22909585499996865,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            358.2855224609375,
+            327.22467041015625,
+            607.709716796875,
+            595.421630859375
+          ],
+          "score": 0.27220967411994934,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3980230660037211
+        },
+        "bbox": [
+          358,
+          323,
+          600,
+          606
+        ],
+        "mask_pixels": 58837
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 5,
+      "seed": 82004,
+      "crop_box": [
+        96,
+        226,
+        608,
+        738
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.925952406999841,
+      "naive_seconds": 4.91831457100011,
+      "detector_seconds": 0.22924070699991717,
+      "dino_inference_seconds": 0.17480754999996861,
+      "sam2_inference_seconds": 0.05443315699994855,
+      "semantic_local_seconds": 1.0410973299999569,
+      "cached_local_seconds": 1.0400967650000439,
+      "semantic_detector_inclusive_seconds": 1.270338036999874,
+      "generation_only_speedup": 4.724164042376628,
+      "detector_inclusive_speedup": 3.8716581159890104,
+      "cached_speedup": 4.728708651449274,
+      "naive_outside_drift": 81.4407847079803,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 14.07890668387794,
+      "detector": {
+        "dino_inference_seconds": 0.17480754999996861,
+        "sam2_inference_seconds": 0.05443315699994855,
+        "detector_seconds": 0.22924070699991717,
+        "raw_detection_count": 19,
+        "selected": {
+          "box": [
+            237.5056915283203,
+            329.25994873046875,
+            483.1739501953125,
+            628.4171752929688
+          ],
+          "score": 0.14308680593967438,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.2450136744948313
+        },
+        "bbox": [
+          231,
+          333,
+          472,
+          632
+        ],
+        "mask_pixels": 65053
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 6,
+      "seed": 82005,
+      "crop_box": [
+        142,
+        149,
+        654,
+        661
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.902615513000001,
+      "naive_seconds": 4.934918907999872,
+      "detector_seconds": 0.23061473500024476,
+      "dino_inference_seconds": 0.1756162920000861,
+      "sam2_inference_seconds": 0.05499844300015866,
+      "semantic_local_seconds": 1.0397044000001188,
+      "cached_local_seconds": 1.0399294080000345,
+      "semantic_detector_inclusive_seconds": 1.2703191350003635,
+      "generation_only_speedup": 4.7464634255652935,
+      "detector_inclusive_speedup": 3.8847867217228527,
+      "cached_speedup": 4.745436440239325,
+      "naive_outside_drift": 88.18397747345401,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 14.07728742642888,
+      "detector": {
+        "dino_inference_seconds": 0.1756162920000861,
+        "sam2_inference_seconds": 0.05499844300015866,
+        "detector_seconds": 0.23061473500024476,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            242.4854278564453,
+            237.3460235595703,
+            513.3062133789062,
+            573.0257568359375
+          ],
+          "score": 0.1599017232656479,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.18968352788824783
+        },
+        "bbox": [
+          256,
+          227,
+          541,
+          583
+        ],
+        "mask_pixels": 88737
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 7,
+      "seed": 82006,
+      "crop_box": [
+        156,
+        110,
+        668,
+        622
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.801262215999941,
+      "naive_seconds": 4.7862017590000505,
+      "detector_seconds": 0.23080623600003491,
+      "dino_inference_seconds": 0.17539397099994858,
+      "sam2_inference_seconds": 0.055412265000086336,
+      "semantic_local_seconds": 1.0363912880000044,
+      "cached_local_seconds": 1.040541815000097,
+      "semantic_detector_inclusive_seconds": 1.2671975240000393,
+      "generation_only_speedup": 4.618141636674999,
+      "detector_inclusive_speedup": 3.776997404391947,
+      "cached_speedup": 4.599720732029981,
+      "naive_outside_drift": 95.20022190047528,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.234251259899209,
+      "detector": {
+        "dino_inference_seconds": 0.17539397099994858,
+        "sam2_inference_seconds": 0.055412265000086336,
+        "detector_seconds": 0.23080623600003491,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            269.1683654785156,
+            220.1165771484375,
+            559.0314331054688,
+            523.159912109375
+          ],
+          "score": 0.13052083551883698,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.160190180353933
+        },
+        "bbox": [
+          259,
+          209,
+          566,
+          523
+        ],
+        "mask_pixels": 79607
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 8,
+      "seed": 82007,
+      "crop_box": [
+        212,
+        198,
+        724,
+        710
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.893924599999991,
+      "naive_seconds": 4.810935625999946,
+      "detector_seconds": 0.2295106130000022,
+      "dino_inference_seconds": 0.17461671099999876,
+      "sam2_inference_seconds": 0.054893902000003436,
+      "semantic_local_seconds": 1.0390163690001373,
+      "cached_local_seconds": 1.0373937990000286,
+      "semantic_detector_inclusive_seconds": 1.2685269820001395,
+      "generation_only_speedup": 4.630278953766233,
+      "detector_inclusive_speedup": 3.792537087712823,
+      "cached_speedup": 4.63752109433981,
+      "naive_outside_drift": 84.57465787323181,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 12.629493428285128,
+      "detector": {
+        "dino_inference_seconds": 0.17461671099999876,
+        "sam2_inference_seconds": 0.054893902000003436,
+        "detector_seconds": 0.2295106130000022,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            349.2857971191406,
+            306.5128173828125,
+            590.920654296875,
+            594.1927490234375
+          ],
+          "score": 0.2491900473833084,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3677151573676973
+        },
+        "bbox": [
+          346,
+          303,
+          591,
+          606
+        ],
+        "mask_pixels": 67168
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 9,
+      "seed": 82008,
+      "crop_box": [
+        121,
+        256,
+        633,
+        768
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.796979213999975,
+      "naive_seconds": 4.811377236999988,
+      "detector_seconds": 0.22885552599996117,
+      "dino_inference_seconds": 0.1745136019999336,
+      "sam2_inference_seconds": 0.054341924000027575,
+      "semantic_local_seconds": 1.0438138409999738,
+      "cached_local_seconds": 1.0396058179999272,
+      "semantic_detector_inclusive_seconds": 1.272669366999935,
+      "generation_only_speedup": 4.609420806674385,
+      "detector_inclusive_speedup": 3.7805398336426164,
+      "cached_speedup": 4.628078405963985,
+      "naive_outside_drift": 88.8368689704556,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 13.44298028252536,
+      "detector": {
+        "dino_inference_seconds": 0.1745136019999336,
+        "sam2_inference_seconds": 0.054341924000027575,
+        "detector_seconds": 0.22885552599996117,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            227.158203125,
+            385.5340576171875,
+            506.4393310546875,
+            660.5194702148438
+          ],
+          "score": 0.25914788246154785,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.33077534419130655
+        },
+        "bbox": [
+          232,
+          379,
+          522,
+          678
+        ],
+        "mask_pixels": 77448
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 10,
+      "seed": 82009,
+      "crop_box": [
+        128,
+        148,
+        640,
+        660
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.920479045999855,
+      "naive_seconds": 4.950252329000023,
+      "detector_seconds": 0.23103463899974486,
+      "dino_inference_seconds": 0.1759947129999091,
+      "sam2_inference_seconds": 0.05503992599983576,
+      "semantic_local_seconds": 1.0403902099999414,
+      "cached_local_seconds": 1.041893287999983,
+      "semantic_detector_inclusive_seconds": 1.2714248489996862,
+      "generation_only_speedup": 4.758072770600467,
+      "detector_inclusive_speedup": 3.893468287091221,
+      "cached_speedup": 4.751208579625771,
+      "naive_outside_drift": 91.86460690352364,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.213620768252597,
+      "detector": {
+        "dino_inference_seconds": 0.1759947129999091,
+        "sam2_inference_seconds": 0.05503992599983576,
+        "detector_seconds": 0.23103463899974486,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            258.9816589355469,
+            242.64244079589844,
+            516.5660400390625,
+            547.527587890625
+          ],
+          "score": 0.13333290815353394,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.22360195060329652
+        },
+        "bbox": [
+          244,
+          244,
+          523,
+          563
+        ],
+        "mask_pixels": 81885
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 11,
+      "seed": 82010,
+      "crop_box": [
+        376,
+        274,
+        760,
+        658
+      ],
+      "crop_size": 384,
+      "base_seconds": 4.916053563000105,
+      "naive_seconds": 4.9367507010001646,
+      "detector_seconds": 0.22977855199997066,
+      "dino_inference_seconds": 0.17450787500001752,
+      "sam2_inference_seconds": 0.05527067699995314,
+      "semantic_local_seconds": 0.9276391570001579,
+      "cached_local_seconds": 0.8773656920000121,
+      "semantic_detector_inclusive_seconds": 1.1574177090001285,
+      "generation_only_speedup": 5.321843805046842,
+      "detector_inclusive_speedup": 4.265314641906534,
+      "cached_speedup": 5.626787947163195,
+      "naive_outside_drift": 93.33104967969201,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 12.511001642036124,
+      "detector": {
+        "dino_inference_seconds": 0.17450787500001752,
+        "sam2_inference_seconds": 0.05527067699995314,
+        "detector_seconds": 0.22977855199997066,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            527.5069580078125,
+            440.835693359375,
+            610.2891845703125,
+            492.60015869140625
+          ],
+          "score": 0.20646680891513824,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.40621064098407933
+        },
+        "bbox": [
+          529,
+          441,
+          608,
+          490
+        ],
+        "mask_pixels": 2773
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 12,
+      "seed": 82011,
+      "crop_box": [
+        104,
+        226,
+        616,
+        738
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.900573825000038,
+      "naive_seconds": 4.917690738999909,
+      "detector_seconds": 0.23341203300014968,
+      "dino_inference_seconds": 0.1754063880000558,
+      "sam2_inference_seconds": 0.058005645000093864,
+      "semantic_local_seconds": 1.0427209920001133,
+      "cached_local_seconds": 1.0426605390000532,
+      "semantic_detector_inclusive_seconds": 1.276133025000263,
+      "generation_only_speedup": 4.7162095869643474,
+      "detector_inclusive_speedup": 3.8535878647908945,
+      "cached_speedup": 4.716483030724593,
+      "naive_outside_drift": 96.7171397586092,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.647948183038779,
+      "detector": {
+        "dino_inference_seconds": 0.1754063880000558,
+        "sam2_inference_seconds": 0.058005645000093864,
+        "detector_seconds": 0.23341203300014968,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            240.557373046875,
+            318.6294250488281,
+            496.51287841796875,
+            614.9176025390625
+          ],
+          "score": 0.17499522864818573,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.2711013887483391
+        },
+        "bbox": [
+          231,
+          325,
+          489,
+          638
+        ],
+        "mask_pixels": 74792
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 13,
+      "seed": 82012,
+      "crop_box": [
+        99,
+        147,
+        611,
+        659
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.906003040999849,
+      "naive_seconds": 4.906135128999949,
+      "detector_seconds": 0.23417703000018264,
+      "dino_inference_seconds": 0.17680811700006416,
+      "sam2_inference_seconds": 0.05736891300011848,
+      "semantic_local_seconds": 1.036762021999948,
+      "cached_local_seconds": 1.042833698000095,
+      "semantic_detector_inclusive_seconds": 1.2709390520001307,
+      "generation_only_speedup": 4.732170956200588,
+      "detector_inclusive_speedup": 3.8602442196413405,
+      "cached_speedup": 4.7046189036744215,
+      "naive_outside_drift": 87.00770385647776,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 17.717130045802836,
+      "detector": {
+        "dino_inference_seconds": 0.17680811700006416,
+        "sam2_inference_seconds": 0.05736891300011848,
+        "detector_seconds": 0.23417703000018264,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            228.60552978515625,
+            275.38037109375,
+            478.04345703125,
+            517.7774047851562
+          ],
+          "score": 0.12935535609722137,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.30564254786932876
+        },
+        "bbox": [
+          225,
+          274,
+          485,
+          532
+        ],
+        "mask_pixels": 61041
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 14,
+      "seed": 82013,
+      "crop_box": [
+        112,
+        214,
+        624,
+        726
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.920929677000004,
+      "naive_seconds": 4.92847499100003,
+      "detector_seconds": 0.22887467900000047,
+      "dino_inference_seconds": 0.17435455700001512,
+      "sam2_inference_seconds": 0.05452012199998535,
+      "semantic_local_seconds": 1.041681841999889,
+      "cached_local_seconds": 1.0454468309999356,
+      "semantic_detector_inclusive_seconds": 1.2705565209998895,
+      "generation_only_speedup": 4.731267064747929,
+      "detector_inclusive_speedup": 3.878989174855023,
+      "cached_speedup": 4.714228256147761,
+      "naive_outside_drift": 83.3556399521075,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 10.253204931920713,
+      "detector": {
+        "dino_inference_seconds": 0.17435455700001512,
+        "sam2_inference_seconds": 0.05452012199998535,
+        "detector_seconds": 0.22887467900000047,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            235.166748046875,
+            338.48431396484375,
+            508.6700439453125,
+            595.8582763671875
+          ],
+          "score": 0.2707512378692627,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.39391515659059406
+        },
+        "bbox": [
+          232,
+          333,
+          503,
+          607
+        ],
+        "mask_pixels": 64180
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 15,
+      "seed": 82014,
+      "crop_box": [
+        88,
+        148,
+        600,
+        660
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.918884193999929,
+      "naive_seconds": 4.9400585910000245,
+      "detector_seconds": 0.2323238530002527,
+      "dino_inference_seconds": 0.17581674000007297,
+      "sam2_inference_seconds": 0.05650711300017974,
+      "semantic_local_seconds": 1.04675365099979,
+      "cached_local_seconds": 1.0360963109999375,
+      "semantic_detector_inclusive_seconds": 1.2790775040000426,
+      "generation_only_speedup": 4.719408990149312,
+      "detector_inclusive_speedup": 3.862204264832305,
+      "cached_speedup": 4.76795307400754,
+      "naive_outside_drift": 89.1764634220625,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 10.489624651471868,
+      "detector": {
+        "dino_inference_seconds": 0.17581674000007297,
+        "sam2_inference_seconds": 0.05650711300017974,
+        "detector_seconds": 0.2323238530002527,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            187.224365234375,
+            221.962646484375,
+            489.3518371582031,
+            575.6416015625
+          ],
+          "score": 0.14362779259681702,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.08230473525617787
+        },
+        "bbox": [
+          187,
+          222,
+          501,
+          587
+        ],
+        "mask_pixels": 95208
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 16,
+      "seed": 82015,
+      "crop_box": [
+        116,
+        212,
+        628,
+        724
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.903525128999945,
+      "naive_seconds": 4.808810601999994,
+      "detector_seconds": 0.23107738700014124,
+      "dino_inference_seconds": 0.17571977900001912,
+      "sam2_inference_seconds": 0.05535760800012213,
+      "semantic_local_seconds": 1.0394861969998601,
+      "cached_local_seconds": 1.039314609999792,
+      "semantic_detector_inclusive_seconds": 1.2705635840000014,
+      "generation_only_speedup": 4.626141853426305,
+      "detector_inclusive_speedup": 3.7847854783157304,
+      "cached_speedup": 4.6269056123448085,
+      "naive_outside_drift": 87.77830950998697,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 10.029923294980824,
+      "detector": {
+        "dino_inference_seconds": 0.17571977900001912,
+        "sam2_inference_seconds": 0.05535760800012213,
+        "detector_seconds": 0.23107738700014124,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            239.20651245117188,
+            324.77496337890625,
+            509.58642578125,
+            603.729248046875
+          ],
+          "score": 0.1539895236492157,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.25394168996651273
+        },
+        "bbox": [
+          228,
+          320,
+          515,
+          617
+        ],
+        "mask_pixels": 78498
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 17,
+      "seed": 82016,
+      "crop_box": [
+        174,
+        228,
+        686,
+        740
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.798304951999853,
+      "naive_seconds": 4.808871945000192,
+      "detector_seconds": 0.23131977500020184,
+      "dino_inference_seconds": 0.1763418810000985,
+      "sam2_inference_seconds": 0.05497789400010333,
+      "semantic_local_seconds": 1.0344687329998123,
+      "cached_local_seconds": 1.0330906390001928,
+      "semantic_detector_inclusive_seconds": 1.2657885080000142,
+      "generation_only_speedup": 4.648639240216712,
+      "detector_inclusive_speedup": 3.7991117114804283,
+      "cached_speedup": 4.654840304868249,
+      "naive_outside_drift": 87.87163027590675,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 17.082292373840232,
+      "detector": {
+        "dino_inference_seconds": 0.1763418810000985,
+        "sam2_inference_seconds": 0.05497789400010333,
+        "detector_seconds": 0.23131977500020184,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            317.12188720703125,
+            341.80694580078125,
+            548.6580810546875,
+            616.4429931640625
+          ],
+          "score": 0.25756409764289856,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.40466568097186406
+        },
+        "bbox": [
+          317,
+          339,
+          542,
+          628
+        ],
+        "mask_pixels": 57695
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 18,
+      "seed": 82017,
+      "crop_box": [
+        146,
+        176,
+        658,
+        688
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.77897115199994,
+      "naive_seconds": 4.806835106000108,
+      "detector_seconds": 0.2305088440000418,
+      "dino_inference_seconds": 0.1746416149999277,
+      "sam2_inference_seconds": 0.055867229000114094,
+      "semantic_local_seconds": 1.0416072629998325,
+      "cached_local_seconds": 1.0391320569999607,
+      "semantic_detector_inclusive_seconds": 1.2721161069998743,
+      "generation_only_speedup": 4.614824873778631,
+      "detector_inclusive_speedup": 3.778613508271995,
+      "cached_speedup": 4.625817357495198,
+      "naive_outside_drift": 83.94360895757997,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 11.889493461451266,
+      "detector": {
+        "dino_inference_seconds": 0.1746416149999277,
+        "sam2_inference_seconds": 0.055867229000114094,
+        "detector_seconds": 0.2305088440000418,
+        "raw_detection_count": 11,
+        "selected": {
+          "box": [
+            279.32623291015625,
+            284.9350280761719,
+            531.0291748046875,
+            573.5816650390625
+          ],
+          "score": 0.28182902932167053,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.4053094410762258
+        },
+        "bbox": [
+          279,
+          283,
+          524,
+          580
+        ],
+        "mask_pixels": 67954
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 19,
+      "seed": 82018,
+      "crop_box": [
+        120,
+        195,
+        632,
+        707
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.815799848000097,
+      "naive_seconds": 4.826591737999934,
+      "detector_seconds": 0.23053502000016124,
+      "dino_inference_seconds": 0.17545302999997148,
+      "sam2_inference_seconds": 0.05508199000018976,
+      "semantic_local_seconds": 1.0390943400000197,
+      "cached_local_seconds": 1.0403022509999573,
+      "semantic_detector_inclusive_seconds": 1.269629360000181,
+      "generation_only_speedup": 4.644998584055267,
+      "detector_inclusive_speedup": 3.8015753967750445,
+      "cached_speedup": 4.639605204507177,
+      "naive_outside_drift": 90.77224662130322,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 15.812117021396206,
+      "detector": {
+        "dino_inference_seconds": 0.17545302999997148,
+        "sam2_inference_seconds": 0.05508199000018976,
+        "detector_seconds": 0.23053502000016124,
+        "raw_detection_count": 13,
+        "selected": {
+          "box": [
+            252.98373413085938,
+            313.58160400390625,
+            504.67535400390625,
+            583.6032104492188
+          ],
+          "score": 0.274713397026062,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.4190465508643748
+        },
+        "bbox": [
+          253,
+          311,
+          500,
+          591
+        ],
+        "mask_pixels": 58151
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 20,
+      "seed": 82019,
+      "crop_box": [
+        128,
+        204,
+        640,
+        716
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.908080876999975,
+      "naive_seconds": 4.918004881000115,
+      "detector_seconds": 0.22971930100015925,
+      "dino_inference_seconds": 0.17455044000007547,
+      "sam2_inference_seconds": 0.05516886100008378,
+      "semantic_local_seconds": 1.0411611219999486,
+      "cached_local_seconds": 1.0427319190000617,
+      "semantic_detector_inclusive_seconds": 1.2708804230001078,
+      "generation_only_speedup": 4.723577145824658,
+      "detector_inclusive_speedup": 3.8697620893320646,
+      "cached_speedup": 4.716461433075038,
+      "naive_outside_drift": 88.5745478071003,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 11.5445841493297,
+      "detector": {
+        "dino_inference_seconds": 0.17455044000007547,
+        "sam2_inference_seconds": 0.05516886100008378,
+        "detector_seconds": 0.22971930100015925,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            260.984619140625,
+            311.3817138671875,
+            515.7763671875,
+            603.3927001953125
+          ],
+          "score": 0.26592227816581726,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3748264017681973
+        },
+        "bbox": [
+          258,
+          307,
+          511,
+          612
+        ],
+        "mask_pixels": 69252
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 21,
+      "seed": 82020,
+      "crop_box": [
+        48,
+        192,
+        560,
+        704
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.814391544999808,
+      "naive_seconds": 4.8157814119999784,
+      "detector_seconds": 0.23182690199996614,
+      "dino_inference_seconds": 0.1765582620000714,
+      "sam2_inference_seconds": 0.05526863999989473,
+      "semantic_local_seconds": 1.0507957170000282,
+      "cached_local_seconds": 1.0483236000000034,
+      "semantic_detector_inclusive_seconds": 1.2826226189999943,
+      "generation_only_speedup": 4.582985383447133,
+      "detector_inclusive_speedup": 3.754636274662485,
+      "cached_speedup": 4.593792805961788,
+      "naive_outside_drift": 90.13130914521383,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.507542492269973,
+      "detector": {
+        "dino_inference_seconds": 0.1765582620000714,
+        "sam2_inference_seconds": 0.05526863999989473,
+        "detector_seconds": 0.23182690199996614,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            164.94203186035156,
+            302.58416748046875,
+            426.33160400390625,
+            581.6512451171875
+          ],
+          "score": 0.21850450336933136,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.322025038829178
+        },
+        "bbox": [
+          166,
+          297,
+          442,
+          599
+        ],
+        "mask_pixels": 71240
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 22,
+      "seed": 82021,
+      "crop_box": [
+        108,
+        214,
+        620,
+        726
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.799878302000025,
+      "naive_seconds": 4.809498887000018,
+      "detector_seconds": 0.23097159900021325,
+      "dino_inference_seconds": 0.1751948370001628,
+      "sam2_inference_seconds": 0.05577676200005044,
+      "semantic_local_seconds": 1.0460089670000343,
+      "cached_local_seconds": 1.0413246909999998,
+      "semantic_detector_inclusive_seconds": 1.2769805660002476,
+      "generation_only_speedup": 4.597951871095059,
+      "detector_inclusive_speedup": 3.766305467016078,
+      "cached_speedup": 4.618635213942141,
+      "naive_outside_drift": 89.35888962326504,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 13.013183173887192,
+      "detector": {
+        "dino_inference_seconds": 0.1751948370001628,
+        "sam2_inference_seconds": 0.05577676200005044,
+        "detector_seconds": 0.23097159900021325,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            247.6306915283203,
+            318.23492431640625,
+            490.34869384765625,
+            620.84765625
+          ],
+          "score": 0.18850646913051605,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.2953481436491238
+        },
+        "bbox": [
+          237,
+          316,
+          491,
+          623
+        ],
+        "mask_pixels": 65867
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 23,
+      "seed": 82022,
+      "crop_box": [
+        94,
+        232,
+        606,
+        744
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.827900142999852,
+      "naive_seconds": 4.903950628999837,
+      "detector_seconds": 0.23014276300000347,
+      "dino_inference_seconds": 0.17501266399995075,
+      "sam2_inference_seconds": 0.055130099000052724,
+      "semantic_local_seconds": 1.044706012000006,
+      "cached_local_seconds": 1.0418247640000118,
+      "semantic_detector_inclusive_seconds": 1.2748487750000095,
+      "generation_only_speedup": 4.6940963033338114,
+      "detector_inclusive_speedup": 3.8466920352963436,
+      "cached_speedup": 4.7070781943898785,
+      "naive_outside_drift": 93.65291792516048,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.219978930243102,
+      "detector": {
+        "dino_inference_seconds": 0.17501266399995075,
+        "sam2_inference_seconds": 0.055130099000052724,
+        "detector_seconds": 0.23014276300000347,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            226.8061065673828,
+            333.84039306640625,
+            483.7254638671875,
+            633.8511352539062
+          ],
+          "score": 0.24594034254550934,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.32725658744124575
+        },
+        "bbox": [
+          221,
+          330,
+          480,
+          646
+        ],
+        "mask_pixels": 73742
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 24,
+      "seed": 82023,
+      "crop_box": [
+        90,
+        206,
+        602,
+        718
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.897755020999966,
+      "naive_seconds": 4.9138156320000235,
+      "detector_seconds": 0.22917759699998896,
+      "dino_inference_seconds": 0.1742137300000195,
+      "sam2_inference_seconds": 0.05496386699996947,
+      "semantic_local_seconds": 1.0406754599998749,
+      "cached_local_seconds": 1.0449313620001703,
+      "semantic_detector_inclusive_seconds": 1.2698530569998638,
+      "generation_only_speedup": 4.721756033336862,
+      "detector_inclusive_speedup": 3.869593891130468,
+      "cached_speedup": 4.7025247884168895,
+      "naive_outside_drift": 84.58494405873589,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 9.709122030242296,
+      "detector": {
+        "dino_inference_seconds": 0.1742137300000195,
+        "sam2_inference_seconds": 0.05496386699996947,
+        "detector_seconds": 0.22917759699998896,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            217.16725158691406,
+            301.65399169921875,
+            486.92547607421875,
+            583.630615234375
+          ],
+          "score": 0.21564500033855438,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3148295468479385
+        },
+        "bbox": [
+          207,
+          320,
+          484,
+          605
+        ],
+        "mask_pixels": 74999
+      },
+      "error": null
+    },
+    {
+      "case_key": "object_mug",
+      "sample_index": 25,
+      "seed": 82024,
+      "crop_box": [
+        129,
+        229,
+        641,
+        741
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.898547086000008,
+      "naive_seconds": 4.89311361099999,
+      "detector_seconds": 0.22956984600000396,
+      "dino_inference_seconds": 0.17463064100002157,
+      "sam2_inference_seconds": 0.054939204999982394,
+      "semantic_local_seconds": 1.0432218529999773,
+      "cached_local_seconds": 1.0402382659999603,
+      "semantic_detector_inclusive_seconds": 1.2727916989999812,
+      "generation_only_speedup": 4.690386418697938,
+      "detector_inclusive_speedup": 3.844394660056674,
+      "cached_speedup": 4.703839275030262,
+      "naive_outside_drift": 97.77366036715898,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.459899480579565,
+      "detector": {
+        "dino_inference_seconds": 0.17463064100002157,
+        "sam2_inference_seconds": 0.054939204999982394,
+        "detector_seconds": 0.22956984600000396,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            252.10528564453125,
+            334.3905944824219,
+            528.498291015625,
+            630.5106811523438
+          ],
+          "score": 0.24185876548290253,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3042170588602111
+        },
+        "bbox": [
+          240,
+          325,
+          530,
+          645
+        ],
+        "mask_pixels": 77562
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 1,
+      "seed": 83000,
+      "crop_box": [
+        384,
+        0,
+        768,
+        384
+      ],
+      "crop_size": 384,
+      "base_seconds": 4.871106462000171,
+      "naive_seconds": 4.898646695000025,
+      "detector_seconds": 0.23267660800001977,
+      "dino_inference_seconds": 0.17792383100004372,
+      "sam2_inference_seconds": 0.05475277699997605,
+      "semantic_local_seconds": 0.9708647750001091,
+      "cached_local_seconds": 0.96854823700005,
+      "semantic_detector_inclusive_seconds": 1.203541383000129,
+      "generation_only_speedup": 5.045652928338526,
+      "detector_inclusive_speedup": 4.070193816509175,
+      "cached_speedup": 5.057720935172971,
+      "naive_outside_drift": 99.30197003001116,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 22.874591677318563,
+      "detector": {
+        "dino_inference_seconds": 0.17792383100004372,
+        "sam2_inference_seconds": 0.05475277699997605,
+        "detector_seconds": 0.23267660800001977,
+        "raw_detection_count": 27,
+        "selected": {
+          "box": [
+            543.7564697265625,
+            31.695892333984375,
+            707.120849609375,
+            102.95646667480469
+          ],
+          "score": 0.22064976394176483,
+          "label": "cloudy sky",
+          "selection_score": 0.3703806337386435
+        },
+        "bbox": [
+          548,
+          36,
+          705,
+          97
+        ],
+        "mask_pixels": 6583
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 2,
+      "seed": 83001,
+      "crop_box": [
+        128,
+        0,
+        640,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.802653784000086,
+      "naive_seconds": 4.8243068430001586,
+      "detector_seconds": 0.2304448100001082,
+      "dino_inference_seconds": 0.17528265800001464,
+      "sam2_inference_seconds": 0.055162152000093556,
+      "semantic_local_seconds": 1.1396486599999207,
+      "cached_local_seconds": 1.1455887329998404,
+      "semantic_detector_inclusive_seconds": 1.370093470000029,
+      "generation_only_speedup": 4.233152735862028,
+      "detector_inclusive_speedup": 3.5211516211372476,
+      "cached_speedup": 4.211203116817692,
+      "naive_outside_drift": 98.97675202027355,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 6.1218890703082485,
+      "detector": {
+        "dino_inference_seconds": 0.17528265800001464,
+        "sam2_inference_seconds": 0.055162152000093556,
+        "detector_seconds": 0.2304448100001082,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            1.9856643676757812,
+            1.1302070617675781,
+            766.2496337890625,
+            109.49459838867188
+          ],
+          "score": 0.47082778811454773,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.4925670022666418
+        },
+        "bbox": [
+          0,
+          0,
+          767,
+          109
+        ],
+        "mask_pixels": 66417
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 3,
+      "seed": 83002,
+      "crop_box": [
+        116,
+        0,
+        628,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.795674895000047,
+      "naive_seconds": 4.916019304999963,
+      "detector_seconds": 0.2328031260001353,
+      "dino_inference_seconds": 0.17824952700016183,
+      "sam2_inference_seconds": 0.054553598999973474,
+      "semantic_local_seconds": 1.1491742250000243,
+      "cached_local_seconds": 1.152975374000107,
+      "semantic_detector_inclusive_seconds": 1.3819773510001596,
+      "generation_only_speedup": 4.27787118615531,
+      "detector_inclusive_speedup": 3.557235797997818,
+      "cached_speedup": 4.263767827013023,
+      "naive_outside_drift": 99.11124261241488,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.366057565985908,
+      "detector": {
+        "dino_inference_seconds": 0.17824952700016183,
+        "sam2_inference_seconds": 0.054553598999973474,
+        "detector_seconds": 0.2328031260001353,
+        "raw_detection_count": 25,
+        "selected": {
+          "box": [
+            147.9734344482422,
+            26.619873046875,
+            587.6610107421875,
+            162.17784118652344
+          ],
+          "score": 0.13564488291740417,
+          "label": "blue sky open sky cloudy sky",
+          "selection_score": 0.2877466086592509
+        },
+        "bbox": [
+          162,
+          20,
+          583,
+          164
+        ],
+        "mask_pixels": 54064
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 4,
+      "seed": 83003,
+      "crop_box": [
+        148,
+        0,
+        532,
+        384
+      ],
+      "crop_size": 384,
+      "base_seconds": 4.893985704999977,
+      "naive_seconds": 4.908315552999966,
+      "detector_seconds": 0.23044652299995505,
+      "dino_inference_seconds": 0.17542283800003133,
+      "sam2_inference_seconds": 0.05502368499992372,
+      "semantic_local_seconds": 0.9808470020000186,
+      "cached_local_seconds": 0.981664364000153,
+      "semantic_detector_inclusive_seconds": 1.2112935249999737,
+      "generation_only_speedup": 5.004160223757173,
+      "detector_inclusive_speedup": 4.05212729342384,
+      "cached_speedup": 4.999993615943464,
+      "naive_outside_drift": 98.79661040133504,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 24.36153536977492,
+      "detector": {
+        "dino_inference_seconds": 0.17542283800003133,
+        "sam2_inference_seconds": 0.05502368499992372,
+        "detector_seconds": 0.23044652299995505,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            276.3594970703125,
+            145.14852905273438,
+            406.79571533203125,
+            206.24319458007812
+          ],
+          "score": 0.19660493731498718,
+          "label": "cloudy sky",
+          "selection_score": 0.4179421187012953
+        },
+        "bbox": [
+          278,
+          150,
+          402,
+          202
+        ],
+        "mask_pixels": 4581
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 5,
+      "seed": 83004,
+      "crop_box": [
+        138,
+        246,
+        650,
+        758
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.887924496999858,
+      "naive_seconds": 4.909449601999995,
+      "detector_seconds": 0.2347082120002142,
+      "dino_inference_seconds": 0.17790641500005222,
+      "sam2_inference_seconds": 0.05680179700016197,
+      "semantic_local_seconds": 1.1444549159998587,
+      "cached_local_seconds": 1.145268513000019,
+      "semantic_detector_inclusive_seconds": 1.379163128000073,
+      "generation_only_speedup": 4.289771080856278,
+      "detector_inclusive_speedup": 3.559730899360105,
+      "cached_speedup": 4.286723634040844,
+      "naive_outside_drift": 99.70439762090066,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 17.282520599756854,
+      "detector": {
+        "dino_inference_seconds": 0.17790641500005222,
+        "sam2_inference_seconds": 0.05680179700016197,
+        "detector_seconds": 0.2347082120002142,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            194.7742919921875,
+            441.3906555175781,
+            591.135009765625,
+            558.6773071289062
+          ],
+          "score": 0.18888446688652039,
+          "label": "blue sky open sky cloudy sky",
+          "selection_score": 0.32280436576569793
+        },
+        "bbox": [
+          203,
+          450,
+          586,
+          554
+        ],
+        "mask_pixels": 28627
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 6,
+      "seed": 83005,
+      "crop_box": [
+        100,
+        256,
+        612,
+        768
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.8901921730000595,
+      "naive_seconds": 4.913744639000015,
+      "detector_seconds": 0.23039999200022976,
+      "dino_inference_seconds": 0.1758731990000797,
+      "sam2_inference_seconds": 0.054526793000150064,
+      "semantic_local_seconds": 1.146939982000049,
+      "cached_local_seconds": 1.1433815850000428,
+      "semantic_detector_inclusive_seconds": 1.3773399740002787,
+      "generation_only_speedup": 4.284221246199267,
+      "detector_inclusive_speedup": 3.5675611916851406,
+      "cached_speedup": 4.2975544677849875,
+      "naive_outside_drift": 99.11492787926605,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 15.990189919802333,
+      "detector": {
+        "dino_inference_seconds": 0.1758731990000797,
+        "sam2_inference_seconds": 0.054526793000150064,
+        "detector_seconds": 0.23039999200022976,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            6.519264221191406,
+            422.6866455078125,
+            716.873291015625,
+            608.472900390625
+          ],
+          "score": 0.25513118505477905,
+          "label": "blue sky open cloudy sky",
+          "selection_score": -0.045857053389748326
+        },
+        "bbox": [
+          0,
+          432,
+          712,
+          619
+        ],
+        "mask_pixels": 93742
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 7,
+      "seed": 83006,
+      "crop_box": [
+        12,
+        0,
+        524,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.899559642999975,
+      "naive_seconds": 4.796740901000021,
+      "detector_seconds": 0.23230126499970538,
+      "dino_inference_seconds": 0.17491351799981203,
+      "sam2_inference_seconds": 0.05738774699989335,
+      "semantic_local_seconds": 1.1441549010000927,
+      "cached_local_seconds": 1.140645725000013,
+      "semantic_detector_inclusive_seconds": 1.376456165999798,
+      "generation_only_speedup": 4.19238767129105,
+      "detector_inclusive_speedup": 3.4848482788522923,
+      "cached_speedup": 4.205285476347151,
+      "naive_outside_drift": 99.79796344395682,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 15.539916269669408,
+      "detector": {
+        "dino_inference_seconds": 0.17491351799981203,
+        "sam2_inference_seconds": 0.05738774699989335,
+        "detector_seconds": 0.23230126499970538,
+        "raw_detection_count": 19,
+        "selected": {
+          "box": [
+            109.73825073242188,
+            118.65939331054688,
+            424.9329833984375,
+            179.11720275878906
+          ],
+          "score": 0.2554375231266022,
+          "label": "sky cloudy sky",
+          "selection_score": 0.48219332925465885
+        },
+        "bbox": [
+          116,
+          124,
+          419,
+          172
+        ],
+        "mask_pixels": 8521
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 8,
+      "seed": 83007,
+      "crop_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.85342434800009,
+      "naive_seconds": 4.819866500999979,
+      "detector_seconds": 0.24626895499977763,
+      "dino_inference_seconds": 0.18247048199987148,
+      "sam2_inference_seconds": 0.06379847299990615,
+      "semantic_local_seconds": 1.1456967419999273,
+      "cached_local_seconds": 1.1448681409999608,
+      "semantic_detector_inclusive_seconds": 1.391965696999705,
+      "generation_only_speedup": 4.206930441808208,
+      "detector_inclusive_speedup": 3.4626331032358766,
+      "cached_speedup": 4.209975217574112,
+      "naive_outside_drift": 99.34551786599583,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 15.342372702859253,
+      "detector": {
+        "dino_inference_seconds": 0.18247048199987148,
+        "sam2_inference_seconds": 0.06379847299990615,
+        "detector_seconds": 0.24626895499977763,
+        "raw_detection_count": 12,
+        "selected": {
+          "box": [
+            4.942131042480469,
+            82.85729217529297,
+            440.7706604003906,
+            156.92088317871094
+          ],
+          "score": 0.13880544900894165,
+          "label": "cloudy",
+          "selection_score": 0.34022145472954657
+        },
+        "bbox": [
+          0,
+          87,
+          448,
+          148
+        ],
+        "mask_pixels": 17871
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 9,
+      "seed": 83008,
+      "crop_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.908625755999765,
+      "naive_seconds": 4.902155562000189,
+      "detector_seconds": 0.24305771399986043,
+      "dino_inference_seconds": 0.18280179800012775,
+      "sam2_inference_seconds": 0.06025591599973268,
+      "semantic_local_seconds": 1.1439574310002172,
+      "cached_local_seconds": 1.1438063250002415,
+      "semantic_detector_inclusive_seconds": 1.3870151450000776,
+      "generation_only_speedup": 4.2852604731226736,
+      "detector_inclusive_speedup": 3.5343201403903306,
+      "cached_speedup": 4.28582659044061,
+      "naive_outside_drift": 99.68625849966722,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 27.18551992225462,
+      "detector": {
+        "dino_inference_seconds": 0.18280179800012775,
+        "sam2_inference_seconds": 0.06025591599973268,
+        "detector_seconds": 0.24305771399986043,
+        "raw_detection_count": 19,
+        "selected": {
+          "box": [
+            1.5836448669433594,
+            123.66849517822266,
+            248.99075317382812,
+            193.75955200195312
+          ],
+          "score": 0.2015758752822876,
+          "label": "cloudy sky",
+          "selection_score": 0.38952772116935985
+        },
+        "bbox": [
+          0,
+          130,
+          246,
+          186
+        ],
+        "mask_pixels": 6266
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 10,
+      "seed": 83009,
+      "crop_box": [
+        360,
+        36,
+        768,
+        444
+      ],
+      "crop_size": 408,
+      "base_seconds": 4.890678891999869,
+      "naive_seconds": 4.901163944000018,
+      "detector_seconds": 0.23844755999971312,
+      "dino_inference_seconds": 0.18224918099986098,
+      "sam2_inference_seconds": 0.05619837899985214,
+      "semantic_local_seconds": 1.06501045899995,
+      "cached_local_seconds": 1.0139332439998725,
+      "semantic_detector_inclusive_seconds": 1.3034580189996632,
+      "generation_only_speedup": 4.601986677766747,
+      "detector_inclusive_speedup": 3.7601241256403553,
+      "cached_speedup": 4.83381324461301,
+      "naive_outside_drift": 99.50848054965321,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 16.67445072190835,
+      "detector": {
+        "dino_inference_seconds": 0.18224918099986098,
+        "sam2_inference_seconds": 0.05619837899985214,
+        "detector_seconds": 0.23844755999971312,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            582.0106201171875,
+            210.01528930664062,
+            765.6271362304688,
+            268.409912109375
+          ],
+          "score": 0.1648964285850525,
+          "label": "cloudy",
+          "selection_score": 0.32289744067227805
+        },
+        "bbox": [
+          588,
+          216,
+          767,
+          263
+        ],
+        "mask_pixels": 4865
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 11,
+      "seed": 83010,
+      "crop_box": [
+        116,
+        0,
+        628,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.790740994999851,
+      "naive_seconds": 4.790342045000216,
+      "detector_seconds": 0.23370433800027968,
+      "dino_inference_seconds": 0.17837332300041453,
+      "sam2_inference_seconds": 0.05533101499986515,
+      "semantic_local_seconds": 1.1402063769996857,
+      "cached_local_seconds": 1.13772134599958,
+      "semantic_detector_inclusive_seconds": 1.3739107149999654,
+      "generation_only_speedup": 4.201293854894425,
+      "detector_inclusive_speedup": 3.486647270962099,
+      "cached_speedup": 4.210470394920396,
+      "naive_outside_drift": 98.90350231229196,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 11.579381074899944,
+      "detector": {
+        "dino_inference_seconds": 0.17837332300041453,
+        "sam2_inference_seconds": 0.05533101499986515,
+        "detector_seconds": 0.23370433800027968,
+        "raw_detection_count": 23,
+        "selected": {
+          "box": [
+            172.27374267578125,
+            19.231555938720703,
+            574.451416015625,
+            127.85053253173828
+          ],
+          "score": 0.17867594957351685,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.39266818017839156
+        },
+        "bbox": [
+          176,
+          3,
+          567,
+          134
+        ],
+        "mask_pixels": 44948
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 12,
+      "seed": 83011,
+      "crop_box": [
+        158,
+        0,
+        670,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.794115955000052,
+      "naive_seconds": 4.807523416999629,
+      "detector_seconds": 0.23214753499996732,
+      "dino_inference_seconds": 0.17612635000023147,
+      "sam2_inference_seconds": 0.05602118499973585,
+      "semantic_local_seconds": 1.1385838610003702,
+      "cached_local_seconds": 1.148546774999886,
+      "semantic_detector_inclusive_seconds": 1.3707313960003376,
+      "generation_only_speedup": 4.222370948395224,
+      "detector_inclusive_speedup": 3.50726876981699,
+      "cached_speedup": 4.1857445614264215,
+      "naive_outside_drift": 99.29198131389893,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.758067713066536,
+      "detector": {
+        "dino_inference_seconds": 0.17612635000023147,
+        "sam2_inference_seconds": 0.05602118499973585,
+        "detector_seconds": 0.23214753499996732,
+        "raw_detection_count": 19,
+        "selected": {
+          "box": [
+            128.11807250976562,
+            28.795669555664062,
+            674.0128173828125,
+            206.45791625976562
+          ],
+          "score": 0.12724928557872772,
+          "label": "sky open sky sky",
+          "selection_score": 0.09501267673046171
+        },
+        "bbox": [
+          158,
+          25,
+          670,
+          219
+        ],
+        "mask_pixels": 86377
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 13,
+      "seed": 83012,
+      "crop_box": [
+        118,
+        0,
+        630,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.909701333999692,
+      "naive_seconds": 4.92969176600036,
+      "detector_seconds": 0.23226175100035107,
+      "dino_inference_seconds": 0.17773509200014814,
+      "sam2_inference_seconds": 0.054526659000202926,
+      "semantic_local_seconds": 1.1442603360001158,
+      "cached_local_seconds": 1.1505026140002883,
+      "semantic_detector_inclusive_seconds": 1.3765220870004669,
+      "generation_only_speedup": 4.3081907245274484,
+      "detector_inclusive_speedup": 3.581266012768808,
+      "cached_speedup": 4.284815789213952,
+      "naive_outside_drift": 99.19035336089756,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 9.334364271195014,
+      "detector": {
+        "dino_inference_seconds": 0.17773509200014814,
+        "sam2_inference_seconds": 0.054526659000202926,
+        "detector_seconds": 0.23226175100035107,
+        "raw_detection_count": 25,
+        "selected": {
+          "box": [
+            199.14505004882812,
+            25.91041374206543,
+            539.4521484375,
+            141.28048706054688
+          ],
+          "score": 0.15592418611049652,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.36512998597888735
+        },
+        "bbox": [
+          213,
+          23,
+          536,
+          140
+        ],
+        "mask_pixels": 33005
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 14,
+      "seed": 83013,
+      "crop_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.901327015999868,
+      "naive_seconds": 4.818195118999938,
+      "detector_seconds": 0.2326785549998931,
+      "dino_inference_seconds": 0.178262827999788,
+      "sam2_inference_seconds": 0.05441572700010511,
+      "semantic_local_seconds": 1.1441117770000346,
+      "cached_local_seconds": 1.1433975660002034,
+      "semantic_detector_inclusive_seconds": 1.3767903319999277,
+      "generation_only_speedup": 4.211297546148581,
+      "detector_inclusive_speedup": 3.49958523604754,
+      "cached_speedup": 4.21392808789579,
+      "naive_outside_drift": 99.56992844919823,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 14.42859827132657,
+      "detector": {
+        "dino_inference_seconds": 0.178262827999788,
+        "sam2_inference_seconds": 0.05441572700010511,
+        "detector_seconds": 0.2326785549998931,
+        "raw_detection_count": 27,
+        "selected": {
+          "box": [
+            1.2442588806152344,
+            53.237632751464844,
+            250.02676391601562,
+            181.43531799316406
+          ],
+          "score": 0.22532349824905396,
+          "label": "cloudy sky",
+          "selection_score": 0.3845156854551119
+        },
+        "bbox": [
+          0,
+          61,
+          243,
+          172
+        ],
+        "mask_pixels": 15309
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 15,
+      "seed": 83014,
+      "crop_box": [
+        2,
+        0,
+        514,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.776364262000243,
+      "naive_seconds": 4.805682713999886,
+      "detector_seconds": 0.23016726199966797,
+      "dino_inference_seconds": 0.1753001749998475,
+      "sam2_inference_seconds": 0.05486708699982046,
+      "semantic_local_seconds": 1.1425206029998662,
+      "cached_local_seconds": 1.1419249890000174,
+      "semantic_detector_inclusive_seconds": 1.3726878649995342,
+      "generation_only_speedup": 4.206210987689689,
+      "detector_inclusive_speedup": 3.5009289704775797,
+      "cached_speedup": 4.208404895498624,
+      "naive_outside_drift": 99.46626186527236,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 21.674088696817186,
+      "detector": {
+        "dino_inference_seconds": 0.1753001749998475,
+        "sam2_inference_seconds": 0.05486708699982046,
+        "detector_seconds": 0.23016726199966797,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            12.539016723632812,
+            4.947847366333008,
+            516.0960693359375,
+            107.24040985107422
+          ],
+          "score": 0.17588616907596588,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.35087046659897814
+        },
+        "bbox": [
+          0,
+          0,
+          514,
+          117
+        ],
+        "mask_pixels": 54685
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 16,
+      "seed": 83015,
+      "crop_box": [
+        148,
+        0,
+        660,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.781229683999754,
+      "naive_seconds": 4.806439814999976,
+      "detector_seconds": 0.23026665399993362,
+      "dino_inference_seconds": 0.175070524000148,
+      "sam2_inference_seconds": 0.055196129999785626,
+      "semantic_local_seconds": 1.1368775070000083,
+      "cached_local_seconds": 1.1361761449998085,
+      "semantic_detector_inclusive_seconds": 1.367144160999942,
+      "generation_only_speedup": 4.22775522024638,
+      "detector_inclusive_speedup": 3.515678852392934,
+      "cached_speedup": 4.230365015277439,
+      "naive_outside_drift": 98.95428766767847,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 5.653320156332955,
+      "detector": {
+        "dino_inference_seconds": 0.175070524000148,
+        "sam2_inference_seconds": 0.055196129999785626,
+        "detector_seconds": 0.23026665399993362,
+        "raw_detection_count": 17,
+        "selected": {
+          "box": [
+            108.46598052978516,
+            27.065643310546875,
+            693.813720703125,
+            206.91702270507812
+          ],
+          "score": 0.1286219358444214,
+          "label": "sky open sky sky",
+          "selection_score": 0.05573923978445322
+        },
+        "bbox": [
+          115,
+          20,
+          693,
+          218
+        ],
+        "mask_pixels": 101654
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 17,
+      "seed": 83016,
+      "crop_box": [
+        230,
+        0,
+        742,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.886732202000076,
+      "naive_seconds": 4.916777923999689,
+      "detector_seconds": 0.23128027400071005,
+      "dino_inference_seconds": 0.17649661000041306,
+      "sam2_inference_seconds": 0.054783664000296994,
+      "semantic_local_seconds": 1.1382281000001058,
+      "cached_local_seconds": 1.1433230610000464,
+      "semantic_detector_inclusive_seconds": 1.3695083740008158,
+      "generation_only_speedup": 4.3196771578554705,
+      "detector_inclusive_speedup": 3.590177334685476,
+      "cached_speedup": 4.300427492207724,
+      "naive_outside_drift": 98.84322052634715,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 11.883307259148689,
+      "detector": {
+        "dino_inference_seconds": 0.17649661000041306,
+        "sam2_inference_seconds": 0.054783664000296994,
+        "detector_seconds": 0.23128027400071005,
+        "raw_detection_count": 21,
+        "selected": {
+          "box": [
+            208.75465393066406,
+            24.464017868041992,
+            576.2376098632812,
+            145.4937744140625
+          ],
+          "score": 0.13403086364269257,
+          "label": "blue sky open sky cloudy sky",
+          "selection_score": 0.3458309153991397
+        },
+        "bbox": [
+          205,
+          2,
+          767,
+          176
+        ],
+        "mask_pixels": 67633
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 18,
+      "seed": 83017,
+      "crop_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.920774969999911,
+      "naive_seconds": 4.925301096000112,
+      "detector_seconds": 0.22861909299990657,
+      "dino_inference_seconds": 0.17415282399997523,
+      "sam2_inference_seconds": 0.054466268999931344,
+      "semantic_local_seconds": 1.1480873489999794,
+      "cached_local_seconds": 1.143058590000237,
+      "semantic_detector_inclusive_seconds": 1.376706441999886,
+      "generation_only_speedup": 4.290005547304572,
+      "detector_inclusive_speedup": 3.5775971882904285,
+      "cached_speedup": 4.308878949065149,
+      "naive_outside_drift": 98.95757470162906,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 17.440363697450756,
+      "detector": {
+        "dino_inference_seconds": 0.17415282399997523,
+        "sam2_inference_seconds": 0.054466268999931344,
+        "detector_seconds": 0.22861909299990657,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            1.8277816772460938,
+            122.29110717773438,
+            344.0713195800781,
+            253.10069274902344
+          ],
+          "score": 0.33961862325668335,
+          "label": "cloudy sky",
+          "selection_score": 0.526069403014348
+        },
+        "bbox": [
+          0,
+          136,
+          341,
+          244
+        ],
+        "mask_pixels": 14647
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 19,
+      "seed": 83018,
+      "crop_box": [
+        174,
+        0,
+        686,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.926054131000001,
+      "naive_seconds": 4.929676287999882,
+      "detector_seconds": 0.23024980699983644,
+      "dino_inference_seconds": 0.1751288380000915,
+      "sam2_inference_seconds": 0.055120968999744946,
+      "semantic_local_seconds": 1.1444271810000828,
+      "cached_local_seconds": 1.1399137230000633,
+      "semantic_detector_inclusive_seconds": 1.3746769879999192,
+      "generation_only_speedup": 4.307549112641642,
+      "detector_inclusive_speedup": 3.586061548300372,
+      "cached_speedup": 4.324604738528627,
+      "naive_outside_drift": 98.29465702697937,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 11.889397406559876,
+      "detector": {
+        "dino_inference_seconds": 0.1751288380000915,
+        "sam2_inference_seconds": 0.055120968999744946,
+        "detector_seconds": 0.23024980699983644,
+        "raw_detection_count": 16,
+        "selected": {
+          "box": [
+            92.96516418457031,
+            0.5239391326904297,
+            765.4805908203125,
+            48.81158447265625
+          ],
+          "score": 0.39396047592163086,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.5170753845399618
+        },
+        "bbox": [
+          94,
+          0,
+          767,
+          49
+        ],
+        "mask_pixels": 21924
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 20,
+      "seed": 83019,
+      "crop_box": [
+        0,
+        0,
+        472,
+        472
+      ],
+      "crop_size": 472,
+      "base_seconds": 4.925363914000172,
+      "naive_seconds": 4.916713094999977,
+      "detector_seconds": 0.2318576849997953,
+      "dino_inference_seconds": 0.17643119900003512,
+      "sam2_inference_seconds": 0.05542648599976019,
+      "semantic_local_seconds": 1.1262960619997102,
+      "cached_local_seconds": 1.078487602000223,
+      "semantic_detector_inclusive_seconds": 1.3581537469995055,
+      "generation_only_speedup": 4.365382478804443,
+      "detector_inclusive_speedup": 3.6201447044284945,
+      "cached_speedup": 4.558896259800454,
+      "naive_outside_drift": 98.00502321123517,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 16.558951665466022,
+      "detector": {
+        "dino_inference_seconds": 0.17643119900003512,
+        "sam2_inference_seconds": 0.05542648599976019,
+        "detector_seconds": 0.2318576849997953,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            1.372833251953125,
+            101.14203643798828,
+            210.72805786132812,
+            237.0748291015625
+          ],
+          "score": 0.28315430879592896,
+          "label": "cloudy sky",
+          "selection_score": 0.45126094249399984
+        },
+        "bbox": [
+          0,
+          106,
+          207,
+          230
+        ],
+        "mask_pixels": 8696
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 21,
+      "seed": 83020,
+      "crop_box": [
+        128,
+        0,
+        640,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.902517235000232,
+      "naive_seconds": 4.908441647000018,
+      "detector_seconds": 0.22967423199997938,
+      "dino_inference_seconds": 0.17435131100000945,
+      "sam2_inference_seconds": 0.05532292099996994,
+      "semantic_local_seconds": 1.143850878000194,
+      "cached_local_seconds": 1.141451316000257,
+      "semantic_detector_inclusive_seconds": 1.3735251100001733,
+      "generation_only_speedup": 4.291155203361383,
+      "detector_inclusive_speedup": 3.573608965182587,
+      "cached_speedup": 4.300176081271356,
+      "naive_outside_drift": 98.57695907008817,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 9.960092726557972,
+      "detector": {
+        "dino_inference_seconds": 0.17435131100000945,
+        "sam2_inference_seconds": 0.05532292099996994,
+        "detector_seconds": 0.22967423199997938,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            1.907318115234375,
+            1.399526596069336,
+            765.670654296875,
+            156.21194458007812
+          ],
+          "score": 0.47833484411239624,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.346669846202745
+        },
+        "bbox": [
+          0,
+          0,
+          767,
+          155
+        ],
+        "mask_pixels": 81048
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 22,
+      "seed": 83021,
+      "crop_box": [
+        94,
+        184,
+        606,
+        696
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.884926086999712,
+      "naive_seconds": 4.88598438300005,
+      "detector_seconds": 0.2327667810004641,
+      "dino_inference_seconds": 0.17823275600039779,
+      "sam2_inference_seconds": 0.05453402500006632,
+      "semantic_local_seconds": 1.1446119219999673,
+      "cached_local_seconds": 1.146255807000216,
+      "semantic_detector_inclusive_seconds": 1.3773787030004314,
+      "generation_only_speedup": 4.268682065151676,
+      "detector_inclusive_speedup": 3.5473064686978244,
+      "cached_speedup": 4.262560200926536,
+      "naive_outside_drift": 98.07599589135859,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 17.31876966766444,
+      "detector": {
+        "dino_inference_seconds": 0.17823275600039779,
+        "sam2_inference_seconds": 0.05453402500006632,
+        "detector_seconds": 0.2327667810004641,
+        "raw_detection_count": 27,
+        "selected": {
+          "box": [
+            139.5812530517578,
+            402.1760559082031,
+            564.59130859375,
+            472.8021240234375
+          ],
+          "score": 0.1359594315290451,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.29134611910429775
+        },
+        "bbox": [
+          144,
+          411,
+          555,
+          469
+        ],
+        "mask_pixels": 16415
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 23,
+      "seed": 83022,
+      "crop_box": [
+        136,
+        0,
+        648,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.877055702000234,
+      "naive_seconds": 4.902187451999907,
+      "detector_seconds": 0.22997299799999382,
+      "dino_inference_seconds": 0.17506148799975563,
+      "sam2_inference_seconds": 0.054911510000238195,
+      "semantic_local_seconds": 1.135933844000192,
+      "cached_local_seconds": 1.1417394230002174,
+      "semantic_detector_inclusive_seconds": 1.3659068420001859,
+      "generation_only_speedup": 4.315557176056002,
+      "detector_inclusive_speedup": 3.5889617807472995,
+      "cached_speedup": 4.293613195135309,
+      "naive_outside_drift": 99.5108153755367,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 7.031631332533827,
+      "detector": {
+        "dino_inference_seconds": 0.17506148799975563,
+        "sam2_inference_seconds": 0.054911510000238195,
+        "detector_seconds": 0.22997299799999382,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            109.57390594482422,
+            30.258636474609375,
+            658.821044921875,
+            221.29782104492188
+          ],
+          "score": 0.12064070999622345,
+          "label": "blue sky open sky sky",
+          "selection_score": 0.0523405025209045
+        },
+        "bbox": [
+          127,
+          26,
+          657,
+          231
+        ],
+        "mask_pixels": 95908
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 24,
+      "seed": 83023,
+      "crop_box": [
+        107,
+        0,
+        619,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.888007650999953,
+      "naive_seconds": 4.893345017000229,
+      "detector_seconds": 0.23151775199994518,
+      "dino_inference_seconds": 0.17730167499985328,
+      "sam2_inference_seconds": 0.0542160770000919,
+      "semantic_local_seconds": 1.1444079460002285,
+      "cached_local_seconds": 1.139556425000137,
+      "semantic_detector_inclusive_seconds": 1.3759256980001737,
+      "generation_only_speedup": 4.27587472990095,
+      "detector_inclusive_speedup": 3.556402081967373,
+      "cached_speedup": 4.294078739453064,
+      "naive_outside_drift": 98.08605890187954,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.095194597813142,
+      "detector": {
+        "dino_inference_seconds": 0.17730167499985328,
+        "sam2_inference_seconds": 0.0542160770000919,
+        "detector_seconds": 0.23151775199994518,
+        "raw_detection_count": 22,
+        "selected": {
+          "box": [
+            149.3481903076172,
+            19.862091064453125,
+            571.4469604492188,
+            139.7452392578125
+          ],
+          "score": 0.22077640891075134,
+          "label": "sky blue sky open sky cloudy sky",
+          "selection_score": 0.414966391648012
+        },
+        "bbox": [
+          159,
+          3,
+          567,
+          140
+        ],
+        "mask_pixels": 47496
+      },
+      "error": null
+    },
+    {
+      "case_key": "landscape_sky",
+      "sample_index": 25,
+      "seed": 83024,
+      "crop_box": [
+        160,
+        0,
+        672,
+        512
+      ],
+      "crop_size": 512,
+      "base_seconds": 4.884048661999714,
+      "naive_seconds": 4.904584797000098,
+      "detector_seconds": 0.2325500059996557,
+      "dino_inference_seconds": 0.1776107239998055,
+      "sam2_inference_seconds": 0.05493928199985021,
+      "semantic_local_seconds": 1.144708989999799,
+      "cached_local_seconds": 1.1453291469997566,
+      "semantic_detector_inclusive_seconds": 1.3772589959994548,
+      "generation_only_speedup": 4.284569126168004,
+      "detector_inclusive_speedup": 3.5611201751061494,
+      "cached_speedup": 4.282249176883246,
+      "naive_outside_drift": 99.77548880785602,
+      "semantic_outside_drift": 0.0,
+      "semantic_inside_change": 8.458281534331478,
+      "detector": {
+        "dino_inference_seconds": 0.1776107239998055,
+        "sam2_inference_seconds": 0.05493928199985021,
+        "detector_seconds": 0.2325500059996557,
+        "raw_detection_count": 24,
+        "selected": {
+          "box": [
+            93.52981567382812,
+            29.759307861328125,
+            504.9405517578125,
+            241.804931640625
+          ],
+          "score": 0.13233542442321777,
+          "label": "blue sky sky cloudy sky",
+          "selection_score": 0.13048013478563347
+        },
+        "bbox": [
+          90,
+          4,
+          741,
+          278
+        ],
+        "mask_pixels": 108831
+      },
+      "error": null
+    }
+  ]
+}

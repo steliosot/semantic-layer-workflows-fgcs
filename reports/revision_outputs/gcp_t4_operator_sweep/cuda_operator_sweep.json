@@ -1,0 +1,121 @@
+{
+  "created_at": "2026-07-14T18:30:21.721762+00:00",
+  "benchmark": "gcp_cuda_operator_sweep",
+  "device": {
+    "platform": "Linux-6.17.0-1012-gcp-x86_64-with-glibc2.39",
+    "torch": "2.5.1+cu121",
+    "cuda": "12.1",
+    "gpu": "Tesla T4"
+  },
+  "config": {
+    "checkpoint": "/home/stelios/fgcs_t4/models/Juggernaut_X_RunDiffusion.safetensors",
+    "out_dir": "/home/stelios/fgcs_t4/outputs/t4_operator_sweep_20steps_offload",
+    "height": 768,
+    "width": 768,
+    "steps": "20",
+    "crop_sizes": "384,512,768",
+    "repeats": 2,
+    "guidance_scale": 5.0,
+    "strength": 0.34,
+    "cpu_offload": true,
+    "vae_tiling": true
+  },
+  "summary": {
+    "samples": 6,
+    "conditions": 3,
+    "mean_full_seconds": 16.657534394500033,
+    "mean_local_seconds": 7.882304629666663,
+    "mean_speedup": 2.2072745470783897,
+    "median_speedup": 2.1970407322071646,
+    "min_speedup": 1.7026953068204076,
+    "max_speedup": 2.813037903577069,
+    "by_condition": [
+      {
+        "steps": 20,
+        "crop_size": 384,
+        "crop_area_percent": 25.0,
+        "repeats": 2,
+        "mean_full_seconds": 16.657534394500033,
+        "mean_local_seconds": 7.928736526499989,
+        "mean_speedup": 2.257866605198738,
+        "median_speedup": 2.257866605198738
+      },
+      {
+        "steps": 20,
+        "crop_size": 512,
+        "crop_area_percent": 44.44444444444444,
+        "repeats": 2,
+        "mean_full_seconds": 16.657534394500033,
+        "mean_local_seconds": 6.5264244500000075,
+        "mean_speedup": 2.551321029775055,
+        "median_speedup": 2.551321029775055
+      },
+      {
+        "steps": 20,
+        "crop_size": 768,
+        "crop_area_percent": 100.0,
+        "repeats": 2,
+        "mean_full_seconds": 16.657534394500033,
+        "mean_local_seconds": 9.191752912499993,
+        "mean_speedup": 1.8126360062613753,
+        "median_speedup": 1.8126360062613753
+      }
+    ]
+  },
+  "rows": [
+    {
+      "steps": 20,
+      "repeat": 1,
+      "crop_size": 384,
+      "crop_area_percent": 25.0,
+      "full_seconds": 17.317054959000018,
+      "local_seconds": 10.170378040999992,
+      "speedup": 1.7026953068204076
+    },
+    {
+      "steps": 20,
+      "repeat": 1,
+      "crop_size": 512,
+      "crop_area_percent": 44.44444444444444,
+      "full_seconds": 17.317054959000018,
+      "local_seconds": 6.654956572000003,
+      "speedup": 2.602128920248649
+    },
+    {
+      "steps": 20,
+      "repeat": 1,
+      "crop_size": 768,
+      "crop_area_percent": 100.0,
+      "full_seconds": 17.317054959000018,
+      "local_seconds": 9.145196784999996,
+      "speedup": 1.893568325112867
+    },
+    {
+      "steps": 20,
+      "repeat": 2,
+      "crop_size": 384,
+      "crop_area_percent": 25.0,
+      "full_seconds": 15.998013830000048,
+      "local_seconds": 5.687095011999986,
+      "speedup": 2.813037903577069
+    },
+    {
+      "steps": 20,
+      "repeat": 2,
+      "crop_size": 512,
+      "crop_area_percent": 44.44444444444444,
+      "full_seconds": 15.998013830000048,
+      "local_seconds": 6.397892328000012,
+      "speedup": 2.5005131393014617
+    },
+    {
+      "steps": 20,
+      "repeat": 2,
+      "crop_size": 768,
+      "crop_area_percent": 100.0,
+      "full_seconds": 15.998013830000048,
+      "local_seconds": 9.23830903999999,
+      "speedup": 1.731703687409884
+    }
+  ]
+}
