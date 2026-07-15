@@ -123,7 +123,7 @@ The closest ideas are semantic editing, attention-based diffusion control, inpai
 
 Let an editing session be represented as a directed acyclic workflow
 \begin{equation}
-    W = (T, D, R, P),
+    \mathcal{W} = (T, D, R, P),
 \end{equation}
 where \(T\) is a set of tasks, \(D\) is a set of data dependencies, \(R\) is a set of resource requirements, and \(P\) is provenance. In a diffusion editing session, tasks include base generation, semantic annotation, mask refinement, crop selection, local diffusion, deterministic projection, compositing, metric computation, caching, and rollback.
 
@@ -155,9 +155,11 @@ where \(C_{\theta}\) is the model cost at resolution \(H \times W\).
 
 \textbf{Semantic local diffusion} crops a region around the target mask, runs img2img or inpainting-like diffusion on the crop, and composites the result through the mask:
 \begin{equation}
-    x' = \mask_i \odot f_{\theta}(x_{b_i}, e) + (1-\mask_i)\odot x.
+    \tilde{x}_i = \mathcal{P}_{b_i}\!\left(f_{\theta}(x_{b_i}, e)\right),
+    \quad
+    x' = \mask_i \odot \tilde{x}_i + (1-\mask_i)\odot x.
 \end{equation}
-The expected cost is
+Here \(x_{b_i}\) is the cropped input and \(\mathcal{P}_{b_i}\) pastes the crop-sized output back onto a full-image canvas before mask compositing. The expected cost is
 \begin{equation}
     T_{\mathrm{local}} \approx T_{\mathrm{det}} + \sum_{t=1}^{N_i} C_{\theta}(h_i,w_i,t) + T_{\mathrm{comp}},
 \end{equation}
@@ -171,7 +173,9 @@ This operator represents the strongest practical advantage of the workflow model
 
 \textbf{Deterministic projection} applies a non-diffusion transformation to the layer, such as hue or color projection:
 \begin{equation}
-    x' = \mask_i \odot g(x_i,a) + (1-\mask_i)\odot x,
+    \tilde{x}_i = \mathcal{P}_{b_i}\!\left(g(x_{b_i},a)\right),
+    \quad
+    x' = \mask_i \odot \tilde{x}_i + (1-\mask_i)\odot x,
 \end{equation}
 where \(g\) is deterministic. It is suitable for simple color edits when exact locality and speed matter more than generative realism.
 
@@ -194,7 +198,7 @@ and the selected operator is
 \begin{equation}
     \policy(e,\ell_i,C) = \arg\min_{o \in \mathcal{O}_{\mathrm{feasible}}} J(o \mid e,\ell_i,C).
 \end{equation}
-Here \(\widehat{T}_o\) is normalized latency, \(\widehat{D}_o\) is outside-target drift, \(\widehat{Q}_o\) is expected quality or artifact risk, \(\widehat{U}_o\) is user effort, and \(\widehat{R}_o\) is resource cost. If watt telemetry or cloud billing is available, \(\widehat{R}_o\) can be instantiated as normalized energy or monetary cost. In the present benchmark, no power draw is measured, so \(\widehat{R}_o\) is instantiated only as a compute-work proxy:
+Here \(\widehat{T}_o\) is normalized latency, \(\widehat{D}_o\) is outside-target drift, \(\widehat{Q}_o\) is expected quality-loss or artifact risk, \(\widehat{U}_o\) is user effort, and \(\widehat{R}_o\) is resource cost. If watt telemetry or cloud billing is available, \(\widehat{R}_o\) can be instantiated as normalized energy or monetary cost. In the present benchmark, no power draw is measured, so \(\widehat{R}_o\) is instantiated only as a compute-work proxy:
 \begin{equation}
     \widehat{R}_o =
     \frac{N_o A_o}{N_{\mathrm{full}}HW}
@@ -234,7 +238,7 @@ where \(T_{s,1}\) is the first local render and \(T_{s,c}\) is a cached re-edit.
     <
     T_{n,1} + (k-1)T_{n,2}.
 \end{equation}
-Solving for \(k\) gives an approximate break-even condition:
+When \(T_{n,2} > T_{s,c}\), solving for \(k\) gives an approximate break-even condition:
 \begin{equation}
     k >
     1 +
@@ -251,10 +255,10 @@ Not all local edits are independent. A command such as ``change the hand'' may a
 \end{equation}
 which returns layers that may need protection or co-editing for action \(a\). The effective edit support is then
 \begin{equation}
-    \mask_{\mathrm{eff}} =
-    \bigcup_{\ell_j \in \Gamma(\ell_i,a)} w_j \mask_j,
+    \mask_{\mathrm{eff}}(p) =
+    \max_{\ell_j \in \Gamma(\ell_i,a)} w_j \mask_j(p),
 \end{equation}
-where \(w_j\) can encode soft dependency weights. A concrete graph construction can combine geometry, attention, depth, and contact evidence:
+where \(w_j \in [0,1]\) encodes a soft dependency weight and \(p\) indexes image pixels. A concrete graph construction can combine geometry, attention, depth, and contact evidence:
 \begin{equation}
     s_{ij} =
     \lambda_m \mathrm{IoU}(\mask_i,\mask_j)
@@ -932,7 +936,7 @@ The policy objective can include resource cost and deadline:
     + \eta \widehat{R}_{o,r}
     + \zeta \widehat{M}_{o,r},
 \end{equation}
-where \(r\) is a resource tier and \(\widehat{M}_{o,r}\) is normalized memory risk. This turns semantic editing into a resource-aware scheduling problem \citep{topcuoglu2002heft}. The layer graph exposes crop size, cache presence, detector availability, and dependency risk.
+where \(r\) is a resource tier, \(\widehat{Q}_o\) is quality-loss or artifact risk, and \(\widehat{M}_{o,r}\) is normalized memory risk. This turns semantic editing into a resource-aware scheduling problem \citep{topcuoglu2002heft}. The layer graph exposes crop size, cache presence, detector availability, and dependency risk.
 
 \subsection{FAIR and reproducibility}
 
@@ -948,11 +952,17 @@ The current implementation caches image-space layers, masks, crops, and versions
 \begin{equation}
     \mathcal{T}^{0} = \{z^{0}_{N},z^{0}_{N-1},\ldots,z^{0}_{0}\},
 \end{equation}
-where \(z^{0}_{t}\) is the base latent at denoising step \(t\). An edit could restart from an intermediate timestep \(t_r\) and constrain the edited trajectory by the semantic mask:
+where \(z^{0}_{t}\) is the base latent at denoising step \(t\). An edit could restart from an intermediate timestep \(t_r\), compute a candidate denoising step under the edit conditioning,
+\begin{equation}
+    \hat{z}^{e}_{t-1}
+    =
+    S_t\!\left(z^{e}_{t}, \epsilon_\theta(z^{e}_{t},t,c_e), \xi_t\right),
+\end{equation}
+and constrain the accepted trajectory by the semantic mask:
 \begin{equation}
     z^{e}_{t-1}
     =
-    \mask^{z}\odot S_t(z^{e}_{t}, c_e)
+    \mask^{z}\odot \hat{z}^{e}_{t-1}
     +
     (1-\mask^{z})\odot z^{0}_{t-1},
 \end{equation}
@@ -974,8 +984,9 @@ where \(T\) is time, \(E\) energy, \(C\) monetary cost, \(M\) memory risk, and \
 \begin{equation}
     (o^*,r^*) =
     \arg\min_{o,r}
-    \alpha T_{o,r}+\beta D_o+\gamma Q_o+\eta E_{o,r}+\lambda C_{o,r}+\mu P_{o,r}.
+    \alpha T_{o,r}+\beta D_o+\gamma L_o+\eta E_{o,r}+\lambda C_{o,r}+\mu P_{o,r}.
 \end{equation}
+Here \(L_o\) denotes quality loss or artifact risk, so all terms are costs to minimize.
 The same edit may execute differently by context: a private face edit may stay local, product recolors may use projection, and high-quality SDXL structural edits may move to cloud GPUs when latency and privacy allow.
 
 The model also supports batching: several edits can reuse one detector result, a detector backend can remain resident across images, and low-risk projections can run while diffusion jobs queue. These opportunities are hidden when each edit is a standalone prompt.
