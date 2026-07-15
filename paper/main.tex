@@ -413,7 +413,7 @@ Stable Diffusion 1.5 Base & SD1.5 & 20 & 10.675 & 9.567 & 13.220 \\
 \end{tabular}
 \end{table*}
 
-The baseline Stable Diffusion checkpoints correspond to the Hugging Face Stable Diffusion v1.5 and SDXL Base 1.0 model cards \citep{hfStableDiffusionV15,hfStableDiffusionXLBase}. The DreamShaper 8 and DreamShaper XL rows refer to the Lykon model cards \citep{hfDreamShaper8,hfDreamShaperXL}; OpenJourney v4 uses the PromptHero model card \citep{hfOpenJourneyV4}; Realistic Vision V6.0 B1 and RealVisXL V4.0 use the SG161222 model cards \citep{hfRealisticVisionV6,hfRealVisXLV4}; Deliberate uses the XpucT model card \citep{hfDeliberate}; Juggernaut Reborn uses the HyperX-Sentience model card \citep{hfJuggernautReborn}; and the Juggernaut XL row records a local historical v2 checkpoint while citing the public RunDiffusion Juggernaut XL family repository \citep{hfJuggernautXLV2}. Because these are third-party model cards and licenses can change, the artifact stores the local checkpoint filenames, model family labels, and output metrics, but it does not redistribute checkpoint weights.
+The baseline Stable Diffusion checkpoints correspond to the Stable Diffusion v1.5 and SDXL Base 1.0 model cards \citep{hfStableDiffusionV15,hfStableDiffusionXLBase}. The remaining rows cite the public model-card families used for provenance: DreamShaper \citep{hfDreamShaper8,hfDreamShaperXL}, OpenJourney v4 \citep{hfOpenJourneyV4}, Realistic Vision and RealVisXL \citep{hfRealisticVisionV6,hfRealVisXLV4}, Deliberate \citep{hfDeliberate}, Juggernaut Reborn \citep{hfJuggernautReborn}, and RunDiffusion Juggernaut XL \citep{hfJuggernautXLV2}. Since third-party model cards and licenses can change, the artifact records local checkpoint filenames and output metrics but does not redistribute weights.
 
 \subsection{Metrics}
 
@@ -1022,49 +1022,7 @@ During manuscript preparation, the author used ChatGPT/Codex to assist with draf
 
 \section{Representative Image Generations}
 
-The appendix includes representative sample grids from the benchmark. Each grid shows the base image, mask/overlay, naive edits, semantic local outputs, deterministic projection or cached variants where applicable, and rollback/version artifacts. The public repository release archive contains the 200 sample-grid images, while Figures~\ref{fig:app-face-xl}--\ref{fig:app-object-xl} show representative examples in the manuscript.
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_face_lips_juggernaut_xl.png}
-    \caption{Representative face/lips edit using Juggernaut XL v2.}
-    \label{fig:app-face-xl}
-\end{figure*}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_body_shirt_realvisxl.png}
-    \caption{Representative human body/shirt edit using RealVisXL V4.0.}
-    \label{fig:app-body}
-\end{figure*}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_object_mug_dreamshaper8.png}
-    \caption{Representative object/mug edit using DreamShaper 8.}
-    \label{fig:app-object}
-\end{figure*}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_landscape_sdxl_base.png}
-    \caption{Representative landscape/sky edit using SDXL Base 1.0.}
-    \label{fig:app-landscape}
-\end{figure*}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_face_lips_juggernaut_reborn.png}
-    \caption{Representative face/lips edit using Juggernaut Reborn.}
-    \label{fig:app-face-sd15}
-\end{figure*}
-
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/appendix_object_mug_dreamshaper_xl.png}
-    \caption{Representative object/mug edit using DreamShaper XL 1.0.}
-    \label{fig:app-object-xl}
-\end{figure*}
+The public repository release archive contains the 200 benchmark sample-grid images. Each grid shows the base image, mask or overlay, naive edits, semantic local outputs, deterministic projection or cached variants where applicable, and rollback/version artifacts. They are kept in the artifact rather than embedded here to keep the manuscript within the FGCS length target.
 
 \section{Model-by-Case Matrix}
 
