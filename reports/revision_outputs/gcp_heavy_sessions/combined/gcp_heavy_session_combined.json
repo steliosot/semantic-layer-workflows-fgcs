@@ -1,0 +1,2344 @@
+{
+  "created_at": "2026-07-15T08:35:00+03:00",
+  "benchmark": "gcp_heavy_session_combined",
+  "summary": {
+    "completed_sessions": 7,
+    "models": [
+      "dreamshaper_8",
+      "dreamshaper_xl_1_0",
+      "juggernaut_x_bucket",
+      "openjourney_v4",
+      "sdxl_base_1_0"
+    ],
+    "cases": [
+      "mug",
+      "shirt"
+    ],
+    "total_variants": 303,
+    "total_naive_session_seconds": 2786.666936453999,
+    "total_semantic_detector_inclusive_session_seconds": 528.8529460209954,
+    "total_cached_session_seconds": 525.1538296829954,
+    "mean_naive_session_seconds": 398.0952766362855,
+    "mean_semantic_detector_inclusive_session_seconds": 75.55042086014221,
+    "mean_cached_session_seconds": 75.02197566899933,
+    "mean_detector_seconds": 0.5284451911428667,
+    "mean_detector_inclusive_session_speedup": 5.367015550267592,
+    "median_detector_inclusive_session_speedup": 5.384464977638836,
+    "min_detector_inclusive_session_speedup": 4.865235613369563,
+    "max_detector_inclusive_session_speedup": 6.026476025805032,
+    "mean_cached_session_speedup": 5.411076147247453,
+    "median_cached_session_speedup": 5.432343876241666,
+    "mean_outside_drift_naive": 95.54409152061116,
+    "mean_outside_drift_semantic": 0.0
+  },
+  "sessions": [
+    {
+      "model_key": "dreamshaper_8",
+      "model_label": "DreamShaper 8",
+      "model_family": "sd15",
+      "model_source": "Lykon/dreamshaper-8",
+      "model_ref": "Lykon/dreamshaper-8",
+      "case_key": "mug",
+      "case_label": "product mug recolor",
+      "width": 768,
+      "height": 768,
+      "steps": 35,
+      "guidance_scale": 7.0,
+      "strength": 0.36,
+      "variants": 58,
+      "target_naive_session_seconds": 300,
+      "base_seconds": 5.6843890649997775,
+      "detector_seconds": 0.4947854419997384,
+      "detector_wall_seconds": 0.5055430749998777,
+      "dino_inference_seconds": 0.3943433169997661,
+      "sam2_inference_seconds": 0.1004421249999723,
+      "crop_box": [
+        156,
+        118,
+        668,
+        630
+      ],
+      "crop_size": 512,
+      "crop_area_percent": 44.44444444444444,
+      "naive_calibration_seconds": 5.244470015000843,
+      "local_calibration_seconds": 1.0510833689995707,
+      "naive_session_seconds": 305.6098785920003,
+      "semantic_detector_inclusive_session_seconds": 54.39069277699309,
+      "cached_session_seconds": 53.89590733499335,
+      "mean_naive_variant_seconds": 5.269135837793109,
+      "mean_local_variant_seconds": 0.9292397816378164,
+      "detector_inclusive_session_speedup": 5.618789961823603,
+      "cached_session_speedup": 5.670372644298633,
+      "mean_outside_drift_naive": 95.81263076270318,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 9.137737807523083,
+      "detector": {
+        "dino_inference_seconds": 0.3943433169997661,
+        "sam2_inference_seconds": 0.1004421249999723,
+        "detector_seconds": 0.4947854419997384,
+        "raw_detection_count": 12,
+        "selected": {
+          "box": [
+            281.4552001953125,
+            261.810791015625,
+            542.7108154296875,
+            484.5885314941406
+          ],
+          "score": 0.39557912945747375,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.6308934096265727
+        },
+        "bbox": [
+          284,
+          265,
+          541,
+          484
+        ],
+        "mask_pixels": 40957
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.275537317000271,
+          "local_seconds": 0.9299896590000571
+        },
+        {
+          "index": 2,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.291639211000074,
+          "local_seconds": 0.947899296000287
+        },
+        {
+          "index": 3,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.324189277000187,
+          "local_seconds": 0.9419656099998974
+        },
+        {
+          "index": 4,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.333100483000635,
+          "local_seconds": 0.9465575280000849
+        },
+        {
+          "index": 5,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.3197611380001035,
+          "local_seconds": 0.9393858200000977
+        },
+        {
+          "index": 6,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.292368065000119,
+          "local_seconds": 0.9357593949998773
+        },
+        {
+          "index": 7,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.282154229999833,
+          "local_seconds": 0.9274480709991622
+        },
+        {
+          "index": 8,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.276680605000365,
+          "local_seconds": 0.9291083409998464
+        },
+        {
+          "index": 9,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2610931429999255,
+          "local_seconds": 0.9267242309997528
+        },
+        {
+          "index": 10,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.257333966999795,
+          "local_seconds": 0.9248787919996175
+        },
+        {
+          "index": 11,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.252510732000701,
+          "local_seconds": 0.9232918489997246
+        },
+        {
+          "index": 12,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2425299730002735,
+          "local_seconds": 0.9342031349997342
+        },
+        {
+          "index": 13,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2457006919994456,
+          "local_seconds": 0.9329519940001774
+        },
+        {
+          "index": 14,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.245752617999642,
+          "local_seconds": 0.930634913999711
+        },
+        {
+          "index": 15,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.256144647000838,
+          "local_seconds": 0.9282982019994961
+        },
+        {
+          "index": 16,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.268979165000019,
+          "local_seconds": 0.9275598269996408
+        },
+        {
+          "index": 17,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.26455299600002,
+          "local_seconds": 0.9265650070001357
+        },
+        {
+          "index": 18,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.272549769000761,
+          "local_seconds": 0.9293834640002387
+        },
+        {
+          "index": 19,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.270445629999813,
+          "local_seconds": 0.930146077000245
+        },
+        {
+          "index": 20,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.267750216000422,
+          "local_seconds": 0.9296785799997451
+        },
+        {
+          "index": 21,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.267723095999827,
+          "local_seconds": 0.9300138739999966
+        },
+        {
+          "index": 22,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.269753462999688,
+          "local_seconds": 0.9257636510001248
+        },
+        {
+          "index": 23,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.258290772999317,
+          "local_seconds": 0.9252525869997044
+        },
+        {
+          "index": 24,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.268819875999725,
+          "local_seconds": 0.9257294829994862
+        },
+        {
+          "index": 25,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.262641104000068,
+          "local_seconds": 0.9246101640001143
+        },
+        {
+          "index": 26,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2606621589993665,
+          "local_seconds": 0.9349906039997222
+        },
+        {
+          "index": 27,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.261548616999789,
+          "local_seconds": 0.9325099839998074
+        },
+        {
+          "index": 28,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.262559238999529,
+          "local_seconds": 0.9246892349992777
+        },
+        {
+          "index": 29,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.266795568000816,
+          "local_seconds": 0.9275152720001643
+        },
+        {
+          "index": 30,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.262950582000485,
+          "local_seconds": 0.9271440749998874
+        },
+        {
+          "index": 31,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2622586990000855,
+          "local_seconds": 0.928880616999777
+        },
+        {
+          "index": 32,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.261743436999495,
+          "local_seconds": 0.9250147919992742
+        },
+        {
+          "index": 33,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.269535060000635,
+          "local_seconds": 0.924675687000672
+        },
+        {
+          "index": 34,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.274920256999394,
+          "local_seconds": 0.927722454999639
+        },
+        {
+          "index": 35,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.266293788000439,
+          "local_seconds": 0.9244627729995045
+        },
+        {
+          "index": 36,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.272323334999783,
+          "local_seconds": 0.9282534270005272
+        },
+        {
+          "index": 37,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2712068849996285,
+          "local_seconds": 0.9273076290000972
+        },
+        {
+          "index": 38,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.262048374999722,
+          "local_seconds": 0.9236129689998052
+        },
+        {
+          "index": 39,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.268033981999906,
+          "local_seconds": 0.924684724999679
+        },
+        {
+          "index": 40,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.26936232800017,
+          "local_seconds": 0.9281806799999686
+        },
+        {
+          "index": 41,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.26661735900052,
+          "local_seconds": 0.9274563700000726
+        },
+        {
+          "index": 42,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.26493378899977,
+          "local_seconds": 0.9330315039997004
+        },
+        {
+          "index": 43,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.268678747999729,
+          "local_seconds": 0.9291151409997838
+        },
+        {
+          "index": 44,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.266089953000119,
+          "local_seconds": 0.9296250779998445
+        },
+        {
+          "index": 45,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.269237270999838,
+          "local_seconds": 0.9280359520007551
+        },
+        {
+          "index": 46,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.272830796000562,
+          "local_seconds": 0.9238563380004052
+        },
+        {
+          "index": 47,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2723726529993655,
+          "local_seconds": 0.9248046149996298
+        },
+        {
+          "index": 48,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2713120999997045,
+          "local_seconds": 0.925127405999774
+        },
+        {
+          "index": 49,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.271169435000047,
+          "local_seconds": 0.9271334719996958
+        },
+        {
+          "index": 50,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.267402891000529,
+          "local_seconds": 0.9254448539995792
+        },
+        {
+          "index": 51,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.2603526209995835,
+          "local_seconds": 0.9282232760006082
+        },
+        {
+          "index": 52,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.261420427999838,
+          "local_seconds": 0.9321322149999105
+        },
+        {
+          "index": 53,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.262343553999926,
+          "local_seconds": 0.9344620629999554
+        },
+        {
+          "index": 54,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.255429101999653,
+          "local_seconds": 0.9246945679997225
+        },
+        {
+          "index": 55,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.261707999000464,
+          "local_seconds": 0.9327592390000063
+        },
+        {
+          "index": 56,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.271957766000014,
+          "local_seconds": 0.9276159910004935
+        },
+        {
+          "index": 57,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.264091387000008,
+          "local_seconds": 0.9294036149995009
+        },
+        {
+          "index": 58,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.261686242999531,
+          "local_seconds": 0.9295411629991577
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 27.626598685999852,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/dreamshaper_8_mug/gcp_heavy_session_benchmark.json"
+    },
+    {
+      "model_key": "dreamshaper_8",
+      "model_label": "DreamShaper 8",
+      "model_family": "sd15",
+      "model_source": "Lykon/dreamshaper-8",
+      "model_ref": "Lykon/dreamshaper-8",
+      "case_key": "shirt",
+      "case_label": "shirt recolor",
+      "width": 768,
+      "height": 768,
+      "steps": 35,
+      "guidance_scale": 7.0,
+      "strength": 0.34,
+      "variants": 58,
+      "target_naive_session_seconds": 300,
+      "base_seconds": 5.656436348999705,
+      "detector_seconds": 0.5110959080002431,
+      "detector_wall_seconds": 0.5204902859995855,
+      "dino_inference_seconds": 0.40793192999990424,
+      "sam2_inference_seconds": 0.10316397800033883,
+      "crop_box": [
+        254,
+        163,
+        766,
+        675
+      ],
+      "crop_size": 512,
+      "crop_area_percent": 44.44444444444444,
+      "naive_calibration_seconds": 5.243987697999728,
+      "local_calibration_seconds": 0.9793785840001874,
+      "naive_session_seconds": 305.75911823499973,
+      "semantic_detector_inclusive_session_seconds": 50.73597188900385,
+      "cached_session_seconds": 50.224875981003606,
+      "mean_naive_variant_seconds": 5.2717089350862025,
+      "mean_local_variant_seconds": 0.8659461376035105,
+      "detector_inclusive_session_speedup": 6.026476025805032,
+      "cached_session_speedup": 6.087802354168998,
+      "mean_outside_drift_naive": 92.72652055435144,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 5.900142748850626,
+      "detector": {
+        "dino_inference_seconds": 0.40793192999990424,
+        "sam2_inference_seconds": 0.10316397800033883,
+        "detector_seconds": 0.5110959080002431,
+        "raw_detection_count": 21,
+        "selected": {
+          "box": [
+            400.71368408203125,
+            300.5591125488281,
+            617.051025390625,
+            534.9314575195312
+          ],
+          "score": 0.4428790807723999,
+          "label": "shirt t - shirt white shirt torso",
+          "selection_score": 0.6602027595367019
+        },
+        "bbox": [
+          403,
+          306,
+          616,
+          532
+        ],
+        "mask_pixels": 32253
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.273876512999777,
+          "local_seconds": 0.8683238749999873
+        },
+        {
+          "index": 2,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.294296451000264,
+          "local_seconds": 0.8764230630004022
+        },
+        {
+          "index": 3,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.313388223000402,
+          "local_seconds": 0.8732660969999415
+        },
+        {
+          "index": 4,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.326547390999622,
+          "local_seconds": 0.8781098419995033
+        },
+        {
+          "index": 5,
+          "prompt": "same adult person, burgundy red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.321922348000044,
+          "local_seconds": 0.8786463260003075
+        },
+        {
+          "index": 6,
+          "prompt": "same adult person, soft lavender t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.298214931000075,
+          "local_seconds": 0.870181350999701
+        },
+        {
+          "index": 7,
+          "prompt": "same adult person, sunflower yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2863520599994445,
+          "local_seconds": 0.8728685980004229
+        },
+        {
+          "index": 8,
+          "prompt": "same adult person, charcoal black t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.279625541000314,
+          "local_seconds": 0.8651451560008354
+        },
+        {
+          "index": 9,
+          "prompt": "same adult person, pearl gray t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.266707818000214,
+          "local_seconds": 0.8629405470001075
+        },
+        {
+          "index": 10,
+          "prompt": "same adult person, mint green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.262750962000609,
+          "local_seconds": 0.8615202880000652
+        },
+        {
+          "index": 11,
+          "prompt": "same adult person, navy blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.251293270999668,
+          "local_seconds": 0.8626826469999287
+        },
+        {
+          "index": 12,
+          "prompt": "same adult person, coral pink t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.246580623000227,
+          "local_seconds": 0.8631559780005773
+        },
+        {
+          "index": 13,
+          "prompt": "same adult person, brushed copper t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.245033222000529,
+          "local_seconds": 0.8609309089997623
+        },
+        {
+          "index": 14,
+          "prompt": "same adult person, cream white t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.261936755000534,
+          "local_seconds": 0.8623705580002934
+        },
+        {
+          "index": 15,
+          "prompt": "same adult person, emerald green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2704398500000025,
+          "local_seconds": 0.8639834659998087
+        },
+        {
+          "index": 16,
+          "prompt": "same adult person, ruby red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.269531759000529,
+          "local_seconds": 0.8611775850004051
+        },
+        {
+          "index": 17,
+          "prompt": "same adult person, sky blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.273603186999935,
+          "local_seconds": 0.8634465160002947
+        },
+        {
+          "index": 18,
+          "prompt": "same adult person, olive green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.283643270000539,
+          "local_seconds": 0.8656320430000051
+        },
+        {
+          "index": 19,
+          "prompt": "same adult person, mustard yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2748885390001305,
+          "local_seconds": 0.8648302870005864
+        },
+        {
+          "index": 20,
+          "prompt": "same adult person, plum purple t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2773274439996385,
+          "local_seconds": 0.8628757260003113
+        },
+        {
+          "index": 21,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.276551363999715,
+          "local_seconds": 0.8639416020005228
+        },
+        {
+          "index": 22,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.271724186999563,
+          "local_seconds": 0.863621016000252
+        },
+        {
+          "index": 23,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.276436790000844,
+          "local_seconds": 0.8644506379996528
+        },
+        {
+          "index": 24,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.267952440000045,
+          "local_seconds": 0.8673129039998457
+        },
+        {
+          "index": 25,
+          "prompt": "same adult person, burgundy red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.273786423999809,
+          "local_seconds": 0.8655618330003563
+        },
+        {
+          "index": 26,
+          "prompt": "same adult person, soft lavender t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.265899198000625,
+          "local_seconds": 0.8659714639998128
+        },
+        {
+          "index": 27,
+          "prompt": "same adult person, sunflower yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2596502260003035,
+          "local_seconds": 0.8654879149999033
+        },
+        {
+          "index": 28,
+          "prompt": "same adult person, charcoal black t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2657812639999975,
+          "local_seconds": 0.8624748000002
+        },
+        {
+          "index": 29,
+          "prompt": "same adult person, pearl gray t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.266958131999672,
+          "local_seconds": 0.8601084680003623
+        },
+        {
+          "index": 30,
+          "prompt": "same adult person, mint green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.262352005000139,
+          "local_seconds": 0.8696884659993884
+        },
+        {
+          "index": 31,
+          "prompt": "same adult person, navy blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.258910132999517,
+          "local_seconds": 0.864407922999817
+        },
+        {
+          "index": 32,
+          "prompt": "same adult person, coral pink t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.263216725999882,
+          "local_seconds": 0.8616305390005436
+        },
+        {
+          "index": 33,
+          "prompt": "same adult person, brushed copper t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.259663723999438,
+          "local_seconds": 0.8605745439999737
+        },
+        {
+          "index": 34,
+          "prompt": "same adult person, cream white t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2637118779994125,
+          "local_seconds": 0.8609280630007561
+        },
+        {
+          "index": 35,
+          "prompt": "same adult person, emerald green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.260761731999992,
+          "local_seconds": 0.8634038500003953
+        },
+        {
+          "index": 36,
+          "prompt": "same adult person, ruby red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.258319051999933,
+          "local_seconds": 0.8653527870001199
+        },
+        {
+          "index": 37,
+          "prompt": "same adult person, sky blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.264027297999746,
+          "local_seconds": 0.8630407059999925
+        },
+        {
+          "index": 38,
+          "prompt": "same adult person, olive green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.262673034999352,
+          "local_seconds": 0.8636633489995802
+        },
+        {
+          "index": 39,
+          "prompt": "same adult person, mustard yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.276328779000323,
+          "local_seconds": 0.8714966289999211
+        },
+        {
+          "index": 40,
+          "prompt": "same adult person, plum purple t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.261069182000028,
+          "local_seconds": 0.8678452140002264
+        },
+        {
+          "index": 41,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.268796518999807,
+          "local_seconds": 0.8703504459999749
+        },
+        {
+          "index": 42,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.266536365999855,
+          "local_seconds": 0.8703341750006075
+        },
+        {
+          "index": 43,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.265807540999958,
+          "local_seconds": 0.8702684769996267
+        },
+        {
+          "index": 44,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.26428343400039,
+          "local_seconds": 0.8642261249997318
+        },
+        {
+          "index": 45,
+          "prompt": "same adult person, burgundy red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.269505294000737,
+          "local_seconds": 0.8675156139997853
+        },
+        {
+          "index": 46,
+          "prompt": "same adult person, soft lavender t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.273931179999636,
+          "local_seconds": 0.8690946970000368
+        },
+        {
+          "index": 47,
+          "prompt": "same adult person, sunflower yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.270053367999935,
+          "local_seconds": 0.8683700660003524
+        },
+        {
+          "index": 48,
+          "prompt": "same adult person, charcoal black t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.265478745999644,
+          "local_seconds": 0.8660209229992688
+        },
+        {
+          "index": 49,
+          "prompt": "same adult person, pearl gray t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.273118749999412,
+          "local_seconds": 0.8686057189997882
+        },
+        {
+          "index": 50,
+          "prompt": "same adult person, mint green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.277733593999983,
+          "local_seconds": 0.8653257280002435
+        },
+        {
+          "index": 51,
+          "prompt": "same adult person, navy blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.280327923000186,
+          "local_seconds": 0.8677590360002796
+        },
+        {
+          "index": 52,
+          "prompt": "same adult person, coral pink t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2752907500007495,
+          "local_seconds": 0.8633517139996911
+        },
+        {
+          "index": 53,
+          "prompt": "same adult person, brushed copper t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.264746254999409,
+          "local_seconds": 0.8632380429999102
+        },
+        {
+          "index": 54,
+          "prompt": "same adult person, cream white t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.261229104999984,
+          "local_seconds": 0.863393139999971
+        },
+        {
+          "index": 55,
+          "prompt": "same adult person, emerald green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.275302927999292,
+          "local_seconds": 0.8633371420000913
+        },
+        {
+          "index": 56,
+          "prompt": "same adult person, ruby red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.274250794999716,
+          "local_seconds": 0.8646407729993371
+        },
+        {
+          "index": 57,
+          "prompt": "same adult person, sky blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.2672942780000085,
+          "local_seconds": 0.8660660840005221
+        },
+        {
+          "index": 58,
+          "prompt": "same adult person, olive green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 5.271697682000195,
+          "local_seconds": 0.863504510999519
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 3.846768952000275,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/dreamshaper_8_shirt/gcp_heavy_session_benchmark.json"
+    },
+    {
+      "model_key": "dreamshaper_xl_1_0",
+      "model_label": "DreamShaper XL 1.0",
+      "model_family": "sdxl",
+      "model_source": "Lykon/dreamshaper-xl-1-0",
+      "model_ref": "Lykon/dreamshaper-xl-1-0",
+      "case_key": "mug",
+      "case_label": "product mug recolor",
+      "width": 1024,
+      "height": 1024,
+      "steps": 35,
+      "guidance_scale": 5.0,
+      "strength": 0.36,
+      "variants": 21,
+      "target_naive_session_seconds": 300,
+      "base_seconds": 14.931962113999816,
+      "detector_seconds": 0.5163412260003497,
+      "detector_wall_seconds": 0.5467848920002325,
+      "dino_inference_seconds": 0.41979782800035537,
+      "sam2_inference_seconds": 0.09654339799999434,
+      "crop_box": [
+        186,
+        80,
+        850,
+        744
+      ],
+      "crop_size": 664,
+      "crop_area_percent": 42.047119140625,
+      "naive_calibration_seconds": 14.525383863000116,
+      "local_calibration_seconds": 2.6489207290001104,
+      "naive_session_seconds": 300.4774311480005,
+      "semantic_detector_inclusive_session_seconds": 54.09246903599933,
+      "cached_session_seconds": 53.57612780999898,
+      "mean_naive_variant_seconds": 14.308449102285739,
+      "mean_local_variant_seconds": 2.551244181428523,
+      "detector_inclusive_session_speedup": 5.554884746488987,
+      "cached_session_speedup": 5.608420082421896,
+      "mean_outside_drift_naive": 95.58783054262976,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 9.882128089558986,
+      "detector": {
+        "dino_inference_seconds": 0.41979782800035537,
+        "sam2_inference_seconds": 0.09654339799999434,
+        "detector_seconds": 0.5163412260003497,
+        "raw_detection_count": 15,
+        "selected": {
+          "box": [
+            372.0960693359375,
+            280.2879333496094,
+            665.213134765625,
+            544.93212890625
+          ],
+          "score": 0.4275493919849396,
+          "label": "coffee mug mug cup",
+          "selection_score": 0.6474445062161154
+        },
+        "bbox": [
+          374,
+          284,
+          663,
+          541
+        ],
+        "mask_pixels": 47079
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.367217517999961,
+          "local_seconds": 2.5626794370000425
+        },
+        {
+          "index": 2,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.213063418000274,
+          "local_seconds": 2.5210497009998107
+        },
+        {
+          "index": 3,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.165950727000109,
+          "local_seconds": 2.5463995420000174
+        },
+        {
+          "index": 4,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.358165940000163,
+          "local_seconds": 2.594387174000076
+        },
+        {
+          "index": 5,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.411304498999925,
+          "local_seconds": 2.5527505059999385
+        },
+        {
+          "index": 6,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.310692954999922,
+          "local_seconds": 2.5431531969998105
+        },
+        {
+          "index": 7,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.36062135100019,
+          "local_seconds": 2.5483545110000705
+        },
+        {
+          "index": 8,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.291082852000272,
+          "local_seconds": 2.53740538799957
+        },
+        {
+          "index": 9,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.25760807000006,
+          "local_seconds": 2.5489517199994225
+        },
+        {
+          "index": 10,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.240665923000051,
+          "local_seconds": 2.548871599999984
+        },
+        {
+          "index": 11,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.320356672000344,
+          "local_seconds": 2.552176832000441
+        },
+        {
+          "index": 12,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.325674379000702,
+          "local_seconds": 2.5518885699993916
+        },
+        {
+          "index": 13,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.337799068000095,
+          "local_seconds": 2.553507182999965
+        },
+        {
+          "index": 14,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.295082900000125,
+          "local_seconds": 2.5432011789998796
+        },
+        {
+          "index": 15,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.301321242000085,
+          "local_seconds": 2.5429556449998927
+        },
+        {
+          "index": 16,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.338942317000146,
+          "local_seconds": 2.552964118000091
+        },
+        {
+          "index": 17,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.310151736999615,
+          "local_seconds": 2.5552271999995355
+        },
+        {
+          "index": 18,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.340405993999411,
+          "local_seconds": 2.555597474000024
+        },
+        {
+          "index": 19,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.307888777999324,
+          "local_seconds": 2.5380013340000005
+        },
+        {
+          "index": 20,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.295189686999947,
+          "local_seconds": 2.5686159280003267
+        },
+        {
+          "index": 21,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.328245120999782,
+          "local_seconds": 2.5579895710006895
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 122.18751820699981,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/dreamshaper_xl_1_0_mug/gcp_heavy_session_benchmark.json"
+    },
+    {
+      "model_key": "juggernaut_x_bucket",
+      "model_label": "Juggernaut X RunDiffusion bucket SDXL",
+      "model_family": "sdxl_single_file",
+      "model_source": "/opt/fgcs_heavy/models/Juggernaut_X_RunDiffusion.safetensors",
+      "model_ref": "RunDiffusion/Juggernaut-X-v10",
+      "case_key": "mug",
+      "case_label": "product mug recolor",
+      "width": 1024,
+      "height": 1024,
+      "steps": 35,
+      "guidance_scale": 5.0,
+      "strength": 0.36,
+      "variants": 45,
+      "target_naive_session_seconds": 600,
+      "base_seconds": 13.88217626300002,
+      "detector_seconds": 0.5004923449998842,
+      "detector_wall_seconds": 0.5195178290000513,
+      "dino_inference_seconds": 0.4001026539999657,
+      "sam2_inference_seconds": 0.10038969099991846,
+      "crop_box": [
+        160,
+        291,
+        864,
+        995
+      ],
+      "crop_size": 704,
+      "crop_area_percent": 47.265625,
+      "naive_calibration_seconds": 13.604401976000077,
+      "local_calibration_seconds": 2.881389860000013,
+      "naive_session_seconds": 641.4078924419999,
+      "semantic_detector_inclusive_session_seconds": 131.03102092599943,
+      "cached_session_seconds": 130.53052858099954,
+      "mean_naive_variant_seconds": 14.253508720933333,
+      "mean_local_variant_seconds": 2.900678412911101,
+      "detector_inclusive_session_speedup": 4.895084293086894,
+      "cached_session_speedup": 4.913853482512944,
+      "mean_outside_drift_naive": 97.96500952103233,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 9.972126455744156,
+      "detector": {
+        "dino_inference_seconds": 0.4001026539999657,
+        "sam2_inference_seconds": 0.10038969099991846,
+        "detector_seconds": 0.5004923449998842,
+        "raw_detection_count": 18,
+        "selected": {
+          "box": [
+            325.29486083984375,
+            441.0391845703125,
+            697.9313354492188,
+            827.50634765625
+          ],
+          "score": 0.18246561288833618,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.38961676430022907
+        },
+        "bbox": [
+          329,
+          442,
+          696,
+          844
+        ],
+        "mask_pixels": 132714
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 13.958639233999975,
+          "local_seconds": 2.871779433000029
+        },
+        {
+          "index": 2,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.19970398099997,
+          "local_seconds": 2.907825246000016
+        },
+        {
+          "index": 3,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.436101515000018,
+          "local_seconds": 2.928390731000036
+        },
+        {
+          "index": 4,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.321113652999998,
+          "local_seconds": 2.913161374000083
+        },
+        {
+          "index": 5,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.227007525999966,
+          "local_seconds": 2.8883700059999455
+        },
+        {
+          "index": 6,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.223014730999921,
+          "local_seconds": 2.9062476189999416
+        },
+        {
+          "index": 7,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.299710013000094,
+          "local_seconds": 2.917628150999917
+        },
+        {
+          "index": 8,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.305270212999972,
+          "local_seconds": 2.9047654400000056
+        },
+        {
+          "index": 9,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.240468298999986,
+          "local_seconds": 2.8860194509999246
+        },
+        {
+          "index": 10,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.19020346100001,
+          "local_seconds": 2.896013971000002
+        },
+        {
+          "index": 11,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.247263939999925,
+          "local_seconds": 2.8920412919999308
+        },
+        {
+          "index": 12,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.303727339000034,
+          "local_seconds": 2.9246280989999605
+        },
+        {
+          "index": 13,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.276342132999957,
+          "local_seconds": 2.8973066259999314
+        },
+        {
+          "index": 14,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.23555885899998,
+          "local_seconds": 2.883893958000044
+        },
+        {
+          "index": 15,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.197274896000181,
+          "local_seconds": 2.9018651540000064
+        },
+        {
+          "index": 16,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.241235170999971,
+          "local_seconds": 2.8985733110000638
+        },
+        {
+          "index": 17,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.232993953000005,
+          "local_seconds": 2.907196471000134
+        },
+        {
+          "index": 18,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.244883780999999,
+          "local_seconds": 2.9009958449998976
+        },
+        {
+          "index": 19,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.276224623999951,
+          "local_seconds": 2.903691285999912
+        },
+        {
+          "index": 20,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.27527750000013,
+          "local_seconds": 2.8967820959999244
+        },
+        {
+          "index": 21,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.241903037999919,
+          "local_seconds": 2.90031583699988
+        },
+        {
+          "index": 22,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.22911939200003,
+          "local_seconds": 2.90737917499996
+        },
+        {
+          "index": 23,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.213308396000002,
+          "local_seconds": 2.8910555239999667
+        },
+        {
+          "index": 24,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.225966595000045,
+          "local_seconds": 2.9055958189999274
+        },
+        {
+          "index": 25,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.223988769000016,
+          "local_seconds": 2.9133799809999346
+        },
+        {
+          "index": 26,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.243416692999972,
+          "local_seconds": 2.9020857139998952
+        },
+        {
+          "index": 27,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.251058898999872,
+          "local_seconds": 2.9033905980002146
+        },
+        {
+          "index": 28,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.31066680899994,
+          "local_seconds": 2.8985359550001704
+        },
+        {
+          "index": 29,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.270938318999924,
+          "local_seconds": 2.8846181390001675
+        },
+        {
+          "index": 30,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.245583635000003,
+          "local_seconds": 2.8804065809999884
+        },
+        {
+          "index": 31,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.224554989999888,
+          "local_seconds": 2.9016221679999035
+        },
+        {
+          "index": 32,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.254251164999914,
+          "local_seconds": 2.8962393130000237
+        },
+        {
+          "index": 33,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.26999459999979,
+          "local_seconds": 2.898329196000077
+        },
+        {
+          "index": 34,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.304771808000169,
+          "local_seconds": 2.8994982179999624
+        },
+        {
+          "index": 35,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.2809360440001,
+          "local_seconds": 2.9039154760000656
+        },
+        {
+          "index": 36,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.260693246000073,
+          "local_seconds": 2.9051607540000077
+        },
+        {
+          "index": 37,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.262404613999934,
+          "local_seconds": 2.894883087999915
+        },
+        {
+          "index": 38,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.266073834000053,
+          "local_seconds": 2.9161695269999655
+        },
+        {
+          "index": 39,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.274345380000113,
+          "local_seconds": 2.8953855620000013
+        },
+        {
+          "index": 40,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.317685143000062,
+          "local_seconds": 2.8887900219999665
+        },
+        {
+          "index": 41,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.258113202999994,
+          "local_seconds": 2.9025654089998625
+        },
+        {
+          "index": 42,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.285555133999878,
+          "local_seconds": 2.908848791000082
+        },
+        {
+          "index": 43,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.261074934000135,
+          "local_seconds": 2.894069532000003
+        },
+        {
+          "index": 44,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.243053572000008,
+          "local_seconds": 2.898453466000092
+        },
+        {
+          "index": 45,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.256419408000056,
+          "local_seconds": 2.9126591759998064
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 7.348319568999955,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715/gcp_heavy_session_benchmark_partial.json"
+    },
+    {
+      "model_key": "juggernaut_x_bucket",
+      "model_label": "Juggernaut X RunDiffusion bucket SDXL",
+      "model_family": "sdxl_single_file",
+      "model_source": "/opt/fgcs_heavy/models/Juggernaut_X_RunDiffusion.safetensors",
+      "model_ref": "RunDiffusion/Juggernaut-X-v10",
+      "case_key": "shirt",
+      "case_label": "shirt recolor",
+      "width": 1024,
+      "height": 1024,
+      "steps": 35,
+      "guidance_scale": 5.0,
+      "strength": 0.34,
+      "variants": 44,
+      "target_naive_session_seconds": 600,
+      "base_seconds": 13.946391972000129,
+      "detector_seconds": 0.5144593829995756,
+      "detector_wall_seconds": 0.532281471999795,
+      "dino_inference_seconds": 0.41229979399986405,
+      "sam2_inference_seconds": 0.10215958899971156,
+      "crop_box": [
+        88,
+        0,
+        792,
+        704
+      ],
+      "crop_size": 704,
+      "crop_area_percent": 47.265625,
+      "naive_calibration_seconds": 13.712159856000198,
+      "local_calibration_seconds": 2.682327043999976,
+      "naive_session_seconds": 628.8983824810011,
+      "semantic_detector_inclusive_session_seconds": 120.38237522999862,
+      "cached_session_seconds": 119.86791584699904,
+      "mean_naive_variant_seconds": 14.29314505638639,
+      "mean_local_variant_seconds": 2.7242708147045236,
+      "detector_inclusive_session_speedup": 5.224173233660231,
+      "cached_session_speedup": 5.246594787580483,
+      "mean_outside_drift_naive": 98.78217359355982,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 6.441152721306797,
+      "detector": {
+        "dino_inference_seconds": 0.41229979399986405,
+        "sam2_inference_seconds": 0.10215958899971156,
+        "detector_seconds": 0.5144593829995756,
+        "raw_detection_count": 20,
+        "selected": {
+          "box": [
+            294.89825439453125,
+            143.21092224121094,
+            584.5288696289062,
+            493.955322265625
+          ],
+          "score": 0.43583884835243225,
+          "label": "shirt t - shirt white shirt upper torso",
+          "selection_score": 0.6411315170054903
+        },
+        "bbox": [
+          297,
+          145,
+          582,
+          496
+        ],
+        "mask_pixels": 68061
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.067791700999805,
+          "local_seconds": 2.694398230999923
+        },
+        {
+          "index": 2,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.352469833999749,
+          "local_seconds": 2.754075291999925
+        },
+        {
+          "index": 3,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.56390170900022,
+          "local_seconds": 2.7553539290001936
+        },
+        {
+          "index": 4,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.2992821859998,
+          "local_seconds": 2.724763767999775
+        },
+        {
+          "index": 5,
+          "prompt": "same adult person, burgundy red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.18079827099973,
+          "local_seconds": 2.7208253479998348
+        },
+        {
+          "index": 6,
+          "prompt": "same adult person, soft lavender t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.31454722699982,
+          "local_seconds": 2.747761673000241
+        },
+        {
+          "index": 7,
+          "prompt": "same adult person, sunflower yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.404065113999877,
+          "local_seconds": 2.734223031000056
+        },
+        {
+          "index": 8,
+          "prompt": "same adult person, charcoal black t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.303634121999949,
+          "local_seconds": 2.7257959409998875
+        },
+        {
+          "index": 9,
+          "prompt": "same adult person, pearl gray t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.249269619000188,
+          "local_seconds": 2.7060921039997083
+        },
+        {
+          "index": 10,
+          "prompt": "same adult person, mint green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.259273206000216,
+          "local_seconds": 2.7212766729999203
+        },
+        {
+          "index": 11,
+          "prompt": "same adult person, navy blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.296496903000389,
+          "local_seconds": 2.7151732930001344
+        },
+        {
+          "index": 12,
+          "prompt": "same adult person, coral pink t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.310733770999832,
+          "local_seconds": 2.7245569979995707
+        },
+        {
+          "index": 13,
+          "prompt": "same adult person, brushed copper t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.267274598000313,
+          "local_seconds": 2.7235865610000474
+        },
+        {
+          "index": 14,
+          "prompt": "same adult person, cream white t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.275865936000173,
+          "local_seconds": 2.711705699000049
+        },
+        {
+          "index": 15,
+          "prompt": "same adult person, emerald green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.272321056000237,
+          "local_seconds": 2.7240107789998547
+        },
+        {
+          "index": 16,
+          "prompt": "same adult person, ruby red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.299342056000114,
+          "local_seconds": 2.7292096880000827
+        },
+        {
+          "index": 17,
+          "prompt": "same adult person, sky blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.271689353000056,
+          "local_seconds": 2.7197726110002804
+        },
+        {
+          "index": 18,
+          "prompt": "same adult person, olive green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.283608535999974,
+          "local_seconds": 2.7267304759998297
+        },
+        {
+          "index": 19,
+          "prompt": "same adult person, mustard yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.312759239000115,
+          "local_seconds": 2.7375726049999685
+        },
+        {
+          "index": 20,
+          "prompt": "same adult person, plum purple t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.270937933999903,
+          "local_seconds": 2.726249591999931
+        },
+        {
+          "index": 21,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.274412784000106,
+          "local_seconds": 2.725619500999983
+        },
+        {
+          "index": 22,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.269285024000055,
+          "local_seconds": 2.723274874999788
+        },
+        {
+          "index": 23,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.246733496999695,
+          "local_seconds": 2.7196883969995724
+        },
+        {
+          "index": 24,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.272288955000022,
+          "local_seconds": 2.7280752460001167
+        },
+        {
+          "index": 25,
+          "prompt": "same adult person, burgundy red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.265478893000363,
+          "local_seconds": 2.7273598570000104
+        },
+        {
+          "index": 26,
+          "prompt": "same adult person, soft lavender t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.286665750999873,
+          "local_seconds": 2.7142385510001077
+        },
+        {
+          "index": 27,
+          "prompt": "same adult person, sunflower yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.272667686999739,
+          "local_seconds": 2.722402009999769
+        },
+        {
+          "index": 28,
+          "prompt": "same adult person, charcoal black t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.338316667000072,
+          "local_seconds": 2.727444459999788
+        },
+        {
+          "index": 29,
+          "prompt": "same adult person, pearl gray t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.30948470400017,
+          "local_seconds": 2.72559094799999
+        },
+        {
+          "index": 30,
+          "prompt": "same adult person, mint green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.306141444000332,
+          "local_seconds": 2.7194478960000197
+        },
+        {
+          "index": 31,
+          "prompt": "same adult person, navy blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.273191184000098,
+          "local_seconds": 2.723250757999722
+        },
+        {
+          "index": 32,
+          "prompt": "same adult person, coral pink t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.283913421000307,
+          "local_seconds": 2.7273366800000076
+        },
+        {
+          "index": 33,
+          "prompt": "same adult person, brushed copper t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.305524357000195,
+          "local_seconds": 2.7246931240001686
+        },
+        {
+          "index": 34,
+          "prompt": "same adult person, cream white t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.33232083799976,
+          "local_seconds": 2.7220397670002967
+        },
+        {
+          "index": 35,
+          "prompt": "same adult person, emerald green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.31749556900013,
+          "local_seconds": 2.72922083200001
+        },
+        {
+          "index": 36,
+          "prompt": "same adult person, ruby red t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.284530198999619,
+          "local_seconds": 2.7081446370002595
+        },
+        {
+          "index": 37,
+          "prompt": "same adult person, sky blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.283836754000276,
+          "local_seconds": 2.725472629000251
+        },
+        {
+          "index": 38,
+          "prompt": "same adult person, olive green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.320399561999693,
+          "local_seconds": 2.724787607000053
+        },
+        {
+          "index": 39,
+          "prompt": "same adult person, mustard yellow t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.315418490999946,
+          "local_seconds": 2.735566505999941
+        },
+        {
+          "index": 40,
+          "prompt": "same adult person, plum purple t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.324794720000227,
+          "local_seconds": 2.7159945150001477
+        },
+        {
+          "index": 41,
+          "prompt": "same adult person, glossy teal t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.285367069999666,
+          "local_seconds": 2.7205604929999936
+        },
+        {
+          "index": 42,
+          "prompt": "same adult person, deep cobalt blue t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.290481818999979,
+          "local_seconds": 2.7169671460001155
+        },
+        {
+          "index": 43,
+          "prompt": "same adult person, matte forest green t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.289464323000175,
+          "local_seconds": 2.721570304999659
+        },
+        {
+          "index": 44,
+          "prompt": "same adult person, warm terracotta t-shirt only, keep face jeans shoes and background unchanged, realistic fabric",
+          "naive_seconds": 14.294106397000178,
+          "local_seconds": 2.7160348150000573
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 7.580763251999997,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/juggernaut_x_bucket_shirt/gcp_heavy_session_benchmark.json"
+    },
+    {
+      "model_key": "openjourney_v4",
+      "model_label": "OpenJourney v4",
+      "model_family": "sd15",
+      "model_source": "prompthero/openjourney-v4",
+      "model_ref": "prompthero/openjourney-v4",
+      "case_key": "mug",
+      "case_label": "product mug recolor",
+      "width": 768,
+      "height": 768,
+      "steps": 35,
+      "guidance_scale": 7.0,
+      "strength": 0.36,
+      "variants": 56,
+      "target_naive_session_seconds": 300,
+      "base_seconds": 5.810158594000313,
+      "detector_seconds": 0.4981014140003026,
+      "detector_wall_seconds": 0.5074556869994922,
+      "dino_inference_seconds": 0.40300884499993117,
+      "sam2_inference_seconds": 0.09509256900037144,
+      "crop_box": [
+        126,
+        256,
+        638,
+        768
+      ],
+      "crop_size": 512,
+      "crop_area_percent": 44.44444444444444,
+      "naive_calibration_seconds": 5.414919372999975,
+      "local_calibration_seconds": 1.1177746559997104,
+      "naive_session_seconds": 304.30103772099756,
+      "semantic_detector_inclusive_session_seconds": 56.51462847000221,
+      "cached_session_seconds": 56.016527056001905,
+      "mean_naive_variant_seconds": 5.433947102160671,
+      "mean_local_variant_seconds": 1.0002951260000341,
+      "detector_inclusive_session_speedup": 5.384464977638836,
+      "cached_session_speedup": 5.432343876241666,
+      "mean_outside_drift_naive": 94.51987639605574,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 6.232573397353663,
+      "detector": {
+        "dino_inference_seconds": 0.40300884499993117,
+        "sam2_inference_seconds": 0.09509256900037144,
+        "detector_seconds": 0.4981014140003026,
+        "raw_detection_count": 14,
+        "selected": {
+          "box": [
+            236.25909423828125,
+            434.5099182128906,
+            525.2962646484375,
+            703.8063354492188
+          ],
+          "score": 0.39042046666145325,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.5759901548791004
+        },
+        "bbox": [
+          238,
+          437,
+          525,
+          703
+        ],
+        "mask_pixels": 52121
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.443738320999728,
+          "local_seconds": 1.0036162669994155
+        },
+        {
+          "index": 2,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.465778071999921,
+          "local_seconds": 1.0081239390001429
+        },
+        {
+          "index": 3,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.480716392000431,
+          "local_seconds": 1.0111943649999375
+        },
+        {
+          "index": 4,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.503300882999611,
+          "local_seconds": 1.0093281929994191
+        },
+        {
+          "index": 5,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.486188971000047,
+          "local_seconds": 1.007164935000219
+        },
+        {
+          "index": 6,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.450735769999483,
+          "local_seconds": 1.0059395490006864
+        },
+        {
+          "index": 7,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.454794340999797,
+          "local_seconds": 0.9988348399992901
+        },
+        {
+          "index": 8,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.439856979000069,
+          "local_seconds": 1.0018137030001526
+        },
+        {
+          "index": 9,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.440334810999957,
+          "local_seconds": 0.9969631920002939
+        },
+        {
+          "index": 10,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.424020317000213,
+          "local_seconds": 0.9941032360002282
+        },
+        {
+          "index": 11,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.417924542999572,
+          "local_seconds": 1.0038346620003722
+        },
+        {
+          "index": 12,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.414886689999548,
+          "local_seconds": 0.9990555180002048
+        },
+        {
+          "index": 13,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4226417569998375,
+          "local_seconds": 1.0004731769995487
+        },
+        {
+          "index": 14,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4249781660000735,
+          "local_seconds": 1.0012426550001692
+        },
+        {
+          "index": 15,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.424440293000771,
+          "local_seconds": 0.9963194840001961
+        },
+        {
+          "index": 16,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429559214999244,
+          "local_seconds": 1.0035003390003112
+        },
+        {
+          "index": 17,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.433475894999901,
+          "local_seconds": 1.0045241670004543
+        },
+        {
+          "index": 18,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.437270300999444,
+          "local_seconds": 0.9984653589999652
+        },
+        {
+          "index": 19,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.432019615000172,
+          "local_seconds": 1.0043504020004548
+        },
+        {
+          "index": 20,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.444305774000895,
+          "local_seconds": 1.0051752429999397
+        },
+        {
+          "index": 21,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4455651559992475,
+          "local_seconds": 0.9964895510001952
+        },
+        {
+          "index": 22,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.43511505800052,
+          "local_seconds": 0.9991942790002213
+        },
+        {
+          "index": 23,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.432215343999815,
+          "local_seconds": 1.0004814670000997
+        },
+        {
+          "index": 24,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.427590383999814,
+          "local_seconds": 0.9995825190007963
+        },
+        {
+          "index": 25,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.428866009000558,
+          "local_seconds": 1.0002455439998812
+        },
+        {
+          "index": 26,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.42463365399999,
+          "local_seconds": 0.9979715119998218
+        },
+        {
+          "index": 27,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.427237736999814,
+          "local_seconds": 1.0037129889997232
+        },
+        {
+          "index": 28,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.427044469000066,
+          "local_seconds": 1.001516330999948
+        },
+        {
+          "index": 29,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429061155999989,
+          "local_seconds": 0.9946888000004037
+        },
+        {
+          "index": 30,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.427175619999616,
+          "local_seconds": 0.9998492439999609
+        },
+        {
+          "index": 31,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.432402321999689,
+          "local_seconds": 0.9966260050005076
+        },
+        {
+          "index": 32,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.43185511899992,
+          "local_seconds": 0.9989856279999003
+        },
+        {
+          "index": 33,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.426021446999584,
+          "local_seconds": 0.9998173309995764
+        },
+        {
+          "index": 34,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.430289617000199,
+          "local_seconds": 0.9946668749998935
+        },
+        {
+          "index": 35,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4274019939994105,
+          "local_seconds": 1.0015400900001623
+        },
+        {
+          "index": 36,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.434522255000047,
+          "local_seconds": 1.0039452539995182
+        },
+        {
+          "index": 37,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429359683000257,
+          "local_seconds": 0.9966241800002535
+        },
+        {
+          "index": 38,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4260277639996275,
+          "local_seconds": 0.9997279040007925
+        },
+        {
+          "index": 39,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.431399344000056,
+          "local_seconds": 0.9992887999997038
+        },
+        {
+          "index": 40,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4273326339998675,
+          "local_seconds": 0.9967618870005026
+        },
+        {
+          "index": 41,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.426344225000321,
+          "local_seconds": 1.0030401489993892
+        },
+        {
+          "index": 42,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429565751999689,
+          "local_seconds": 1.001216535999447
+        },
+        {
+          "index": 43,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.425456764000046,
+          "local_seconds": 0.9963606189994607
+        },
+        {
+          "index": 44,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.424091865999799,
+          "local_seconds": 0.9992474210002911
+        },
+        {
+          "index": 45,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4222072459997435,
+          "local_seconds": 0.9957190719997016
+        },
+        {
+          "index": 46,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.420424128000377,
+          "local_seconds": 0.999191002999396
+        },
+        {
+          "index": 47,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429842253000061,
+          "local_seconds": 0.9967009800002415
+        },
+        {
+          "index": 48,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.429520145999959,
+          "local_seconds": 1.000897917000657
+        },
+        {
+          "index": 49,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.427188646999639,
+          "local_seconds": 0.9975093370003378
+        },
+        {
+          "index": 50,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.420835246000024,
+          "local_seconds": 0.9963578350007083
+        },
+        {
+          "index": 51,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.426120497000738,
+          "local_seconds": 1.002842533999683
+        },
+        {
+          "index": 52,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.41624298700026,
+          "local_seconds": 0.9967897510005059
+        },
+        {
+          "index": 53,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.437177852999412,
+          "local_seconds": 0.9980052519995297
+        },
+        {
+          "index": 54,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.4354094520003855,
+          "local_seconds": 0.9993114130002141
+        },
+        {
+          "index": 55,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.430513828000585,
+          "local_seconds": 1.0014315969992822
+        },
+        {
+          "index": 56,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 5.428012958999716,
+          "local_seconds": 0.9961662249997971
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 25.8011783740003,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/openjourney_v4_mug/gcp_heavy_session_benchmark.json"
+    },
+    {
+      "model_key": "sdxl_base_1_0",
+      "model_label": "Stable Diffusion XL Base 1.0",
+      "model_family": "sdxl",
+      "model_source": "stabilityai/stable-diffusion-xl-base-1.0",
+      "model_ref": "stabilityai/stable-diffusion-xl-base-1.0",
+      "case_key": "mug",
+      "case_label": "product mug recolor",
+      "width": 1024,
+      "height": 1024,
+      "steps": 35,
+      "guidance_scale": 5.0,
+      "strength": 0.36,
+      "variants": 21,
+      "target_naive_session_seconds": 300,
+      "base_seconds": 15.18294637200006,
+      "detector_seconds": 0.6638406199999736,
+      "detector_wall_seconds": 0.7079151870002534,
+      "dino_inference_seconds": 0.49552084900005866,
+      "sam2_inference_seconds": 0.1683197709999149,
+      "crop_box": [
+        152,
+        238,
+        856,
+        942
+      ],
+      "crop_size": 704,
+      "crop_area_percent": 47.265625,
+      "naive_calibration_seconds": 14.496174653999788,
+      "local_calibration_seconds": 2.9719781550002153,
+      "naive_session_seconds": 300.2131958349996,
+      "semantic_detector_inclusive_session_seconds": 61.70578769299891,
+      "cached_session_seconds": 61.04194707299894,
+      "mean_naive_variant_seconds": 14.295866468333315,
+      "mean_local_variant_seconds": 2.9067593844285207,
+      "detector_inclusive_session_speedup": 4.865235613369563,
+      "cached_session_speedup": 4.9181458035075485,
+      "mean_outside_drift_naive": 93.41459927394583,
+      "mean_outside_drift_semantic": 0.0,
+      "mean_semantic_inside_change": 3.4671919091782653,
+      "detector": {
+        "dino_inference_seconds": 0.49552084900005866,
+        "sam2_inference_seconds": 0.1683197709999149,
+        "detector_seconds": 0.6638406199999736,
+        "raw_detection_count": 19,
+        "selected": {
+          "box": [
+            314.3991394042969,
+            350.410400390625,
+            702.4593505859375,
+            791.2147216796875
+          ],
+          "score": 0.20737607777118683,
+          "label": "coffee mug mug ceramic mug cup",
+          "selection_score": 0.3784806674955824
+        },
+        "bbox": [
+          295,
+          368,
+          714,
+          813
+        ],
+        "mask_pixels": 149704
+      },
+      "samples": [
+        {
+          "index": 1,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.37948162099974,
+          "local_seconds": 2.9043811699998514
+        },
+        {
+          "index": 2,
+          "prompt": "same product photograph, deep cobalt blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.218901103000007,
+          "local_seconds": 2.8754615909997483
+        },
+        {
+          "index": 3,
+          "prompt": "same product photograph, matte forest green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.130621927999982,
+          "local_seconds": 2.8903271189997213
+        },
+        {
+          "index": 4,
+          "prompt": "same product photograph, warm terracotta ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.359703118999732,
+          "local_seconds": 2.946428205999837
+        },
+        {
+          "index": 5,
+          "prompt": "same product photograph, burgundy red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.514175440000145,
+          "local_seconds": 2.924464098000044
+        },
+        {
+          "index": 6,
+          "prompt": "same product photograph, soft lavender ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.311675355000261,
+          "local_seconds": 2.9099030679999487
+        },
+        {
+          "index": 7,
+          "prompt": "same product photograph, sunflower yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.266458809000142,
+          "local_seconds": 2.9056454830001712
+        },
+        {
+          "index": 8,
+          "prompt": "same product photograph, charcoal black ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.24592789899998,
+          "local_seconds": 2.901448606000031
+        },
+        {
+          "index": 9,
+          "prompt": "same product photograph, pearl gray ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.245914397999968,
+          "local_seconds": 2.901228231999994
+        },
+        {
+          "index": 10,
+          "prompt": "same product photograph, mint green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.296186698000383,
+          "local_seconds": 2.902433713999926
+        },
+        {
+          "index": 11,
+          "prompt": "same product photograph, navy blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.315348577999885,
+          "local_seconds": 2.900383359999978
+        },
+        {
+          "index": 12,
+          "prompt": "same product photograph, coral pink ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.305181271000038,
+          "local_seconds": 2.9068458110000392
+        },
+        {
+          "index": 13,
+          "prompt": "same product photograph, brushed copper ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.321765409999898,
+          "local_seconds": 2.909364566000022
+        },
+        {
+          "index": 14,
+          "prompt": "same product photograph, cream white ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.280337348999637,
+          "local_seconds": 2.916374334000011
+        },
+        {
+          "index": 15,
+          "prompt": "same product photograph, emerald green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.299893987999894,
+          "local_seconds": 2.902051217999997
+        },
+        {
+          "index": 16,
+          "prompt": "same product photograph, ruby red ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.306182783999702,
+          "local_seconds": 2.8951009679999515
+        },
+        {
+          "index": 17,
+          "prompt": "same product photograph, sky blue ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.237556956999924,
+          "local_seconds": 2.899882376000278
+        },
+        {
+          "index": 18,
+          "prompt": "same product photograph, olive green ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.26324981200014,
+          "local_seconds": 2.908266557999923
+        },
+        {
+          "index": 19,
+          "prompt": "same product photograph, mustard yellow ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.286550673999955,
+          "local_seconds": 2.9061261510000804
+        },
+        {
+          "index": 20,
+          "prompt": "same product photograph, plum purple ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.322529361000306,
+          "local_seconds": 2.9296913599996515
+        },
+        {
+          "index": 21,
+          "prompt": "same product photograph, glossy teal ceramic coffee mug only, keep table background shadows and lighting unchanged, realistic glaze",
+          "naive_seconds": 14.305553280999902,
+          "local_seconds": 2.906139083999733
+        }
+      ],
+      "error": null,
+      "model_load_seconds": 76.76938224100013,
+      "source_result": "paper_fgcs_semantic_workflows/revision_outputs/gcp_heavy_sessions/heavy_session_20260715_remaining/sdxl_base_1_0_mug/gcp_heavy_session_benchmark.json"
+    }
+  ]
+}
