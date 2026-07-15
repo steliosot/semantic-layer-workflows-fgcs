@@ -24,7 +24,7 @@ The revision analyses reuse the stored benchmark metrics and image outputs. They
 
 ## External assets
 
-Large diffusion checkpoints and external detector weights are not redistributed in this repository. They are subject to their own licenses and should be obtained from their original sources. The scripts and reports document the model identifiers used in the benchmark.
+Large diffusion checkpoints and external detector weights are not redistributed in this repository. They are subject to their own licenses and should be obtained from their original sources. The manuscript bibliography and scripts document the local checkpoint filenames, Hugging Face model-card identifiers, and detector identifiers used in the benchmark.
 
 ## Verification
 

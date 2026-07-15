@@ -89,7 +89,7 @@ Image editing methods build on this process in different ways. SDEdit adds noise
 
 \subsection{Semantic annotation for editable layers}
 
-Semantic layer extraction can use several sources. For images generated from prompts, cross-attention maps can relate prompt tokens to spatial regions; DAAM provides one method to interpret Stable Diffusion attention \citep{tang2023daam}. For arbitrary images, open-vocabulary object detection and segmentation are more general. GroundingDINO detects text-specified regions in an image \citep{liu2023groundingdino}, while SAM and SAM2 provide high-quality mask generation from prompts such as boxes or points \citep{kirillov2023sam,ravi2024sam2}. Depth models can add foreground/background ordering \citep{yang2024depthanything}.
+Semantic layer extraction can use several sources. For images generated from prompts, cross-attention maps can relate prompt tokens to spatial regions; DAAM provides one method to interpret Stable Diffusion attention \citep{tang2023daam}. For arbitrary images, open-vocabulary object detection and segmentation are more general. GroundingDINO detects text-specified regions in an image \citep{liu2023groundingdino,hfGroundingDinoTiny}, while SAM and SAM2 provide high-quality mask generation from prompts such as boxes or points \citep{kirillov2023sam,ravi2024sam2,hfSam21HieraTiny}. Depth models can add foreground/background ordering \citep{yang2024depthanything}.
 
 Our prototype uses GroundingDINO+SAM2 for the heavy benchmark because it works on generated images without needing access to generation-time attention maps. The broader architecture allows multiple detectors to contribute to a semantic layer ensemble: DAAM for prompt-token memory, GroundingDINO+SAM2 for object masks, face landmarks for facial parts, OCR/layout detectors for text, and depth estimation for layer ordering.
 
@@ -321,7 +321,7 @@ Figure~\ref{fig:policy} gives a conceptual view of the operator space. The bound
 
 \subsection{Implementation and artifact layout}
 
-The prototype is implemented as Python scripts around local Diffusers pipelines and local model checkpoints. The heavy benchmark driver creates a resumable output directory and appends a JSON record after every completed sample. This design was important in practice because SDXL model transitions can fragment MPS memory; a resumed process can skip completed records and continue from the next missing model/case/sample tuple.
+The prototype is implemented as Python scripts around local Hugging Face Diffusers pipelines and local model checkpoints \citep{huggingfaceDiffusers}. The heavy benchmark driver creates a resumable output directory and appends a JSON record after every completed sample. This design was important in practice because SDXL model transitions can fragment MPS memory; a resumed process can skip completed records and continue from the next missing model/case/sample tuple.
 
 Each sample directory follows the same structure:
 \begin{verbatim}
@@ -383,11 +383,11 @@ All runs use 20 denoising steps. The four cases are face/lips color editing, hum
 
 The benchmark ran on the local workstation using the available Apple MPS backend. Some SDXL model transitions required process restart because of MPS memory fragmentation; the benchmark is resumable and persisted completed records were reused rather than recomputed. This is reported as part of the realistic local execution environment, not hidden as a failure. The final benchmark completed 200 samples with zero per-sample errors. Four incompatible local checkpoint files were excluded because they were inpainting-only, SD3, non-image-generation, or incomplete checkpoint entries.
 
-To reduce the hardware-specificity threat, we also ran measured CUDA experiments on Google Cloud Platform. The main cloud run uses a \(g2\)-standard-8 VM with one NVIDIA L4 GPU, Juggernaut X RunDiffusion from the project model bucket, PyTorch 2.5.1+cu121, and CUDA 12.1. It reruns the detector-inclusive workflow for 100 samples across the same four edit categories: full-image SDXL base generation, full-image naive edit, GroundingDINO+SAM2 target annotation, local SDXL img2img, cached local img2img, mask compositing, and metric logging. A second L4 experiment sweeps denoising steps \(\{10,20,30\}\) and crop sizes \(\{256,384,512,640,768\}\) with three repeats per condition, yielding 45 operator timing samples. A compact NVIDIA T4 tier repeats the 20-step operator measurement with CPU offload and VAE tiling, because the T4 cannot keep both SDXL pipelines resident at \(768 \times 768\) without exhausting memory. These cloud experiments are still not a full multi-tier scheduler, but they provide measured accelerator evidence rather than relying only on scaled local timings.
+To reduce the hardware-specificity threat, we also ran measured CUDA experiments on Google Cloud Platform. The main cloud run uses a \(g2\)-standard-8 VM with one NVIDIA L4 GPU, Juggernaut X RunDiffusion from the project model bucket, PyTorch 2.5.1+cu121, and CUDA 12.1. The bucket checkpoint corresponds to the RunDiffusion Juggernaut X v10 model-card family \citep{hfJuggernautXV10}. It reruns the detector-inclusive workflow for 100 samples across the same four edit categories: full-image SDXL base generation, full-image naive edit, GroundingDINO+SAM2 target annotation, local SDXL img2img, cached local img2img, mask compositing, and metric logging. A second L4 experiment sweeps denoising steps \(\{10,20,30\}\) and crop sizes \(\{256,384,512,640,768\}\) with three repeats per condition, yielding 45 operator timing samples. A compact NVIDIA T4 tier repeats the 20-step operator measurement with CPU offload and VAE tiling, because the T4 cannot keep both SDXL pipelines resident at \(768 \times 768\) without exhausting memory. These cloud experiments are still not a full multi-tier scheduler, but they provide measured accelerator evidence rather than relying only on scaled local timings.
 
 \subsection{Models}
 
-Table~\ref{tab:models} lists the 10 compatible checkpoints. The set intentionally includes both SD1.5-family and SDXL-family models because throughput and img2img cost differ substantially across families.
+Table~\ref{tab:models} lists the 10 compatible checkpoints. The set intentionally includes both SD1.5-family and SDXL-family models because throughput and img2img cost differ substantially across families. The table reports the benchmark names used in the local output records; the corresponding public Hugging Face model-card identifiers are cited below the table where available.
 
 \begin{table*}[t]
 \centering
@@ -412,6 +412,8 @@ Stable Diffusion 1.5 Base & SD1.5 & 20 & 10.675 & 9.567 & 13.220 \\
 \bottomrule
 \end{tabular}
 \end{table*}
+
+The baseline Stable Diffusion checkpoints correspond to the Hugging Face Stable Diffusion v1.5 and SDXL Base 1.0 model cards \citep{hfStableDiffusionV15,hfStableDiffusionXLBase}. The DreamShaper 8 and DreamShaper XL rows refer to the Lykon model cards \citep{hfDreamShaper8,hfDreamShaperXL}; OpenJourney v4 uses the PromptHero model card \citep{hfOpenJourneyV4}; Realistic Vision V6.0 B1 and RealVisXL V4.0 use the SG161222 model cards \citep{hfRealisticVisionV6,hfRealVisXLV4}; Deliberate uses the XpucT model card \citep{hfDeliberate}; Juggernaut Reborn uses the HyperX-Sentience model card \citep{hfJuggernautReborn}; and the Juggernaut XL row records a local historical v2 checkpoint while citing the public RunDiffusion Juggernaut XL family repository \citep{hfJuggernautXLV2}. Because these are third-party model cards and licenses can change, the artifact stores the local checkpoint filenames, model family labels, and output metrics, but it does not redistribute checkpoint weights.
 
 \subsection{Metrics}
 
@@ -998,7 +1000,7 @@ The benchmark scripts, generated metrics, reports, manuscript source, and repres
 \begin{quote}
 \small\href{https://github.com/steliosot/semantic-layer-workflows-fgcs}{github.com/steliosot/semantic-layer-workflows-fgcs}
 \end{quote}
-The repository includes the benchmark summary files, model-by-case matrix, revision-analysis scripts and outputs, the GCP CUDA detector-inclusive benchmark, L4 operator sweep, T4 offload tier, bucket runtime audit, cloud LPIPS audit, selected paper figures, citation metadata, SHA-256 checksums for release assets, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records the model identifiers and provides the code required to reproduce the workflow when those dependencies are obtained from their original sources.
+The repository includes the benchmark summary files, model-by-case matrix, revision-analysis scripts and outputs, the GCP CUDA detector-inclusive benchmark, L4 operator sweep, T4 offload tier, bucket runtime audit, cloud LPIPS audit, selected paper figures, citation metadata, SHA-256 checksums for release assets, and a release archive containing the full metrics JSON and the 200 sample-grid images used to inspect the experimental outputs. Large diffusion checkpoints and external detector weights are not redistributed with the manuscript because they are subject to separate model licenses; the repository records local checkpoint filenames, Hugging Face model-card identifiers, detector identifiers, and the code required to reproduce the workflow when those dependencies are obtained from their original sources.
 
 \section*{Funding}
 
